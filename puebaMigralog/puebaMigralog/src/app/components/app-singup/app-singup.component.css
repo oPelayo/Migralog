@@ -1,0 +1,46 @@
+.new-user {
+    text-align: center;
+    margin: auto;
+    max-width: 600px;
+    background-color: #e4e4e4; /* Color de fondo para el container */
+    padding: 20px; /* Agregar un relleno para separar del borde */
+    border-radius: 10px; /* Agregar bordes redondeados */
+  }
+  
+  .new-user h3 {
+    margin-bottom: 20px;
+  }
+  
+  .new-user form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .new-user label {
+    margin-bottom: 10px;
+  }
+  
+  .new-user input {
+    margin-bottom: 15px;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .new-user button {
+    width: 100%;
+    margin: auto;
+    background-color: #2ad675;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    max-width: 300px
+    
+  }
+  
+  .new-user button:hover {
+    background-color: #218f58; /* Color de fondo al pasar el ratón */
+  }
+  

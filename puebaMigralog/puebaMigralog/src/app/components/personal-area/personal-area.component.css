@@ -1,0 +1,40 @@
+.container {
+    text-align: center;
+    margin: auto;
+    max-width: 600px;
+  }
+  
+  .container h3,
+  .container h4 {
+    margin-bottom: 20px;
+  }
+  
+  .list-container {
+    display: inline-block;
+    margin-bottom: 80px;
+  }
+  
+  table {
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: 100%;
+    background-color: #d8d5d5;
+  }
+  
+  th, td {
+    border: 1px solid black;
+    padding: 8px;
+  }
+  
+  button {
+    background-color: #2ad675;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+  }
+  

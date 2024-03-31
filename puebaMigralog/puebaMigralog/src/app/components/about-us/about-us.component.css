@@ -1,0 +1,21 @@
+.container {
+    text-align: center;
+    margin: auto;
+    max-width: 600px;
+    padding: 20px; 
+    background-color: #d8d5d5; /* Color de fondo para diferenciar del fondo de la página */
+    border-radius: 10px; /* Agregar bordes redondeados */
+  }
+  
+  .about-us-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #040269; /* Cambiar el color del texto */
+  }
+  
+  .about-us-description {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #040269; /* Cambiar el color del texto */
+  }
+  

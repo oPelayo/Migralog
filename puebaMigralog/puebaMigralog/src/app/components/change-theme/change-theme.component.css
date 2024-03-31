@@ -1,0 +1,14 @@
+/* change-theme.css*/
+:host {
+  background-color: inherit;
+  color: inherit;
+  font-size: inherit;
+}
+.change-theme{
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra horizontalmente */
+  justify-content: center; /* Centra verticalmente */
+ 
+}
+

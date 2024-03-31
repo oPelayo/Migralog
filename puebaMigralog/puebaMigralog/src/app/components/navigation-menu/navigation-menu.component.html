@@ -1,0 +1,41 @@
+<!-- navigation-menu.component.html -->
+<div class="navbar">
+  <div class="left-section">
+    <button class="menu-button" (click)="toggleMenu()">☰ Menú</button>
+
+    <div class="menu" [ngClass]="{'is-menu-open': isMenuOpen}" (mouseleave)="closeMenu()">
+      <ul>
+        <li><a routerLink="/" class="menu-link">Inicio</a></li>
+        <li><a routerLink="/login-user" class="menu-link">Login</a></li>
+        <li><a routerLink="/change-theme" class="menu-link" onclick="location.href='/change-theme'">Cambiar tema</a>
+        </li>
+        <li><a routerLink="/personal-area" class="menu-link">Area Personal</a></li>
+        <li><a routerLink="/about-us" class="menu-link">Quiénes Somos</a></li>
+        <li><a routerLink="/logout" class="menu-link" (click)="logout()">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="center-section">
+    <div class="brand" alt="migralog-app">
+      <img src="assets/images/logo.jpeg" routerLink="/index" />
+    </div>
+  </div>
+
+  <div class="right-section">
+    <!-- Verificar si el usuario está logueado -->
+    <ng-container *ngIf="isUserLoggedIn; else loginButton">
+      <!-- Mostrar información del User y botón de logout -->
+      <div class="avatar-container">
+        <a routerLink="/personal-area">
+          <img src="assets/images/image1.jpg" alt="Imagen de perfil" />
+        </a>
+      </div>
+    </ng-container>
+
+    <!-- Si no está logueado, mostrar botón de login -->
+    <ng-template #loginButton>
+      <button class="login-button" routerLink="/login-user">Login</button>
+    </ng-template>
+  </div>
+</div>

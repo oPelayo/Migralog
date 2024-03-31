@@ -1,0 +1,57 @@
+/* styles.css */
+html, body { height: 100%; }
+
+body {
+    background-color: #2ad675; 
+    height: 100%;
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    color: black;
+  }
+
+  body.menta {
+    background-color: #4ed689;
+  }
+  
+  body.azul {
+    background-color: rgb(4, 159, 14);
+  }
+  
+  body.verde {
+    background-color: green;
+  }
+  
+  body.negro {
+    color: black;
+  }
+  
+  body.blanco {
+    color: white;
+  }
+  
+  body.pequeno {
+    font-size: 12px;
+  }
+  
+  body.mediano {
+    font-size: 16px;
+  }
+  
+  body.grande {
+    font-size: 24px;
+  }
+  
+  /*modificar color de menu (sin terminar)
+  .menu-rojo {
+    background-color: red;
+  }
+  
+  .menu-azul {
+    background-color: blue;
+  }
+  
+  .menu-verde {
+    background-color: green;
+  }*/
+
+

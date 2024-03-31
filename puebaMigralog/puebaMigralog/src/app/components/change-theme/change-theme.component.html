@@ -1,0 +1,37 @@
+<!-- change-theme.component.html -->
+<div class="change-theme" 
+  [style.background-color]="themeService.selectedBackgroundColor$ | async" 
+  [style.color]="themeService.selectedColor$ | async" 
+  [style.font-size.px]="themeService.selectedFontSize$ | async">
+
+  <h2>Selecciona un tema</h2>
+  
+  <div>
+    <button class="style" (click)="setSelectedBackgroundColor('menta')">Fondo Menta</button>
+    <button class="style" (click)="setSelectedBackgroundColor('azul')">Fondo Bosque</button>
+    <button class="style" (click)="setSelectedBackgroundColor('verde')">Fondo Bosque Oscuro</button>
+  </div>
+
+  <h3>Color de letras</h3>
+  
+  <div>
+    <button class="style" (click)="setSelectedColor('negro')">Negro</button>
+    <button class="style" (click)="setSelectedColor('blanco')">Blanco</button>
+  </div>
+
+  <h3>Tamaño de letras</h3>
+  
+  <div>
+    <button class="style" (click)="setSelectedFontSize(12)">Pequeño</button>
+    <button class="style" (click)="setSelectedFontSize(16)">Mediano</button>
+    <button class="style" (click)="setSelectedFontSize(24)">Grande</button>
+  </div>
+
+  <!--<h3>Color de menú</h3>
+  <div>
+    <button class="style" (click)="setSelectedMenuColor('menu-rojo')">Rojo</button>
+    <button class="style" (click)="setSelectedMenuColor('menu-azul')">Azul</button>
+    <button class="style" (click)="setSelectedMenuColor('menu-verde')">Verde</button>
+  </div>-->
+
+</div>

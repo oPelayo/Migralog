@@ -1,0 +1,31 @@
+<div class="container">
+  <h3>Bienvenido a tu área personal {{ userName }}</h3>
+  <h4>Actividad Previa más Común: {{ mostCommonPreviousActivity }}</h4>
+  <h4>Duración Media de los Incidentes: {{ averageDurationFormatted }}</h4>
+
+  <div class="list-container">
+    <h2>Listado de todos los Episodios:</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Fecha Inicio</th>
+          <th>Actividad Previa</th>
+          <th>Medicación</th>
+          <th>Duración</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let incident of incidents">
+          <td>{{ incident.startTime | date:'shortDate' }}</td>
+          <td>{{ incident.previousActivity }}</td>
+          <td>{{ incident.medication }}</td>
+          <td>{{ getDuration(incident) }}</td>
+          <td>
+            <button>editar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

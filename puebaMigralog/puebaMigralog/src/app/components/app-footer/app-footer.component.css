@@ -1,0 +1,14 @@
+/* footer.component.css */
+.footer-container {
+  background-color: rgba(62,62,62,1); /* Fondo gris */
+  text-align: center;
+  padding: 10px; /* Ajusta según sea necesario */
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.copyright-text {
+  color: #ffffff; /* Color del texto */
+  margin: 0; /* Elimina el margen predeterminado */
+}

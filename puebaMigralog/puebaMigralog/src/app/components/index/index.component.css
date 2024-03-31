@@ -1,0 +1,36 @@
+.container {
+  text-align: center;
+  margin: auto;
+  max-width: 600px;
+  padding: 20px; 
+  background-color: #d8d5d5; 
+  border-radius: 10px; 
+}
+
+
+.welcome-message {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #040269; 
+}
+
+.description {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: #040269; 
+}
+
+.frase-del-dia {
+  margin-bottom: 20px;
+  background-color: #4ed689 ;
+  border-radius: 10px;
+}
+
+.frase-del-dia-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.frase-del-dia-text {
+  font-size: 16px;
+}

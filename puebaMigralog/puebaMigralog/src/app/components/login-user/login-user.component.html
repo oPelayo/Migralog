@@ -1,0 +1,37 @@
+<div class="container">
+    <form (ngSubmit)="loginUser()" class="login-form">
+      <h1 class="title">Iniciar Sesión</h1>
+      <div class="input-container">
+        <mat-form-field appearance="fill" class="input">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="Email" type="text" name="email" id="email" [(ngModel)]="user.email">
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="input">
+          <mat-label>Contraseña</mat-label>
+          <input matInput placeholder="Contraseña" type="password" name="password" id="password" [(ngModel)]="user.password">
+        </mat-form-field>
+      </div>
+      <a routerLink="/app-singup" class="menu-link">Registrate con nosotros</a>
+      <button type="submit" mat-raised-button color="primary" class="button">Login</button>
+    </form>
+  </div>
+  
+
+
+<!--<div class="login">
+    <form >
+		<h1 class="title">Iniciar Sesión</h1>
+		<label> 
+			<img src="assets/images/****.jpeg" class="user" width="16px"> 
+			<input	placeholder="Usuario" type="text" name="username" id="username">
+		</label> 
+		<label> 
+			<img src="assets/images/*****.jpeg" class="lock" width="16px"> 
+			<input placeholder="Contraseña" type="password" name="password" id="password">
+		</label>
+		<a href="#" class="reset-password">¿Has olvidado tu contraseña?</a>
+		<a routerLink="/app-singup" class="menu-link">Registrate con nosotros</a>
+		<button type="submit" id="button">Login</button>
+
+	</form>
+</div>-->
