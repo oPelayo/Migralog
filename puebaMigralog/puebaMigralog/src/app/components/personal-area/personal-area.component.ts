@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Incident } from 'src/app/models/incident';
 import { IncidentService } from '../../services/incident.service';
 
+
 @Component({
   selector: 'app-personal-area',
   templateUrl: './personal-area.component.html',
@@ -15,6 +16,16 @@ export class PersonalAreaComponent implements OnInit {
   userId: number;
   userName: string;
 
+   // Nuevas propiedades para el gráfico
+   barChartOptions: any = {
+    scaleShowVerticalLines: false,
+    responsive: true
+  };
+  barChartLabels: string[] = [];
+  barChartType: string = 'bar';
+  barChartLegend: boolean = true;
+  barChartData: any[] = [];
+
   constructor(private incidentService: IncidentService) { }
 
   ngOnInit(): void {
@@ -27,15 +38,16 @@ export class PersonalAreaComponent implements OnInit {
     if (currentUser) {
       const user = JSON.parse(currentUser);
       this.userId = user.user.id;
-      this.userName = user.user.name;
-      
+      this.userName = user.user.name; 
     }
+
     if (this.userId) {
       // Llamar al servicio para obtener solo los incidentes del usuario actual
       this.incidentService.getUserIncidents(this.userId).subscribe(incidents => {
         this.incidents = incidents;
         this.calculateMostCommonPreviousActivity();
         this.calculateAverageDuration();
+        this.generateBarChartData();
       });
     }
   }
@@ -79,5 +91,14 @@ export class PersonalAreaComponent implements OnInit {
      this.averageDurationFormatted = this.formatDuration(averageDuration);
     return this.averageDurationFormatted;
   }
-  
+
+  generateBarChartData(): void {
+    const activityCounts: { [activity: string]: number } = {};
+    for (const incident of this.incidents) {
+      const activity = incident.previousActivity;
+      activityCounts[activity] = (activityCounts[activity] || 0) + 1;
+    }
+    this.barChartLabels = Object.keys(activityCounts);
+    this.barChartData = [{ data: Object.values(activityCounts), label: 'Actividades' }];
+  }
 }

@@ -25,6 +25,7 @@ import { PersonalAreaComponent } from './components/personal-area/personal-area.
 import { CanActivateViaAuthGuard } from './auth.guard';
 import { AuthService } from './services/auth.service';
 import { AboutUsComponent } from './components/about-us/about-us.component';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { AboutUsComponent } from './components/about-us/about-us.component';
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    NgChartsModule
   ],
   providers: [
     DatePipe,
