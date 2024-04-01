@@ -3,18 +3,17 @@
   <h4>Actividad Previa más Común: {{ mostCommonPreviousActivity }}</h4>
   <h4>Duración Media de los Incidentes: {{ averageDurationFormatted }}</h4>
 
-
- <!-- Gráfico de barras -->
- <div style="display: block;">
-  <canvas baseChart
-          [datasets]="barChartData"
-          [labels]="barChartLabels"
-          [options]="barChartOptions"
-          [legend]="barChartLegend"
-          >
-  </canvas>
-</div>
-
+  <!-- Gráfico -->
+  <div class="chart-container">
+    <canvas baseChart
+            [datasets]="barChartData"
+            [labels]="barChartLabels"
+            [options]="barChartOptions"
+            [legend]="barChartLegend"
+            [type]="'pie'"
+            >
+    </canvas>
+  </div>
 
   <div class="list-container">
     <h2>Listado de todos los Episodios:</h2>

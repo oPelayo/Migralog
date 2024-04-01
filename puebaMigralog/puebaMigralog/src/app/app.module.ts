@@ -26,6 +26,7 @@ import { CanActivateViaAuthGuard } from './auth.guard';
 import { AuthService } from './services/auth.service';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { NgChartsModule } from 'ng2-charts';
+import { BaseChartDirective } from 'ng2-charts';
 
 @NgModule({
   declarations: [

@@ -1,14 +1,28 @@
 .container {
-    text-align: center;
-    margin: auto;
-    max-width: 600px;
-  }
+  text-align: center;
+  margin: auto;
+  max-width: 600px; /* Aumentamos el ancho máximo para mejorar la legibilidad */
+  background-color: #d8d5d5; /* Cambiamos el fondo a gris */
+  padding: 20px; /* Agregamos un poco de espacio interno */
+  border-radius: 10px; /* Mantenemos el border-radius */
+}
   
   .container h3,
   .container h4 {
     margin-bottom: 20px;
+    color: #040269; 
   }
   
+  .chart-container {
+    display: flex;
+    width: 100%;
+    height: auto;
+    justify-content: center; 
+    align-items: center; 
+    margin: 20px; 
+    
+  }
+
   .list-container {
     display: inline-block;
     margin-bottom: 80px;

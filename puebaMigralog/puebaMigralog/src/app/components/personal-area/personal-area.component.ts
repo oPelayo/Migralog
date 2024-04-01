@@ -1,12 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgModule } from '@angular/core';
 import { Incident } from 'src/app/models/incident';
 import { IncidentService } from '../../services/incident.service';
-
+import { BaseChartDirective } from 'ng2-charts';
+import { ChartTypeRegistry } from 'chart.js';
 
 @Component({
   selector: 'app-personal-area',
   templateUrl: './personal-area.component.html',
-  styleUrls: ['./personal-area.component.css']
+  styleUrls: ['./personal-area.component.css'],
 })
 export class PersonalAreaComponent implements OnInit {
   incidents: Incident[] = [];
@@ -19,10 +20,13 @@ export class PersonalAreaComponent implements OnInit {
    // Nuevas propiedades para el gráfico
    barChartOptions: any = {
     scaleShowVerticalLines: false,
-    responsive: true
+    responsive: true,
+    maintainAspectRatio: false,
+    width: 800, 
+    height: 600,
   };
   barChartLabels: string[] = [];
-  barChartType: string = 'bar';
+  barChartType: string = 'line';
   barChartLegend: boolean = true;
   barChartData: any[] = [];
 
@@ -102,3 +106,4 @@ export class PersonalAreaComponent implements OnInit {
     this.barChartData = [{ data: Object.values(activityCounts), label: 'Actividades' }];
   }
 }
+
