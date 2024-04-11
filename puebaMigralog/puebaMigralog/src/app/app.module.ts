@@ -27,7 +27,7 @@ import { AuthService } from './services/auth.service';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { NgChartsModule } from 'ng2-charts';
 import { BaseChartDirective } from 'ng2-charts';
-import { EditIncidentComponent } from './edit-incident/edit-incident.component';
+import { EditIncidentComponent } from './components/edit-incident/edit-incident.component';
 
 @NgModule({
   declarations: [

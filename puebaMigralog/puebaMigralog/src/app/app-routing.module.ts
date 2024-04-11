@@ -10,6 +10,7 @@ import { NewIncidentComponent } from './components/new-incident/new-incident.com
 import { PersonalAreaComponent } from './components/personal-area/personal-area.component';
 import { CanActivateViaAuthGuard } from './auth.guard';
 import { AboutUsComponent } from './components/about-us/about-us.component';
+import { EditIncidentComponent } from './components/edit-incident/edit-incident.component';
 
 const routes: Routes = [
   { path: 'index', component: IndexComponent },
@@ -21,7 +22,7 @@ const routes: Routes = [
   { path: 'update-user/:id', component: UpdateUserComponent, canActivate: [CanActivateViaAuthGuard] },
   { path: 'new-incident', component: NewIncidentComponent, canActivate: [CanActivateViaAuthGuard]},
   { path: 'personal-area', component: PersonalAreaComponent, canActivate: [CanActivateViaAuthGuard] },
-  { path: 'edit-incident', component: NewIncidentComponent, canActivate: [CanActivateViaAuthGuard] },
+  { path: 'edit-incident/:id', component: EditIncidentComponent, canActivate: [CanActivateViaAuthGuard] },
   { path: 'about-us', component: AboutUsComponent } 
 ];
 

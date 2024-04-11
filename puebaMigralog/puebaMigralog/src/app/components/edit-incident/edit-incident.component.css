@@ -1,0 +1,42 @@
+.form-container {
+    text-align: center;
+    margin: auto;
+    max-width: 600px;
+    background-color: #e4e4e4; /* Color de fondo para el container */
+    padding: 20px; /* Agregar un relleno para separar del borde */
+    border-radius: 10px; /* Agregar bordes redondeados */
+  }
+  
+  .form-container h2 {
+    margin-bottom: 20px;
+  }
+  
+  .form-container form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-container label {
+    margin-bottom: 10px;
+  }
+  
+  .form-container input {
+    margin-bottom: 15px;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .form-container button {
+    background-color: #2ad675;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .form-container button:hover {
+    background-color: #218f58; /* Color de fondo al pasar el ratón */
+  }
+  
