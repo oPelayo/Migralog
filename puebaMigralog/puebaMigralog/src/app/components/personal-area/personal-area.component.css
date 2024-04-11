@@ -24,20 +24,24 @@
   }
 
   .list-container {
-    display: inline-block;
+    width: 100%;
+    overflow-x: auto; /* Agregamos un desplazamiento horizontal */
     margin-bottom: 80px;
   }
   
   table {
-    border: 1px solid black;
-    border-collapse: collapse;
+    border: 1px solid #ccc;
+    border-radius: 10px; /* Agregamos bordes redondeados */
+    border-collapse: separate; /* Añadimos separación entre las celdas */
     width: 100%;
-    background-color: #d8d5d5;
+    height: auto;
+    background-color: #f6f6f6; /* Utilizamos un tono suave de gris para el fondo */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Añadimos una sombra suave */
   }
   
   th, td {
-    border: 1px solid black;
-    padding: 8px;
+    border: none;
+    padding: 12px;
   }
   
   button {
@@ -50,5 +54,9 @@
     display: inline-block;
     font-size: 16px;
     border-radius: 5px;
+    cursor: pointer;
   }
   
+  button:hover {
+    background-color: #1e995f; /* Cambiamos el color del botón al pasar el cursor */
+  }

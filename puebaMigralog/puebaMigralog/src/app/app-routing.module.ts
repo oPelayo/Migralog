@@ -21,6 +21,7 @@ const routes: Routes = [
   { path: 'update-user/:id', component: UpdateUserComponent, canActivate: [CanActivateViaAuthGuard] },
   { path: 'new-incident', component: NewIncidentComponent, canActivate: [CanActivateViaAuthGuard]},
   { path: 'personal-area', component: PersonalAreaComponent, canActivate: [CanActivateViaAuthGuard] },
+  { path: 'edit-incident', component: NewIncidentComponent, canActivate: [CanActivateViaAuthGuard] },
   { path: 'about-us', component: AboutUsComponent } 
 ];
 

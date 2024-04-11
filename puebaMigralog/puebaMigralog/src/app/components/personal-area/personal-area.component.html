@@ -34,7 +34,7 @@
           <td>{{ incident.medication }}</td>
           <td>{{ getDuration(incident) }}</td>
           <td>
-            <button>editar</button>
+            <button (click)="editIncident(incident.id)">Editar</button>
           </td>
         </tr>
       </tbody>

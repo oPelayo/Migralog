@@ -1,6 +1,7 @@
 import { Component, OnInit, NgModule } from '@angular/core';
 import { Incident } from 'src/app/models/incident';
 import { IncidentService } from '../../services/incident.service';
+import { Router } from '@angular/router';
 import { BaseChartDirective } from 'ng2-charts';
 import { ChartTypeRegistry } from 'chart.js';
 
@@ -30,7 +31,7 @@ export class PersonalAreaComponent implements OnInit {
   barChartLegend: boolean = true;
   barChartData: any[] = [];
 
-  constructor(private incidentService: IncidentService) { }
+  constructor(private incidentService: IncidentService, private router: Router) { }
 
   ngOnInit(): void {
     this.loadIncidents();
@@ -104,6 +105,11 @@ export class PersonalAreaComponent implements OnInit {
     }
     this.barChartLabels = Object.keys(activityCounts);
     this.barChartData = [{ data: Object.values(activityCounts), label: 'Actividades' }];
+  }
+
+  editIncident(incidentId: number): void {
+    // Redirigir al componente NewIncidentComponent para editar el incidente
+    this.router.navigate(['edit-incident', incidentId]);
   }
 }
 

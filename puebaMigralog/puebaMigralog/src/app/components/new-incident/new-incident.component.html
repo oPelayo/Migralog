@@ -1,6 +1,6 @@
 <div class="form-container">
     <h2>Nuevo Incidente</h2>
-    <form (ngSubmit)="createIncident()">
+    <form (ngSubmit)="saveIncident()">
         <div>
             <label for="type">Tipo de incidente:</label>
             <input type="text" id="type" name="type" [(ngModel)]="incident.type" required>
@@ -29,6 +29,6 @@
             <label for="endTime">Hora de Fin:</label>
             <input type="datetime-local" id="endTime" name="endTime" [(ngModel)]="incident.endTime" (input)="addEvent($event,false)" required>
         </div>
-        <button type="submit">Guardar</button>
+        <button type="submit">{{ isEditing ? 'Guardar cambios' : 'Guardar' }}</button>
     </form>
 </div>
