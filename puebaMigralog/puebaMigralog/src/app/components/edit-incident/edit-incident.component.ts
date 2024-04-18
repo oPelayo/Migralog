@@ -15,6 +15,7 @@ export class EditIncidentComponent implements OnInit {
 
   constructor(private incidentService: IncidentService, private router: Router, private route: ActivatedRoute) { }
 
+  
   ngOnInit(): void {
     // Obtener el ID del incidente de la ruta
     this.route.params.subscribe(params => {
