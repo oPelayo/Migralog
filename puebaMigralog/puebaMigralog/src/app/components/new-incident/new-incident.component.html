@@ -1,6 +1,6 @@
 <div class="form-container">
     <h2>Nuevo Incidente</h2>
-    <form (ngSubmit)="saveIncident()">
+    <form (ngSubmit)="saveIncident()" #incidentForm="ngForm">
         <div>
             <label for="type">Tipo de incidente:</label>
             <input type="text" id="type" name="type" [(ngModel)]="incident.type" required>
@@ -22,13 +22,25 @@
             <input type="text" id="medication" name="medication" [(ngModel)]="incident.medication">
         </div>
         <div>
-            <label for="startTime">Hora de Inicio:</label>
-            <input type="datetime-local" id="startTime" name="startTime" [(ngModel)]="incident.startTime" (input)="addEvent($event,true)" required>
+            <div *ngIf="startTimeField.invalid && (startTimeField.dirty || startTimeField.touched)"
+                class="alert alert-danger">
+                <div *ngIf="startTimeField.errors?.['invalidDate']">La hora de inicio no puede ser posterior a la hora de fin.</div>
+            </div>
+            <label for="startTime">Fecha y hora de Inicio: </label>
+            <input type="datetime-local" id="startTime" name="startTime" [(ngModel)]="incident.startTime" 
+                (input)="validateDates()" required #startTimeField="ngModel">
         </div>
         <div>
-            <label for="endTime">Hora de Fin:</label>
-            <input type="datetime-local" id="endTime" name="endTime" [(ngModel)]="incident.endTime" (input)="addEvent($event,false)" required>
+            <div *ngIf="endTimeField.invalid && (endTimeField.dirty || endTimeField.touched)"
+                class="alert alert-danger">
+            <div *ngIf="endTimeField.errors?.['invalidDate']">La hora de fin no puede ser anterior a la hora de inicio.</div>
+            <div *ngIf="endTimeField.errors?.['futureDate']">La hora de fin no puede ser posterior a la fecha actual.</div>
+            </div>
+            <label for="endTime">Fecha y hora de fin: </label>
+            <input type="datetime-local" id="endTime" name="endTime" [(ngModel)]="incident.endTime" 
+                (input)="validateDates()" required #endTimeField="ngModel">
         </div>
-        <button type="submit">{{ isEditing ? 'Guardar cambios' : 'Guardar' }}</button>
+
+        <button type="submit" [disabled]="incidentForm.invalid">{{ isEditing ? 'Guardar cambios' : 'Guardar' }}</button>
     </form>
 </div>

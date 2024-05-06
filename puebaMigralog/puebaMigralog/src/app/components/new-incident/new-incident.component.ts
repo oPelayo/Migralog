@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Incident } from 'src/app/models/incident';
 import { IncidentService } from '../../services/incident.service';
 import { DatePipe } from '@angular/common';
+import { NgModel } from '@angular/forms';
 
 @Component({
   selector: 'app-new-incident',
@@ -10,12 +11,15 @@ import { DatePipe } from '@angular/common';
   styleUrls: ['./new-incident.component.css']
 })
 export class NewIncidentComponent implements OnInit {
+[x: string]: any;
   incident: Incident = new Incident();
   userId: number; 
   startDate: Date;
   currentDate: Date;
   endDate: Date;
   isEditing: boolean = false; // Variable para indicar si se está editando un incidente existente
+  @ViewChild('startTimeField', { static: true }) startTimeField: NgModel;
+  @ViewChild('endTimeField', { static: true }) endTimeField: NgModel;
 
   constructor(private incidentService: IncidentService, private datePipe: DatePipe, private router:Router, private route: ActivatedRoute) { }
 
@@ -60,25 +64,63 @@ export class NewIncidentComponent implements OnInit {
     }
   }
   
-  saveIncident(): void {
-    // Convertir startTime y endTime a objetos Date
-    this.incident.startTime = this.startDate;
-    this.incident.endTime = this.endDate;
+  validateDates() {
+    if (this.incident.startTime && this.incident.endTime) {
+        const startDate = new Date(this.incident.startTime);
+        const endDate = new Date(this.incident.endTime);
 
-    if (this.isEditing) {
-      // Si se está editando, llamar al método de actualización del servicio
-      this.incidentService.updateIncident(this.incident).subscribe(response => {
-        console.log('Incident updated:', response);
-        // Realizar cualquier otra acción necesaria después de actualizar el incidente
-        this.router.navigate(['personal-area']);
-      });
+        if (startDate > endDate) {
+            this.startTimeField.control.setErrors({ invalidDate: true });
+            this.endTimeField.control.setErrors({ invalidDate: true });
+        } else {
+            this.startTimeField.control.setErrors(null);
+            this.endTimeField.control.setErrors(null);
+        }
+    }
+
+    const currentDate = new Date();
+    if (this.incident.endTime && new Date(this.incident.endTime) > currentDate) {
+        this.endTimeField.control.setErrors({ futureDate: true });
     } else {
-      // Si no se está editando, llamar al método de creación del servicio
-      this.incidentService.newIncident(this.incident, this.userId).subscribe(response => {
-        console.log('Incident created:', response);
-        // Realizar cualquier otra acción necesaria después de crear el incidente
-        this.router.navigate(['personal-area']);
-      });
+        this.endTimeField.control.setErrors(null);
+    }
+}
+
+  saveIncident(): void {
+    // Verificar si la fecha de inicio es posterior a la fecha de fin
+    if (this.incident.startTime && this.incident.endTime) {
+        const startDate = new Date(this.incident.startTime);
+        const endDate = new Date(this.incident.endTime);
+
+        if (startDate > endDate) {
+            console.error('La fecha de inicio no puede ser posterior a la fecha de fin.');
+            return;
+        }
+    }
+
+    // Verificar si la fecha de fin es posterior a la fecha actual
+    const currentDate = new Date();
+    if (this.incident.endTime && new Date(this.incident.endTime) > currentDate) {
+        console.error('La fecha de fin no puede ser posterior a la fecha actual.');
+        return;
+    }
+
+    // Si pasa todas las validaciones, guardar el incidente
+    if (this.isEditing) {
+        // Si se está editando, llamar al método de actualización del servicio
+        this.incidentService.updateIncident(this.incident).subscribe(response => {
+            console.log('Incident updated:', response);
+            // Realizar cualquier otra acción necesaria después de actualizar el incidente
+            this.router.navigate(['personal-area']);
+        });
+    } else {
+        // Si no se está editando, llamar al método de creación del servicio
+        this.incidentService.newIncident(this.incident, this.userId).subscribe(response => {
+            console.log('Incident created:', response);
+            // Realizar cualquier otra acción necesaria después de crear el incidente
+            this.router.navigate(['personal-area']);
+        });
     }
   }
+
 }
