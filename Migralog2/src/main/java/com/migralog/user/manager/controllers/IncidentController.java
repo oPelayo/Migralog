@@ -105,7 +105,7 @@ public class IncidentController {
             return ResponseEntity.notFound().build();
         }
     }
-	
+
 	@PutMapping("/Incidents/{id}")
 	public ResponseEntity<Incident> updateIncident(@PathVariable Long id, @RequestBody Incident updatedIncident) {
 	    Optional<Incident> optionalIncident = repository.findById(id);
@@ -126,7 +126,22 @@ public class IncidentController {
 	    }
 	}
 	//por implementar en el front<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-	/*@GetMapping("/Incidents/edit/{incidentId}")
+	/*
+	@GetMapping("/Incidents/{id}")
+public ResponseEntity<Incident> getIncidentById(@PathVariable Long id) {
+    Optional<Incident> incident = repository.findById(id);
+    if (incident.isPresent()) {
+        return ResponseEntity.ok(incident.get());
+    } else {
+        return ResponseEntity.notFound().build();
+    }
+}
+
+
+
+
+
+	@GetMapping("/Incidents/edit/{incidentId}")
 	public ResponseEntity<Incident> getIncidentById(@PathVariable Long incidentId) {
 	    Optional<Incident> incident = repository.findById(incidentId);
 	    if (incident.isPresent()) {

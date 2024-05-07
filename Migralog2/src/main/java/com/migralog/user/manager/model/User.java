@@ -12,6 +12,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name = "users")
@@ -19,6 +20,7 @@ public class User {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	//@GenericGenerator()   ---->para estipular el metodo de generacion de Id
 	private Long id;
 	
 	@Column(name = "name", length = 60,nullable = false)
