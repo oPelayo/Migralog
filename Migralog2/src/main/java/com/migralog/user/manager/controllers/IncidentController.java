@@ -96,7 +96,7 @@ public class IncidentController {
 
 
 	
-	@GetMapping("/Incidents/{userId}")
+	@GetMapping("/Incidents/all/{userId}")
     public ResponseEntity<List<Incident>> getIncidentsByUserId(@PathVariable Long userId) {
         List<Incident> incidents = incidentService.loadIncidentsByUserId(userId);
         if (!incidents.isEmpty()) {
@@ -106,7 +106,7 @@ public class IncidentController {
         }
     }
 
-	@PutMapping("/Incidents/{id}")
+	@PutMapping("/Incidents/edit/{id}")
 	public ResponseEntity<Incident> updateIncident(@PathVariable Long id, @RequestBody Incident updatedIncident) {
 	    Optional<Incident> optionalIncident = repository.findById(id);
 	    if (optionalIncident.isPresent()) {
@@ -116,6 +116,8 @@ public class IncidentController {
 	        existingIncident.setKind(updatedIncident.getKind());
 	        existingIncident.setPain(updatedIncident.getPain());
 	        existingIncident.setMedication(updatedIncident.getMedication());
+            existingIncident.setStartTime(updatedIncident.getStartTime()); // Actualizar la fecha de inicio
+            existingIncident.setEndTime(updatedIncident.getEndTime()); // Actualizar la fecha de fin
 	        
 	        // Puedes manejar otros campos que quieras actualizar aquí
 	        
@@ -126,7 +128,7 @@ public class IncidentController {
 	    }
 	}
 	//por implementar en el front<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-	/*
+
 	@GetMapping("/Incidents/{id}")
 public ResponseEntity<Incident> getIncidentById(@PathVariable Long id) {
     Optional<Incident> incident = repository.findById(id);
@@ -137,10 +139,7 @@ public ResponseEntity<Incident> getIncidentById(@PathVariable Long id) {
     }
 }
 
-
-
-
-
+/*
 	@GetMapping("/Incidents/edit/{incidentId}")
 	public ResponseEntity<Incident> getIncidentById(@PathVariable Long incidentId) {
 	    Optional<Incident> incident = repository.findById(incidentId);
@@ -151,7 +150,6 @@ public ResponseEntity<Incident> getIncidentById(@PathVariable Long id) {
 	    }
 	}*/
 
-	
 	@DeleteMapping("//Incidents/{id}")
 	public ResponseEntity<?> deleteIncident(@PathVariable Long id) {
 	    try {
