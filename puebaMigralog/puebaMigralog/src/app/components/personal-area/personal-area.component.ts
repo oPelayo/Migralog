@@ -47,7 +47,7 @@ export class PersonalAreaComponent implements OnInit {
     }
 
     if (this.userId) {
-      // Llamar al servicio para obtener solo los incidentes del usuario actual
+      // Llamar al servicio para obtener los incidentes del usuario actual
       this.incidentService.getUserIncidents(this.userId).subscribe(incidents => {
         this.incidents = incidents;
         this.calculateMostCommonPreviousActivity();

@@ -35,9 +35,8 @@ export class NewIncidentComponent implements OnInit {
 
     // Verificar si se está editando un incidente existente
     this.route.queryParams.subscribe(params => {
-      console.log(params);
+      
       const incidentId = params['id'];
-      console.log(incidentId);
       if (incidentId) {
         this.isEditing = true;
         // Cargar los datos del incidente que se está editando

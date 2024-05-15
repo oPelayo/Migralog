@@ -42,7 +42,7 @@ export class EditIncidentComponent implements OnInit {
       console.log('Incident updated:', response);
       // Redirigir al área personal después de actualizar el incidente
       this.router.navigate(['personal-area']);
-    });
+    },error => console.log(error));
   }
 }
 
