@@ -113,8 +113,22 @@ export class PersonalAreaComponent implements OnInit {
   }
 
   deleteIncident(incidentId: number): void {
-    // Lógica para eliminar el incidente
+    if (confirm('¿Estás seguro de que quieres eliminar este incidente?')) {
+      this.incidentService.deleteIncident(incidentId).subscribe(() => {
+        // Filtrar los incidentes para eliminar el incidente de la lista
+        this.incidents = this.incidents.filter(incident => incident.id !== incidentId);
+        // Actualizar cualquier otro dato que necesite ser actualizado después de eliminar el incidente
+        // Por ejemplo, podrías volver a calcular las estadísticas si es necesario
+        this.calculateMostCommonPreviousActivity();
+        this.calculateAverageDuration();
+        this.generateBarChartData();
+      }, error => {
+        console.error('Error al eliminar el incidente:', error);
+        // Aquí puedes manejar el error, por ejemplo, mostrar un mensaje al usuario
+      });
+    }
   }
+  
 
   viewIncidentDetails(incidentId: number): void {
     // Lógica para ver los detalles del incidente

@@ -14,28 +14,39 @@ export class IncidentService {
   constructor(private http: HttpClient) { }
 
   newIncident(incident: Incident, userId: number): Observable<Object> {
-    return this.http.post(`${this.baseURL}/${userId}`, {incident, userId});
+    return this.http.post(`${this.baseURL}/${userId}`, {incident, userId}).pipe(
+      catchError(this.handleError)
+    );
   }
 
   updateIncident(incident: Incident): Observable<Object> {
-    return this.http.put(`${this.baseURL}/edit/${incident.id}`, incident);
+    return this.http.put(`${this.baseURL}/edit/${incident.id}`, incident).pipe(
+      catchError(this.handleError)
+    );
   }
 
   deleteIncident(id: number): Observable<Object> {
-    return this.http.delete(`${this.baseURL}/${id}`);
+    return this.http.delete(`${this.baseURL}/${id}`).pipe(
+      catchError(this.handleError)
+    );
   }
 
   getIncidentById(id: number): Observable<Incident> {
-    return this.http.get<Incident>(`${this.baseURL}/${id}`);
+    return this.http.get<Incident>(`${this.baseURL}/${id}`).pipe(
+      catchError(this.handleError)
+    );
   }
 
   getAllIncidents(): Observable<Incident[]> {
-    return this.http.get<Incident[]>(`${this.baseURL}`);
+    return this.http.get<Incident[]>(`${this.baseURL}`).pipe(
+      catchError(this.handleError)
+    );
   }
 
   getUserIncidents(userId: number): Observable<Incident[]> {
-    // Filtrar los incidentes por el ID de usuario
-    return this.http.get<Incident[]>(`${this.baseURL}/all/${userId}`);
+    return this.http.get<Incident[]>(`${this.baseURL}/all/${userId}`).pipe(
+      catchError(this.handleError)
+    );
   }
 
   private handleError(error: HttpErrorResponse) {

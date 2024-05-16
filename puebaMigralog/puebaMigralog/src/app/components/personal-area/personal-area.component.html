@@ -34,15 +34,15 @@
           <td>{{ incident.medication }}</td>
           <td>{{ getDuration(incident) }}</td>
           <td>
-            <button mat-icon-button class="icon-button" (click)="editIncident(incident.id)">
-              <mat-icon>edit</mat-icon>
-            </button>
-            <button mat-icon-button class="icon-button" (click)="deleteIncident(incident.id)">
-              <mat-icon>delete</mat-icon>
-            </button>
-            <button mat-icon-button class="icon-button" (click)="viewIncidentDetails(incident.id)">
-              <mat-icon>visibility</mat-icon>
-            </button>
+            <span class="icon-container" (click)="editIncident(incident.id)">
+              <i class="material-icons">create</i>
+            </span>
+            <span class="icon-container" (click)="deleteIncident(incident.id)">
+              <i class="material-icons">delete</i>
+            </span>
+            <span class="icon-container" (click)="viewIncidentDetails(incident.id)">
+              <i class="material-icons">visibility</i>
+            </span>
           </td>
         </tr>
       </tbody>
