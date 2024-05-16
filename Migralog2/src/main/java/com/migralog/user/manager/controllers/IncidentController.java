@@ -115,6 +115,7 @@ public class IncidentController {
 	        existingIncident.setType(updatedIncident.getType());
 	        existingIncident.setKind(updatedIncident.getKind());
 	        existingIncident.setPain(updatedIncident.getPain());
+            existingIncident.setPreviousActivity(updatedIncident.getPreviousActivity());
 	        existingIncident.setMedication(updatedIncident.getMedication());
             existingIncident.setStartTime(updatedIncident.getStartTime()); // Actualizar la fecha de inicio
             existingIncident.setEndTime(updatedIncident.getEndTime()); // Actualizar la fecha de fin
@@ -150,7 +151,7 @@ public ResponseEntity<Incident> getIncidentById(@PathVariable Long id) {
 	    }
 	}*/
 
-	@DeleteMapping("//Incidents/{id}")
+	@DeleteMapping("/Incidents/{id}")
 	public ResponseEntity<?> deleteIncident(@PathVariable Long id) {
 	    try {
 	        repository.deleteById(id);
