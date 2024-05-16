@@ -111,5 +111,13 @@ export class PersonalAreaComponent implements OnInit {
     // Redirigir al componente NewIncidentComponent para editar el incidente
     this.router.navigate(['edit-incident', incidentId]);
   }
+
+  deleteIncident(incidentId: number): void {
+    // Lógica para eliminar el incidente
+  }
+
+  viewIncidentDetails(incidentId: number): void {
+    // Lógica para ver los detalles del incidente
+  }
 }
 

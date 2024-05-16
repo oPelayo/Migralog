@@ -44,6 +44,23 @@
     padding: 12px;
   }
   
+  .icon-button {
+    font-size: 24px; /* Tamaño del ícono */
+    color: rgb(103, 98, 98); /* Color del ícono */
+  }
+  
+  .icon-button button {
+    /* Estilos para el botón que contiene el ícono */
+    width: 20px; /* Ancho personalizado del botón */
+    height: 20px; /* Altura personalizada del botón */
+    padding: 5px; /* Espaciado interno del botón */
+    border-radius: 50%; /* Hacemos que el botón sea circular */
+  }
+  
+  .icon-button button:hover {
+    background-color: blue; /* Cambia el color de fondo al pasar el ratón por encima */
+  }
+  
   button {
     background-color: #2ad675;
     border: none;
