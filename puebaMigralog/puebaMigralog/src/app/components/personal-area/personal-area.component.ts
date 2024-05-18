@@ -2,6 +2,8 @@ import { Component, OnInit, NgModule } from '@angular/core';
 import { Incident } from 'src/app/models/incident';
 import { IncidentService } from '../../services/incident.service';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { IncidentDetailsModalComponent } from '../incident-details-modal/incident-details-modal.component';
 import { BaseChartDirective } from 'ng2-charts';
 import { ChartTypeRegistry } from 'chart.js';
 
@@ -31,7 +33,7 @@ export class PersonalAreaComponent implements OnInit {
   barChartLegend: boolean = true;
   barChartData: any[] = [];
 
-  constructor(private incidentService: IncidentService, private router: Router) { }
+  constructor(private incidentService: IncidentService, private router: Router, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.loadIncidents();
@@ -115,10 +117,8 @@ export class PersonalAreaComponent implements OnInit {
   deleteIncident(incidentId: number): void {
     if (confirm('¿Estás seguro de que quieres eliminar este incidente?')) {
       this.incidentService.deleteIncident(incidentId).subscribe(() => {
-        // Filtrar los incidentes para eliminar el incidente de la lista
+        
         this.incidents = this.incidents.filter(incident => incident.id !== incidentId);
-        // Actualizar cualquier otro dato que necesite ser actualizado después de eliminar el incidente
-        // Por ejemplo, podrías volver a calcular las estadísticas si es necesario
         this.calculateMostCommonPreviousActivity();
         this.calculateAverageDuration();
         this.generateBarChartData();
@@ -129,6 +129,12 @@ export class PersonalAreaComponent implements OnInit {
     }
   }
   
+  openModal(incident: Incident): void {
+    const dialogRef = this.dialog.open(IncidentDetailsModalComponent, {
+      width: '400px',
+      data: incident  // Pasa el incidente al modal
+    });
+  }
 
   viewIncidentDetails(incidentId: number): void {
     // Lógica para ver los detalles del incidente

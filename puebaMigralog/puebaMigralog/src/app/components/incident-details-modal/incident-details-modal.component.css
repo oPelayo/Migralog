@@ -1,0 +1,49 @@
+.modal {
+    margin: auto;
+    /* Centramos horizontalmente */
+}
+
+.modal-content {
+    background-color: #f6f6f6;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.details-container {
+    display: flex;
+    flex-direction: column;
+    /* Cambiamos la dirección a columna para una mejor adaptabilidad */
+}
+
+.details-column {
+    flex: 1;
+}
+
+.details-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
+    /* Añadimos espacio entre los elementos */
+}
+
+.details-key {
+    font-weight: bold;
+    min-width: 120px;
+    /* Establecemos un ancho mínimo para las claves */
+    margin-right: 10px;
+}
+
+.details-value {
+    flex: 1;
+    /* El valor ocupa todo el espacio disponible */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+button {
+    margin-top: 20px;
+    /* Añadimos espacio entre los detalles y el botón */
+}

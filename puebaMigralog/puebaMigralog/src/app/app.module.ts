@@ -28,6 +28,8 @@ import { AboutUsComponent } from './components/about-us/about-us.component';
 import { NgChartsModule } from 'ng2-charts';
 import { BaseChartDirective } from 'ng2-charts';
 import { EditIncidentComponent } from './components/edit-incident/edit-incident.component';
+import { IncidentDetailsModalComponent } from './components/incident-details-modal/incident-details-modal.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,8 @@ import { EditIncidentComponent } from './components/edit-incident/edit-incident.
     NewIncidentComponent,
     PersonalAreaComponent,
     AboutUsComponent,
-    EditIncidentComponent
+    EditIncidentComponent,
+    IncidentDetailsModalComponent
   ],
   imports: [
     BrowserModule,
@@ -55,6 +58,7 @@ import { EditIncidentComponent } from './components/edit-incident/edit-incident.
     MatIconModule,
     MatInputModule,
     MatDatepickerModule,
+    MatDialogModule,
     MatNativeDateModule,
     MatFormFieldModule,
     NgChartsModule

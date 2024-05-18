@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -35,6 +35,10 @@ export class ThemeService {
     this.selectedFontSizeSubject.next(size);
     // Guardar el tamaño de fuente seleccionado en localStorage
     localStorage.setItem('selectedFontSize', size.toString());
+  }
+
+  getSelectedBackgroundColor(): Observable<string> {
+    return this.selectedBackgroundColor$;
   }
 
   private loadUserStyles() {
