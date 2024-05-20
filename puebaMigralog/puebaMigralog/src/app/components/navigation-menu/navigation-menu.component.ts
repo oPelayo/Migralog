@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -13,7 +13,7 @@ export class NavigationMenuComponent implements OnInit {
   profileImageUrl: string;
   userName: string;
 
-  constructor(private router: Router, private authService: AuthService) { }
+  constructor(private router: Router, private authService: AuthService, private cd: ChangeDetectorRef) { }
 
   ngOnInit(): void {
     // Verificar si el usuario está iniciado sesión
@@ -28,6 +28,7 @@ export class NavigationMenuComponent implements OnInit {
 
     // Lógica para determinar la URL de la imagen del perfil
     this.profileImageUrl = this.isUserLoggedIn ? 'assets/images/image2.jpg' : 'assets/images/image1.jpg';
+    this.cd.detectChanges(); // Forzar detección de cambios
   }
 
   toggleMenu() {

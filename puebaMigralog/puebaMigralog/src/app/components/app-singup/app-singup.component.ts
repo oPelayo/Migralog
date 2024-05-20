@@ -25,7 +25,7 @@ export class AppSingupComponent implements OnInit {
         // Se ejecuta si la petición se completa con éxito
         console.log(dato);
         alert("Usuario Creado Correctamente");
-        this.router.navigate(['login-user']);
+        this.router.navigate(['index']);
       },
       error => {
         // Se ejecuta si hay un error en la petición

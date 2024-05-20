@@ -7,6 +7,10 @@
   border-radius: 10px; 
 }
 
+.content {
+  padding: 0%;
+  margin: 0%;
+}
 
 .welcome-message {
   font-size: 24px;
@@ -21,7 +25,7 @@
 }
 
 .frase-del-dia {
-  margin-bottom: 20px;
+  margin: auto;
   background-color: #4ed689 ;
   border-radius: 10px;
 }

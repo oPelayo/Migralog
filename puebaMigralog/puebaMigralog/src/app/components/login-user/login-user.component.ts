@@ -9,7 +9,6 @@ import { User } from 'src/app/models/user';
   styleUrls: ['./login-user.component.css']
 })
 export class LoginUserComponent {
-
   user: User = new User();
   errorMessage: string = '';
 
@@ -19,22 +18,11 @@ export class LoginUserComponent {
     if (this.user.email && this.user.password) {
       this.authService.login(this.user.email, this.user.password).subscribe(
         (response) => {
-         
-          // Store user info and token in session storage
-          const currentUser = sessionStorage.getItem('currentUser');
-          
-          if (response.success) {
-            sessionStorage.setItem('currentUser', JSON.stringify(response));
-            this.router.navigate(['index']);
-           
-          } else {
-            if (currentUser) {
-              console.log('Datos del usuario almacenados en sessionStorage:', JSON.parse(currentUser));
-            }
-          }    
+          if (!response.success) {
+            this.errorMessage = response.message;
+          }
         },
         (error) => {
-          // Handle login error
           if (error.status === 401) {
             this.errorMessage = 'Credenciales incorrectas. Por favor, inténtalo de nuevo.';
           } else {
@@ -48,4 +36,3 @@ export class LoginUserComponent {
     }
   }
 }
-

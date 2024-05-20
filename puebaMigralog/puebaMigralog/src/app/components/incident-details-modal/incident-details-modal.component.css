@@ -1,5 +1,6 @@
 .modal {
     margin: auto;
+    border-radius: 10px;
     /* Centramos horizontalmente */
 }
 

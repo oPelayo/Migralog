@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
@@ -10,29 +10,27 @@ import { ActivatedRouteSnapshot, Router, RouterStateSnapshot } from '@angular/ro
 })
 export class AuthService {
 
-  private baseURL = "http://localhost:8080/api/v1/auth";
+  private baseURL = "http://localhost:8080/api/auth";
   private reloadPageAfterLogin = false; // Bandera para controlar la recarga de la página después de iniciar sesión
 
-  constructor(private httpClient: HttpClient, private router:Router) { }
+  constructor(private httpClient: HttpClient, private router: Router) { }
 
-  login(email: string, password: string): Observable<{ success: boolean, message: string, user?: User }> {
+  login(email: string, password: string): Observable<{ success: boolean, message: string, token?: string }> {
     const credentials = { email, password };
-    return this.httpClient.post<any>(`${this.baseURL}/login`, credentials)
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json', 'Accept': 'application/json' });
+
+    return this.httpClient.post<any>(`${this.baseURL}/signin`, credentials, { headers: headers, withCredentials: true })
       .pipe(
         map(response => {
-          // Check if the login was successful
           const success = response.success;
           const message = response.message;
-          // If successful, extract user information
-          const user = success ? response.user : undefined;
+          const token = success ? response.token : undefined;
 
-          // If login was successful, store user data in sessionStorage
-          if (success && user) {
-            sessionStorage.setItem('currentUser', JSON.stringify(user));
-            // Establecer la bandera para recargar la página después de iniciar sesión
-            this.reloadPageAfterLogin = true;
+          if (success && token) {
+            sessionStorage.setItem('currentUser', JSON.stringify({ token, user: response.user }));
+            this.router.navigate(['index']);
           }
-          return { success, message, user };
+          return { success, message, token };
         }),
         catchError(error => {
           let errorMessage = 'Error al iniciar sesión. Por favor, verifica tus credenciales.';
@@ -46,7 +44,7 @@ export class AuthService {
 
   logout() {
     sessionStorage.removeItem('currentUser');
-  }  
+  }
 
   getAuthData(): { isLoggedIn: boolean, authLevel: number } {
     return {
@@ -61,7 +59,6 @@ export class AuthService {
     
     if (data) {
       const user = JSON.parse(data);
-      console.log(user);
       const role = user.user.role;
   
       if (role === "ROLE_ADMIN") {
@@ -76,9 +73,8 @@ export class AuthService {
   }
   
   isLoggedIn(): boolean {
-    // Verificar si hay un usuario almacenado en sessionStorage.
     const currentUser = sessionStorage.getItem('currentUser');
-    return !!currentUser; // Retorna true si existe un usuario, false si no.
+    return !!currentUser;
   }
 
   shouldReloadPageAfterLogin(): boolean {

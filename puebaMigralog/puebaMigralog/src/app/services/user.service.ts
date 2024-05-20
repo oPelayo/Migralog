@@ -10,7 +10,7 @@ import { User } from '../models/user';
 export class UserService {
 
   //aqui obtiene los datos de la url
-  private  baseURL = "http://localhost:8080/api/v1/Users";
+  private  baseURL = "http://localhost:8080/api/Users";
 
   constructor(private http : HttpClient) { }
 
