@@ -1,34 +1,29 @@
 package com.migralog.user.manager.controllers;
 
-import java.util.List;
-import java.util.Optional;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.migralog.user.manager.model.Role;
 import com.migralog.user.manager.model.URole;
 import com.migralog.user.manager.model.User;
 import com.migralog.user.manager.repository.RoleRepository;
 import com.migralog.user.manager.repository.UserRepository;
+import com.migralog.user.manager.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/v1/")
+@RequestMapping("/api/")
 @CrossOrigin(origins = "http://localhost:4200")
 public class UserController {
 	
 	@Autowired
 	private UserRepository repository;
+
+	@Autowired
+	private UserService userService;
 	
 	@Autowired
 	  private RoleRepository roleRepository;
@@ -37,16 +32,22 @@ public class UserController {
 	public List<User> listAllUsers() {
 		return repository.findAll();
 	}
-	
+
 	@PostMapping("/Users")
-	public User saveUser(@RequestBody User user) {
-	    // Asigna un rol por defecto si no se especifica
-	    if (user.getRole() == null) {
-	        Role defaultRole = new Role(URole.ROLE_USER);
-	        user.setRole(roleRepository.save(defaultRole));
-	        }
-	    return repository.save(user);
-	    }
+	public ResponseEntity<User> saveUser(@RequestBody User user) {
+		try {
+			if (user.getRole() == null) {
+				Role defaultRole = new Role(URole.ROLE_USER);
+				user.setRole(roleRepository.save(defaultRole));
+			}
+			System.out.println("Saving user: " + user); // Log para depuración
+
+			userService.saveUser(user); // Llamar al servicio que cifra la contraseña y guarda el usuario
+			return ResponseEntity.status(HttpStatus.CREATED).body(user);
+		} catch (Exception e) {
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+		}
+	}
 	   
 	@GetMapping("/Users/{id}")
 	public ResponseEntity<User> getUserById(@PathVariable Long id) {

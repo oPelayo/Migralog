@@ -1,4 +1,4 @@
-package com.migralog.user.manager.request;
+package com.migralog.user.manager.payload.request;
 
 public class LoginRequest {
     private String email;
