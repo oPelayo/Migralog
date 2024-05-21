@@ -17,19 +17,18 @@ export class NavigationMenuComponent implements OnInit {
 
   ngOnInit(): void {
     // Verificar si el usuario está iniciado sesión
-    const currentUser = sessionStorage.getItem('currentUser');
-    this.isUserLoggedIn = !!currentUser;
+    this.authService.currentUser.subscribe(user => {
+      this.isUserLoggedIn = !!user;
 
-    // Obtener el nombre de usuario
-    if (this.isUserLoggedIn && currentUser) {
-      const user = JSON.parse(currentUser);
-      this.userName = user.user.name;
-    }
+      if (this.isUserLoggedIn && user) {
+        this.userName = user.user.name;
+      }
 
-    // Lógica para determinar la URL de la imagen del perfil
-    this.profileImageUrl = this.isUserLoggedIn ? 'assets/images/image2.jpg' : 'assets/images/image1.jpg';
-    this.cd.detectChanges(); // Forzar detección de cambios
+      this.profileImageUrl = this.isUserLoggedIn ? 'assets/images/image2.jpg' : 'assets/images/image1.jpg';
+      this.cd.detectChanges(); // Forzar detección de cambios
+    });
   }
+  
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
@@ -45,7 +44,6 @@ export class NavigationMenuComponent implements OnInit {
 
   logout() {
     this.authService.logout();
-    this.router.navigate(['/login-user']);
     window.location.reload();
   }
 }

@@ -10,7 +10,7 @@ import { AppFooterComponent } from './components/app-footer/app-footer.component
 import { AppSingupComponent } from './components/app-singup/app-singup.component';
 import { IndexComponent } from './components/index/index.component';
 import { ChangeThemeComponent } from './components/change-theme/change-theme.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ListUsersComponent } from './components/list-users/list-users.component';
 import { UpdateUserComponent } from './components/update-user/update-user.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -30,6 +30,7 @@ import { BaseChartDirective } from 'ng2-charts';
 import { EditIncidentComponent } from './components/edit-incident/edit-incident.component';
 import { IncidentDetailsModalComponent } from './components/incident-details-modal/incident-details-modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { AuthInterceptorService } from './auth-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,10 @@ import { MatDialogModule } from '@angular/material/dialog';
   providers: [
     DatePipe,
     CanActivateViaAuthGuard,
-    AuthService
+    AuthService,
+    { provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true}
   ],
   bootstrap: [AppComponent]
 })
