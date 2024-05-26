@@ -8,7 +8,7 @@ import { ListUsersComponent } from './components/list-users/list-users.component
 import { UpdateUserComponent } from './components/update-user/update-user.component';
 import { NewIncidentComponent } from './components/new-incident/new-incident.component';
 import { PersonalAreaComponent } from './components/personal-area/personal-area.component';
-import { CanActivateViaAuthGuard } from './auth.guard';
+import { CanActivateViaAuthGuard } from './auth/auth.guard';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { EditIncidentComponent } from './components/edit-incident/edit-incident.component';
 

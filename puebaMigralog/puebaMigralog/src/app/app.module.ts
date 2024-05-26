@@ -22,7 +22,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { DatePipe } from '@angular/common';
 import { PersonalAreaComponent } from './components/personal-area/personal-area.component';
-import { CanActivateViaAuthGuard } from './auth.guard';
+import { CanActivateViaAuthGuard } from './auth/auth.guard';
 import { AuthService } from './services/auth.service';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { NgChartsModule } from 'ng2-charts';
@@ -30,7 +30,7 @@ import { BaseChartDirective } from 'ng2-charts';
 import { EditIncidentComponent } from './components/edit-incident/edit-incident.component';
 import { IncidentDetailsModalComponent } from './components/incident-details-modal/incident-details-modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
-import { AuthInterceptorService } from './auth-interceptor.service';
+import { AuthInterceptorService } from './auth/auth-interceptor.service';
 
 @NgModule({
   declarations: [

@@ -1,7 +1,9 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { User } from '../models/user';
+import { catchError } from 'rxjs/operators';
+
 
 
 @Injectable({
@@ -16,33 +18,43 @@ export class UserService {
 
   //Metodo para registrar
   newUser(user:User) : Observable<Object>{
-    return this.http.post(`${this.baseURL}`,user);
+    return this.http.post(`${this.baseURL}`,user).pipe(
+      catchError(this.handleError));
   }
 
   //Metodo para actualizar
   updateUser(user:User) : Observable<Object>{
-    return this.http.put(`${this.baseURL}/${user.id}`,user);
+    return this.http.put(`${this.baseURL}/${user.id}`,user).pipe(
+      catchError(this.handleError));
   }
 
   //Metodo para eliminar
   deleteUser(id:number) : Observable<Object>{
-    return this.http.delete(`${this.baseURL}/${id}`);
+    return this.http.delete(`${this.baseURL}/${id}`).pipe(
+      catchError(this.handleError));
   }
 
   //Metodo para buscar por id
   getUserById(id:number):Observable<User> {
-    return this.http.get<User>(`${this.baseURL}/${id}`);
+    return this.http.get<User>(`${this.baseURL}/${id}`).pipe(
+      catchError(this.handleError));
   }
 
   //Metodo para obtener todos los empleados
   getAllUsers():Observable<User[]> {
-    return this.http.get<User[]>(`${this.baseURL}`);  
+    return this.http.get<User[]>(`${this.baseURL}`).pipe(
+      catchError(this.handleError)); 
   }
 
-  //Metodo para logarse
-  /*login(username: string, password: string): Observable<any> {
-    const credentials = { username, password };
-    return this.http.post('/api/v1/Users/login', credentials);
-  }*/
-  
+  private handleError(error: HttpErrorResponse) {
+    if (error.error instanceof ErrorEvent) {
+      // Error del lado del cliente
+      console.error('Error del lado del cliente:', error.error.message);
+    } else {
+      // Error del lado del servidor
+      console.error('Error del lado del servidor:', error.status, error.error);
+    }
+    // Devolver un observable con un mensaje de error
+    return throwError('Ocurrió un error. Por favor, inténtelo de nuevo más tarde.');
+  }
 }
