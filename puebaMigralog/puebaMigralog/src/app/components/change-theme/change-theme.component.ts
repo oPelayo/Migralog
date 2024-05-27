@@ -8,6 +8,12 @@ import { ThemeService } from 'src/app/services/theme.service';
   changeDetection: ChangeDetectionStrategy.OnPush 
 })
 export class ChangeThemeComponent implements OnInit {
+  themes = [
+    { name: 'Fondo Menta', color: 'menta' },
+    { name: 'Fondo Bosque', color: 'azul' },
+    { name: 'Fondo Vichyssoise', color: 'verde' }
+  ];
+
   constructor(public themeService: ThemeService) {}
 
   ngOnInit(): void {}
