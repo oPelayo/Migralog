@@ -11,6 +11,7 @@ import { PersonalAreaComponent } from './components/personal-area/personal-area.
 import { CanActivateViaAuthGuard } from './auth/auth.guard';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { EditIncidentComponent } from './components/edit-incident/edit-incident.component';
+import { MaintenanceAreaComponent } from './components/maintenance-area/maintenance-area.component';
 
 const routes: Routes = [
   { path: 'index', component: IndexComponent },
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'new-incident', component: NewIncidentComponent, canActivate: [CanActivateViaAuthGuard]},
   { path: 'personal-area', component: PersonalAreaComponent, canActivate: [CanActivateViaAuthGuard] },
   { path: 'edit-incident/:id', component: EditIncidentComponent, canActivate: [CanActivateViaAuthGuard] },
+  { path: 'maintenance', component: MaintenanceAreaComponent, canActivate: [CanActivateViaAuthGuard] },
   { path: 'about-us', component: AboutUsComponent } 
 ];
 

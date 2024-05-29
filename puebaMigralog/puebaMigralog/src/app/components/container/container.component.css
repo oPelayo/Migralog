@@ -1,7 +1,7 @@
 /* container.component.css */
 :host {
     display: block;
-    margin-top: 70px; /* Ajusta la altura según la barra de menú */
+    margin-top: 80px; /* Ajusta la altura según la barra de menú */
   }
   
 

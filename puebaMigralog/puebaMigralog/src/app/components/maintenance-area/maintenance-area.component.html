@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="content">
+      <input
+        type="text"
+        placeholder="Buscar usuarios..."
+        (input)="updateFilter($event)"
+        class="search-input"
+      />
+      <ngx-datatable
+        class="bootstrap"
+        [rows]="filteredUsers"
+        [columns]="[
+          { name: 'ID', prop: 'id' },
+          { name: 'Name', prop: 'name' },
+          { name: 'Last Name', prop: 'last_name' },
+          { name: 'Email', prop: 'email' },
+          { name: 'Phone', prop: 'phone' },
+          { name: 'Role', prop: 'role.name' }
+        ]"
+        [columnMode]="'force'"
+        [headerHeight]="50"
+        [footerHeight]="50"
+        [rowHeight]="'auto'"
+      >
+      </ngx-datatable>
+    </div>
+  </div>
+  

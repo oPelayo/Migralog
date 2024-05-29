@@ -27,10 +27,12 @@ import { AuthService } from './services/auth.service';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { NgChartsModule } from 'ng2-charts';
 import { BaseChartDirective } from 'ng2-charts';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { EditIncidentComponent } from './components/edit-incident/edit-incident.component';
 import { IncidentDetailsModalComponent } from './components/incident-details-modal/incident-details-modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
+import { MaintenanceAreaComponent } from './components/maintenance-area/maintenance-area.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,8 @@ import { AuthInterceptorService } from './auth/auth-interceptor.service';
     PersonalAreaComponent,
     AboutUsComponent,
     EditIncidentComponent,
-    IncidentDetailsModalComponent
+    IncidentDetailsModalComponent,
+    MaintenanceAreaComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +65,8 @@ import { AuthInterceptorService } from './auth/auth-interceptor.service';
     MatDialogModule,
     MatNativeDateModule,
     MatFormFieldModule,
-    NgChartsModule
+    NgChartsModule,
+    NgxDatatableModule
   ],
   providers: [
     DatePipe,

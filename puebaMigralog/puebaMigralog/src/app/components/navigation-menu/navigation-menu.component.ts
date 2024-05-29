@@ -9,6 +9,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class NavigationMenuComponent implements OnInit {
   isMenuOpen = false;
+  isAdmin = false;
   isUserLoggedIn = false;
   profileImageUrl: string;
   userName: string;
@@ -22,6 +23,9 @@ export class NavigationMenuComponent implements OnInit {
 
       if (this.isUserLoggedIn && user) {
         this.userName = user.user.name;
+        this.isAdmin = user.user.authorities.some((auth: { authority: string; }) => auth.authority === 'ROLE_ADMIN');
+      } else {
+        this.isAdmin = false;
       }
 
       this.profileImageUrl = this.isUserLoggedIn ? 'assets/images/image2.jpg' : 'assets/images/image1.jpg';

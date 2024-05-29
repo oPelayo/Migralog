@@ -1,0 +1,32 @@
+
+
+.container {
+    text-align: center;
+    margin: auto;
+    max-width: 800px;
+    padding: 20px; 
+    background-color: #d8d5d5; 
+    border-radius: 10px; 
+  }
+  
+  .content {
+    padding: 0%;
+    margin: 0%;
+  }
+
+  .search-input {
+    margin-bottom: 20px;
+    padding: 10px;
+    width: 100%;
+    max-width: 300px;
+    font-size: 16px;
+  }
+
+  ngx-datatable.bootstrap .datatable-row-wrapper:nth-of-type(odd) .datatable-body-row {
+    background-color: #8b1d1d; /* Color de fondo para filas impares */
+  }
+  
+  ngx-datatable.bootstrap .datatable-row-wrapper:nth-of-type(even) .datatable-body-row {
+    background-color: #ffffff; /* Color de fondo para filas pares */
+  }
+  

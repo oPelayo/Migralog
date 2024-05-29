@@ -1,54 +1,79 @@
-/* navigation-menu.component.css */
 .navbar {
-  background: rgba(62,62,62,1);
+  background: rgba(62, 62, 62, 1);
   color: rgb(255, 255, 255);
-  padding: 8px;
+  padding: 0px;
   position: fixed;
-  height: 56px;
+  height: 88px;
   width: 100%;
-  top: 0;
+  top: 0px;
   display: flex;
   justify-content: space-between;
-  align-items: center; 
-}
-
-.center-section {
-  flex-grow: 1; /* Ajusta el tamaño del contenedor flexible para que ocupe todo el espacio disponible */
-}
-
-.brand {
-  height: 50px;
-  display: flex;
-  justify-content: center; /* Centrar horizontalmente */
-  align-items: center; /* Centrar verticalmente */
-  position: relative;
-  left: 0px;
-  margin-left: 8px;
-}
-
-.brand img {
-  max-height: 100%; /* Establece la altura máxima al 100% del contenedor padre (El div "brand") */
-  width: auto; /* Hace que el ancho se ajuste automáticamente para mantener la proporción original de la imagen */
-  border-radius: 15px;
-  cursor: pointer;
+  align-items: center;
 }
 
 .left-section {
   display: flex;
   align-items: center;
-  
+}
+
+.center-section {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.right-section {
+  display: flex;
+  align-items: center;
+  padding-right: 16px;
+}
+
+.admin-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  margin-left: 10px;
+}
+
+.admin-link-hidden {
+  display: none; /* Ocultar cuando no es administrador */
+}
+
+.admin-icon {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+.brand {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 53px;
+}
+
+.brand img {
+  max-height: 100%;
+  width: auto;
+  border-radius: 15px;
+  cursor: pointer;
 }
 
 .menu-button {
-  background: rgba(62,62,62,1);
+  background: rgba(62, 62, 62, 1);
   color: #fff;
-  height: 70px;
+  height: 60px;
   padding-bottom: 0px;
   margin-bottom: 0px;
+  margin-left: 10px;
   border: none;
   cursor: pointer;
   border-radius: 16px;
-  white-space: nowrap;  /* Evitar salto de línea */
+  white-space: nowrap;
 }
 
 .menu {
@@ -59,7 +84,7 @@
   left: 0;
   display: none;
   border-radius: 8px;
-  text-size-adjust: 150% ;
+  text-size-adjust: 150%;
 }
 
 .menu-link {
@@ -85,14 +110,8 @@
   display: block;
 }
 
-.right-section {
-  display: flex;
-  align-items: center;
-  padding-right: 16px;
-}
-
 .login-button {
-  background: rgba(62,62,62,1);
+  background: rgba(62, 62, 62, 1);
   color: white;
   border-radius: 8px;
   padding-right: 8px;
@@ -101,7 +120,7 @@
   cursor: pointer;
 }
 
-.avatar-container{
+.avatar-container {
   height: 50px;
   position: relative;
   top: 0px;
@@ -109,17 +128,16 @@
   margin-left: 8px;
 }
 
-.avatar-container  img {
+.avatar-container img {
   max-height: 100%;
   width: auto;
   border-radius: 15px;
 }
 
 .avatar-container span {
-  position: relative ;
+  position: relative;
   top: -21px;
-  left: 8px;
+  left: 0px;
   font-family: Arial, sans-serif;
   margin-right: 8px;
 }
-
