@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
+import { ThemeService } from 'src/app/services/theme.service';
 
 @Component({
   selector: 'app-login-user',
@@ -11,9 +12,16 @@ import { User } from 'src/app/models/user';
 export class LoginUserComponent {
   user: User = new User();
   errorMessage: string = '';
+  backgroundColorClass: string = '';
+  constructor(private authService: AuthService, private router: Router, private themeService: ThemeService) { }
 
-  constructor(private authService: AuthService, private router: Router) { }
-
+  ngOnInit(): void {    
+    // Subscribe to theme changes
+    this.themeService.getSelectedBackgroundColor().subscribe(color => {
+      this.backgroundColorClass = color;
+    });
+  }
+  
   loginUser() {
     if (this.user.email && this.user.password) {
       this.authService.login(this.user.email, this.user.password).subscribe(

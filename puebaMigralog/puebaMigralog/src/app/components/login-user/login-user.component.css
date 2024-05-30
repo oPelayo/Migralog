@@ -41,7 +41,7 @@
   
   .button {
     width: 100%;
-    background-color: #2ad675;
+    
     border-radius: 10px;
     max-width: 300px; /* Reducir el ancho máximo del botón */
     height: 50px; /* Aumentar la altura del botón */

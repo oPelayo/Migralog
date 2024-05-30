@@ -53,7 +53,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 53px;
+  margin-left: 20px;
 }
 
 .brand img {
@@ -139,5 +139,5 @@
   top: -21px;
   left: 0px;
   font-family: Arial, sans-serif;
-  margin-right: 8px;
+  margin-right: 2px;
 }

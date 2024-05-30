@@ -1,12 +1,11 @@
 <div class="navbar">
   <div class="left-section">
     <button class="menu-button" (click)="toggleMenu()">☰ Menú</button>
-
     <div class="menu" [ngClass]="{'is-menu-open': isMenuOpen}" (mouseleave)="closeMenu()">
       <ul>
         <li><a routerLink="/" class="menu-link">Inicio</a></li>
         <li><a routerLink="/login-user" class="menu-link">Login</a></li>
-        <li><a routerLink="/change-theme" class="menu-link" onclick="location.href='/change-theme'">Cambiar tema</a></li>       
+        <li><a routerLink="/change-theme" class="menu-link" onclick="location.href='/change-theme'">Cambiar tema</a></li>
         <li><a routerLink="/personal-area" class="menu-link">Area Personal</a></li>
         <li><a routerLink="/about-us" class="menu-link">Quiénes Somos</a></li>
         <li><a routerLink="/logout" class="menu-link" (click)="logout()">Logout</a></li>
@@ -18,16 +17,16 @@
     <div class="brand" alt="migralog-app">
       <img src="assets/images/logo.jpeg" routerLink="/index" />
     </div>
-  </div>
+  </div>  
 
   <div class="right-section">
-    <div [ngClass]="{'admin-link': isAdmin, 'admin-link-hidden': !isAdmin}">
-      <ng-container *ngIf="isAdmin">
+    <ng-container *ngIf="isAdmin">
+      <div class="admin-link">
         <a routerLink="/maintenance">
-          <img class="admin-icon" src="assets/images/admin-icon_2.png" alt="Admin Maintenance">
+          <img class="admin-icon" src="assets/images/admin-icon_2.png" alt="Admin Maintenance"> 
         </a>
-      </ng-container>
-    </div>
+      </div>
+    </ng-container>
 
     <ng-container *ngIf="isUserLoggedIn; else loginButton">
       <div class="avatar-container">
