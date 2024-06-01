@@ -25,7 +25,8 @@ const routes: Routes = [
   { path: 'personal-area', component: PersonalAreaComponent, canActivate: [CanActivateViaAuthGuard] },
   { path: 'edit-incident/:id', component: EditIncidentComponent, canActivate: [CanActivateViaAuthGuard] },
   { path: 'maintenance', component: MaintenanceAreaComponent, canActivate: [CanActivateViaAuthGuard] },
-  { path: 'about-us', component: AboutUsComponent } 
+  { path: 'about-us', component: AboutUsComponent },
+  { path: 'signup', component: AppSingupComponent }
 ];
 
 @NgModule({
