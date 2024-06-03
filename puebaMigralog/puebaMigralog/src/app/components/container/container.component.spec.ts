@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { ContainerComponent } from '../container.component';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ContainerComponent } from './container.component';
 
 describe('ContainerComponent', () => {
   let component: ContainerComponent;
@@ -8,7 +8,11 @@ describe('ContainerComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ContainerComponent]
+      declarations: [ContainerComponent],
+      providers: [
+        { provide: MatDialogRef, useValue: {} },
+        { provide: MAT_DIALOG_DATA, useValue: {} }
+      ]
     });
     fixture = TestBed.createComponent(ContainerComponent);
     component = fixture.componentInstance;

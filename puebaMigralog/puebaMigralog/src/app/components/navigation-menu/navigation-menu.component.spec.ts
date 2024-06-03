@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { NavigationMenuComponent } from './navigation-menu.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('NavigationMenuComponent', () => {
   let component: NavigationMenuComponent;
@@ -8,7 +9,12 @@ describe('NavigationMenuComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [NavigationMenuComponent]
+      imports: [HttpClientTestingModule],
+      declarations: [NavigationMenuComponent],
+      providers: [
+        { provide: MatDialogRef, useValue: {} },
+        { provide: MAT_DIALOG_DATA, useValue: {} }
+      ]
     });
     fixture = TestBed.createComponent(NavigationMenuComponent);
     component = fixture.componentInstance;

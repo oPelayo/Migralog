@@ -22,7 +22,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { DatePipe } from '@angular/common';
 import { PersonalAreaComponent } from './components/personal-area/personal-area.component';
-import { CanActivateViaAuthGuard } from './auth/auth.guard';
+import { AuthGuard } from './auth/auth.guard';
 import { AuthService } from './services/auth.service';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { NgChartsModule } from 'ng2-charts';
@@ -70,7 +70,7 @@ import { MaintenanceAreaComponent } from './components/maintenance-area/maintena
   ],
   providers: [
     DatePipe,
-    CanActivateViaAuthGuard,
+    AuthGuard,
     AuthService,
     { provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptorService,

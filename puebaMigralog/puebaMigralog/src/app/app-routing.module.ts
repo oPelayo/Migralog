@@ -8,7 +8,7 @@ import { ListUsersComponent } from './components/list-users/list-users.component
 import { UpdateUserComponent } from './components/update-user/update-user.component';
 import { NewIncidentComponent } from './components/new-incident/new-incident.component';
 import { PersonalAreaComponent } from './components/personal-area/personal-area.component';
-import { CanActivateViaAuthGuard } from './auth/auth.guard';
+import { AuthGuard } from './auth/auth.guard';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { EditIncidentComponent } from './components/edit-incident/edit-incident.component';
 import { MaintenanceAreaComponent } from './components/maintenance-area/maintenance-area.component';
@@ -18,13 +18,13 @@ const routes: Routes = [
   { path: '', redirectTo: '/index', pathMatch: 'full' },
   { path: 'app-singup', component: AppSingupComponent },
   { path: 'login-user', component: LoginUserComponent },
-  { path: 'change-theme', component: ChangeThemeComponent, canActivate: [CanActivateViaAuthGuard] },
-  { path: 'list-users', component: ListUsersComponent, canActivate: [CanActivateViaAuthGuard] },
-  { path: 'update-user/:id', component: UpdateUserComponent, canActivate: [CanActivateViaAuthGuard] },
-  { path: 'new-incident', component: NewIncidentComponent, canActivate: [CanActivateViaAuthGuard]},
-  { path: 'personal-area', component: PersonalAreaComponent, canActivate: [CanActivateViaAuthGuard] },
-  { path: 'edit-incident/:id', component: EditIncidentComponent, canActivate: [CanActivateViaAuthGuard] },
-  { path: 'maintenance', component: MaintenanceAreaComponent, canActivate: [CanActivateViaAuthGuard] },
+  { path: 'change-theme', component: ChangeThemeComponent, canActivate: [AuthGuard] },
+  { path: 'list-users', component: ListUsersComponent, canActivate: [AuthGuard] },
+  { path: 'update-user/:id', component: UpdateUserComponent, canActivate: [AuthGuard] },
+  { path: 'new-incident', component: NewIncidentComponent, canActivate: [AuthGuard]},
+  { path: 'personal-area', component: PersonalAreaComponent, canActivate: [AuthGuard] },
+  { path: 'edit-incident/:id', component: EditIncidentComponent, canActivate: [AuthGuard] },
+  { path: 'maintenance', component: MaintenanceAreaComponent, canActivate: [AuthGuard] },
   { path: 'about-us', component: AboutUsComponent },
   { path: 'signup', component: AppSingupComponent }
 ];
