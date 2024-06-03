@@ -1,4 +1,6 @@
 .container {
+  position:relative;
+  top: -40px;
   text-align: center;
   margin: auto;
   max-width: 600px;
@@ -10,18 +12,19 @@
 .content {
   padding: 0%;
   margin: 0%;
+  margin-top: 20px;
 }
 
 .welcome-message {
   font-size: 24px;
   margin-bottom: 20px;
-  color: #040269; 
+  color: #000000; 
 }
 
 .description {
   font-size: 16px;
   margin-bottom: 20px;
-  color: #040269; 
+  color: #000000; 
 }
 
 .frase-del-dia {
@@ -38,3 +41,12 @@
 .frase-del-dia-text {
   font-size: 16px;
 }
+
+.button {
+  width: 100%;
+  border-radius: 10px;
+  max-width: 300px; /* Reducir el ancho máximo del botón */
+  height: 50px; /* Aumentar la altura del botón */
+  font-size: large;
+}
+

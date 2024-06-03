@@ -17,19 +17,20 @@ export class ChangeThemeComponent implements OnInit {
   constructor(public themeService: ThemeService) {}
 
   ngOnInit(): void {}
-
+  
+  //Selector de color de fondo
   setSelectedBackgroundColor(color: string) {
     this.themeService.setSelectedBackgroundColor(color);
   }
-
-  setSelectedColor(color: string) {
-    this.themeService.setSelectedColor(color);
-  }
+  //Selector color de letra, por implementar
+  // setSelectedColor(color: string) {
+  //   this.themeService.setSelectedColor(color);
+  // }
 
   setSelectedFontSize(size: number) {
     this.themeService.setSelectedFontSize(size);
   }
-
+//Descartado por contrastes, color de Navbar
 /*  setSelectedMenuColor(color: string) {
     this.themeService.setSelectedMenuColor(color);
   }*/
