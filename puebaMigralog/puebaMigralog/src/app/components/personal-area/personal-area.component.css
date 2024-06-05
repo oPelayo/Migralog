@@ -1,10 +1,12 @@
 .container {
+  position: relative;
+  top: -40px;
   text-align: center;
   margin: auto;
   margin-top: 20px;
-  max-width: 650px; /* Aumentamos el ancho máximo para mejorar la legibilidad */
-  background-color: #d8d5d5; /* Cambiamos el fondo a gris */
-  padding: 20px; /* Agregamos un poco de espacio interno */
+  max-width: 650px; 
+  background-color: #d8d5d5; 
+  padding: 30px; 
   border-radius: 10px; 
 }
   
@@ -26,18 +28,18 @@
 
   .list-container {
     width: 100%;
-    overflow-x: auto; /* Agregamos un desplazamiento horizontal */
+    overflow-x: auto; 
     margin-bottom: 80px;
   }
   
   table {
     border: 1px solid #ccc;
-    border-radius: 10px; /* Agregamos bordes redondeados */
-    border-collapse: separate; /* Añadimos separación entre las celdas */
+    border-radius: 10px; 
+    border-collapse: separate; 
     width: 100%;
     height: auto;
-    background-color: #f6f6f6; /* Utilizamos un tono suave de gris para el fondo */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Añadimos una sombra suave */
+    background-color: #f6f6f6; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
   }
   
   th, td {
@@ -47,16 +49,16 @@
   
   .icon-container {
     cursor: pointer;
-    margin-right: 10px; /* Ajusta el espacio entre los iconos */
+    margin-right: 10px; 
   }
   
   .material-icons {
     font-size: 24px;
-    color:  #4ed689;
+    color:  #1120cc;
   }
   
   .material-icons:hover {
-    color:  #1e995f;
+    color:  #0c0259;
   }
   
   button {
@@ -73,5 +75,5 @@
   }
   
   button:hover {
-    background-color: #1e995f; /* Cambiamos el color del botón al pasar el cursor */
+    background-color: #1e995f; 
   }

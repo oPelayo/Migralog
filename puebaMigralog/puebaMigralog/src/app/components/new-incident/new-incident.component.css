@@ -1,39 +1,61 @@
 .form-container {
+  position: relative;
+    top: -40px;
     text-align: center;
     margin: auto;
     max-width: 600px;
     background-color: #e4e4e4; /* Color de fondo para el container */
     padding: 20px; /* Agregar un relleno para separar del borde */
     border-radius: 10px; /* Agregar bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para darle profundidad */
   }
   
   .form-container h2 {
+    margin-top: 8px;
     margin-bottom: 20px;
   }
   
-  .form-container form {
+  .form-group {
+    width: 100%; /* Asegura que cada grupo de formulario ocupe el ancho completo */
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Alinea los elementos verticalmente */
+    align-items: center; /* Alinea el contenido al centro */
+    padding-inline: 10%;
+    margin-bottom: 15px; /* Espaciado entre los campos */
   }
   
-  .form-container label {
-    margin-bottom: 10px;
+  .form-group label {
+    width: 100%; /* Ajusta el ancho de las etiquetas */
+    text-align: left;
+    font-weight: 600;
   }
   
-  .form-container input {
-    margin-bottom: 15px;
-    padding: 8px;
+  .form-group input {
+    width: 100%; /* Ajusta el ancho de los inputs */
+    padding: 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
+    font-size: 16px;
   }
   
   .form-container button {
-    background-color: #2ad675;
+    width: 100%;
+    max-width: 300px;
     color: black;
     padding: 10px 20px;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
+    margin-top: 16px;
+    margin-bottom: 40px;
+    font-size: large;
+  }
+
+  .error-message {
+    color: rgb(234, 67, 67);
+    font-size: 14px;
+    margin-top: 5px; /* Ajusta el margen superior para mensajes de error */
+    text-align: center;
   }
   
   .form-container button:hover {

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
+import { ThemeService } from 'src/app/services/theme.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -11,10 +12,26 @@ import { UserService } from 'src/app/services/user.service';
 export class AppSingupComponent implements OnInit {
   user = new User();
   isSubmitting = false;
+  backgroundColorClass: string = '';
+  showGeneralError = false;
 
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(private userService: UserService, private router: Router, private themeService: ThemeService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void 
+  {
+    this.themeService.getSelectedBackgroundColor().subscribe(color => {
+      this.backgroundColorClass = color;
+    });
+  }
+
+  onSubmit(form: any) {
+    if (form.invalid) {
+      this.showGeneralError = true;
+      return;
+    }
+    this.showGeneralError = false;
+    this.saveUser();
+  }
 
   saveUser() {
     this.isSubmitting = true; // Indica que el formulario se está enviando

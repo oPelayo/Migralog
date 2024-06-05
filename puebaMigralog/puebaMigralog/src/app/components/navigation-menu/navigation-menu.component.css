@@ -1,3 +1,4 @@
+/* General Navbar Styles */
 .navbar {
   background: rgba(62, 62, 62, 1);
   color: rgb(255, 255, 255);
@@ -10,11 +11,16 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-sizing: border-box;
+  white-space: nowrap;
 }
 
-.left-section {
+.left-section,
+.center-section,
+.right-section {
   display: flex;
   align-items: center;
+  flex-shrink: 0;
 }
 
 .center-section {
@@ -25,8 +31,6 @@
 }
 
 .right-section {
-  display: flex;
-  align-items: center;
   padding-right: 16px;
 }
 
@@ -68,8 +72,7 @@
   background: rgba(62, 62, 62, 1);
   color: #fff;
   height: 60px;
-  padding-bottom: 0px;
-  margin-bottom: 0px;
+  padding: 0 10px;
   margin-left: 10px;
   border: none;
   cursor: pointer;
@@ -85,7 +88,6 @@
   left: 0;
   display: none;
   border-radius: 8px;
-  text-size-adjust: 150%;
 }
 
 .menu-link {
@@ -115,18 +117,14 @@
   background: rgba(62, 62, 62, 1);
   color: white;
   border-radius: 8px;
-  padding-right: 8px;
-  padding-left: 8px;
+  padding: 8px 16px;
   border: none;
   cursor: pointer;
 }
 
 .avatar-container {
   height: 50px;
-  position: relative;
-  top: 0px;
-  margin-right: 8px;
-  margin-left: 8px;
+  margin: 0 8px;
 }
 
 .avatar-container img {
@@ -135,10 +133,3 @@
   border-radius: 15px;
 }
 
-.avatar-container span {
-  position: relative;
-  top: -21px;
-  left: 0px;
-  font-family: Arial, sans-serif;
-  margin-right: 2px;
-}

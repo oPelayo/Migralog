@@ -1,22 +1,24 @@
 <div class="container">
     <div class="content">
-        <h3 *ngIf="isUserLoggedIn; else notLoggedIn" class="welcome-message">Bienvenida/o {{ userName }}</h3>
-        <ng-template #notLoggedIn>
-            <h3 class="welcome-message">Regístrate con nosotros o haz login</h3>
-        </ng-template>
-
-        <p class="description">Para todas las personas que buscan una solución a la migraña y les dicen que no existe.<br>
+        <div class="welcome-message-cont">
+            <h3 *ngIf="isUserLoggedIn; else notLoggedIn" class="welcome-message">Bienvenida/o {{ userName }}</h3>
+            <ng-template #notLoggedIn>
+                <h3 class="welcome-message">Hola, puedes <a [routerLink]="['/login-user']">acceder</a> o <a [routerLink]="['/signup']">registrarte</a> con nosotros<br /> sí aún no lo has hecho.</h3>
+            </ng-template>
+        </div>
+        <div>
+        <p class="description">Para todas las personas que buscan una solución a la migraña<br/> y les dicen que no existe.<br>
             - “La información es poder” <i>Leviatan, 1651.</i></p>
-
-            <div [ngClass]="backgroundColorClass" class="frase-del-dia">
+        </div>
+        <div [ngClass]="backgroundColorClass" class="frase-del-dia">
             <h3 class="frase-del-dia-title">Frase del día:</h3>
             <p class="frase-del-dia-text">{{ phraseDay }}</p>
         </div>
-
-        <p class="description">El uso que hacemos de tus datos pueden mejorar la calidad de vida de muchas personas como
-            tu.<br>
-            Pregunta si tienes alguna duda o registra una incidencia para completar tu registro</p>
-
+        <div class="description-container">
+            <p class="description">El uso que hacemos de tus datos pueden mejorar la calidad de vida<br/> de muchas personas como
+                tu.<br>
+                <!-- Pregunta si tienes alguna duda o registra una incidencia para completar tu registro</p> -->
+        </div>
         <button routerLink="/new-incident" mat-raised-button color="primary" [ngClass]="backgroundColorClass" class="button">
             <mat-icon>add</mat-icon>
             Nuevo Episodio

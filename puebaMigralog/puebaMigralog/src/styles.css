@@ -2,69 +2,95 @@
 html, body { height: 100%; }
 
 body {
-    background-color: #2ad675; 
-    height: 100%;
-    margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
-    color: black;
-  }
+  background-color: #2ad675; 
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  color: black;
+}
 
-  body.menta {
-    background-color: #6a9b59;
-  }
-  
-  body.azul {
-    background-color: #3cafa3;
-  }
-  
-  body.verde {
-    background-color: #b7d8a6;
-  }
+.menta {
+  background-color: #6a9b59;
+}
 
-  .menta {
-    background-color: #6a9b59;
-  }
-  
-  .azul {
-    background-color: #3cafa3;
-  }
-  
-  .verde {
-    background-color: #b7d8a6;
-  }
-  
-  body.negro {
-    color: black;
-  }
-  
-  body.blanco {
-    color: white;
-  }
-  
-  body.pequeno {
-    font-size: 12px;
-  }
-  
-  body.mediano {
-    font-size: 16px;
-  }
-  
-  body.grande {
-    font-size: 24px;
-  }
-  
+.azul {
+  background-color: #84c2a2;
+}
 
-  /*modificar color de menu (sin terminar)
-  .menu-rojo {
-    background-color: red;
+.verde {
+  background-color: #b7d8a6;
+}
+
+body.menta {
+  background-color: #6a9b59;
+}
+
+body.azul {
+  background-color: #3cafa3;
+}
+
+body.verde {
+  background-color: #b7d8a6;
+}
+
+/* body.negro {
+  color: black;
+}
+
+body.blanco {
+  color: white;
+} */
+
+body.pequeno {
+  font-size: 12px;
+}
+
+body.mediano {
+  font-size: 16px;
+}
+
+body.grande {
+  font-size: 24px;
+}
+
+/* Responsive Styles */
+@media (max-width: 480px) {
+  .container {
+    max-width: 100%;
+    padding: 10px;
   }
-  
-  .menu-azul {
-    background-color: blue;
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .container {
+    max-width: 100%;
+    padding: 10px;
   }
-  
-  .menu-verde {
-    background-color: green;
-  }*/
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .container {
+    max-width: 90%;
+    padding: 15px;
+  }
+}
+
+@media (min-width: 1025px) {
+  .container {
+    max-width: 80%;
+    padding: 20px;
+  }
+}
 
 
+@media (max-width: 1200px) {
+ 
+}
+
+@media (max-width: 992px) {
+  
+}
+
+@media (max-width: 768px) {
+  
+}

@@ -1,46 +1,62 @@
 .new-user {
-    text-align: center;
-    margin: auto;
-    max-width: 600px;
-    background-color: #e4e4e4; /* Color de fondo para el container */
-    padding: 20px; /* Agregar un relleno para separar del borde */
-    border-radius: 10px; /* Agregar bordes redondeados */
-  }
+  position: relative;
+  top: -40px;
+  text-align: center;
+  margin: auto;
+  max-width: 600px;
+  background-color: #e4e4e4; /* Color de fondo para el container */
+  padding: 20px; /* Agregar un relleno para separar del borde */
+  border-radius: 10px; /* Agregar bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para darle profundidad */
+}
   
   .new-user h3 {
     margin-bottom: 20px;
   }
   
-  .new-user form {
+  .form-group {
+    width: 100%; /* Asegura que cada grupo de formulario ocupe el ancho completo */
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Alinea los elementos verticalmente */
+    align-items: center;
+    padding-inline: 10%;
+    margin-bottom: 15px; /* Espaciado entre los campos */
   }
   
-  .new-user label {
-    margin-bottom: 10px;
+  .form-group label {
+    width: 60%; /* Ajusta el ancho de las etiquetas */
+    text-align: left;
+    font-weight: 600;
   }
   
-  .new-user input {
-    margin-bottom: 15px;
-    padding: 8px;
+  .form-group input {
+    width: 65%; /* Ajusta el ancho de los inputs */
+    padding: 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
+    font-size: 16px;
   }
   
   .new-user button {
     width: 100%;
     margin: auto;
-    background-color: #2ad675;
+    margin-top: 10px;
+    margin-bottom:20px;
     color: black;
     padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
-    max-width: 300px
-    
+    max-width: 300px;
   }
   
-  .new-user button:hover {
-    background-color: #218f58; /* Color de fondo al pasar el ratón */
+  .error-message {
+    color: rgb(234, 67, 67);
+    font-size: 14px;
+    margin-top: 5px; /* Ajusta el margen superior para mensajes de error */
+    text-align: center;
   }
+
+  /* .new-user button:hover {
+    background-color: #218f58; // Color de fondo al pasar el ratón
+  } */
   
