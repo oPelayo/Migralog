@@ -1,14 +1,14 @@
 <div class="container">
     <div class="content">
         <div class="welcome-message-cont">
-            <h3 *ngIf="isUserLoggedIn; else notLoggedIn" class="welcome-message">Bienvenida/o {{ userName }}</h3>
+            <h3 *ngIf="isUserLoggedIn; else notLoggedIn" class="welcome-message">Te damos la bienvenida {{ userName }}</h3>
             <ng-template #notLoggedIn>
                 <h3 class="welcome-message">Hola, puedes <a [routerLink]="['/login-user']">acceder</a> o <a [routerLink]="['/signup']">registrarte</a> con nosotros<br /> sí aún no lo has hecho.</h3>
             </ng-template>
         </div>
         <div>
-        <p class="description">Para todas las personas que buscan una solución a la migraña<br/> y les dicen que no existe.<br>
-            - “La información es poder” <i>Leviatan, 1651.</i></p>
+        <p class="description">Para todas las personas que buscan una solución a la migraña<br/> y les dicen que no existe:<br>
+             “La información es poder” <i>Leviatan, 1651.</i></p>
         </div>
         <div [ngClass]="backgroundColorClass" class="frase-del-dia">
             <h3 class="frase-del-dia-title">Frase del día:</h3>

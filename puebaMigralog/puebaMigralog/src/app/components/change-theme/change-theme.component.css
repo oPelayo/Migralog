@@ -5,13 +5,19 @@
 }
 
 .container {
+  position: relative;
+  top: -40px;
   text-align: center;
   margin: auto;
+  margin-top: 16px;
   max-width: 600px;
   padding: 20px; 
   padding-bottom: 20px;
   background-color: #d8d5d5; 
-  border-radius: 10px; 
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1), 
+      5px 5px 10px rgba(0, 0, 0, 0.1), 
+      10px 10px 20px rgba(0, 0, 0, 0.1); 
 }
 
 .change-theme {
@@ -27,6 +33,10 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
+}
+
+.font-size-options {
+  margin-bottom: 32px;
 }
 
 .theme-option {

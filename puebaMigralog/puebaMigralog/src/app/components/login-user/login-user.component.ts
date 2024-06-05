@@ -13,6 +13,7 @@ export class LoginUserComponent {
   user: User = new User();
   errorMessage: string = '';
   backgroundColorClass: string = '';
+
   constructor(private authService: AuthService, private router: Router, private themeService: ThemeService) { }
 
   ngOnInit(): void {    
@@ -22,25 +23,29 @@ export class LoginUserComponent {
     });
   }
   
-  loginUser() {
-    if (this.user.email && this.user.password) {
-      this.authService.login(this.user.email, this.user.password).subscribe(
-        (response) => {
-          if (!response.success) {
-            this.errorMessage = response.message;
-          }
-        },
-        (error) => {
-          if (error.status === 401) {
-            this.errorMessage = 'Credenciales incorrectas. Por favor, inténtalo de nuevo.';
-          } else {
-            this.errorMessage = 'Error al iniciar sesión. Por favor, inténtalo de nuevo más tarde.';
-          }
-          console.error('Error al iniciar sesión:', error);
-        }
-      );
-    } else {
-      this.errorMessage = 'Por favor, ingresa tu email y contraseña.';
+  loginUser(form: any) {
+    if (form.invalid) {
+      this.errorMessage = 'Por favor, completa todos los campos correctamente.';
+      return;
     }
+
+    this.authService.login(this.user.email, this.user.password).subscribe(
+      (response) => {
+        if (!response.success) {
+          this.errorMessage = response.message;
+        } else {
+          // Redirigir a la página de inicio después del login exitoso
+          this.router.navigate(['/index']);
+        }
+      },
+      (error) => {
+        if (error.status === 401) {
+          this.errorMessage = 'Credenciales incorrectas. Por favor, inténtalo de nuevo.';
+        } else {
+          this.errorMessage = 'Error al iniciar sesión. Por favor, inténtalo de nuevo más tarde.';
+        }
+        console.error('Error al iniciar sesión:', error);
+      }
+    );
   }
 }

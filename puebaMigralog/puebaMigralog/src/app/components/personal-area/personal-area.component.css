@@ -45,6 +45,7 @@
   th, td {
     border: none;
     padding: 12px;
+    white-space: nowrap;
   }
   
   .icon-container {

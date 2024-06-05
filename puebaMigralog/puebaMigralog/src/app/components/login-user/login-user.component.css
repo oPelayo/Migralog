@@ -7,6 +7,9 @@
     padding: 20px; /* Añadir un relleno para separar del borde */
     background-color: #d8d5d5; /* Color de fondo para diferenciar del fondo de la página */
     border-radius: 10px; /* Agregar bordes redondeados */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1), 
+      5px 5px 10px rgba(0, 0, 0, 0.1), 
+      10px 10px 20px rgba(0, 0, 0, 0.1);
   }
   
   .login-form {
@@ -46,4 +49,5 @@
     height: 50px; /* Aumentar la altura del botón */
     font-size: large;
   }
+  
   

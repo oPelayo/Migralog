@@ -4,10 +4,12 @@
   text-align: center;
   margin: auto;
   max-width: 600px;
-  background-color: #e4e4e4; /* Color de fondo para el container */
-  padding: 20px; /* Agregar un relleno para separar del borde */
-  border-radius: 10px; /* Agregar bordes redondeados */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para darle profundidad */
+  background-color: #e4e4e4; 
+  padding: 20px; 
+  border-radius: 10px; 
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1), 
+  5px 5px 10px rgba(0, 0, 0, 0.1), 
+  10px 10px 20px rgba(0, 0, 0, 0.1);
 }
   
   .new-user h3 {
