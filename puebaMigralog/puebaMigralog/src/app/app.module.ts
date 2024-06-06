@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,7 +21,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { DatePipe } from '@angular/common';
+import { CommonModule, DatePipe, registerLocaleData } from '@angular/common';
 import { PersonalAreaComponent } from './components/personal-area/personal-area.component';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthService } from './services/auth.service';
@@ -34,6 +34,10 @@ import { IncidentDetailsModalComponent } from './components/incident-details-mod
 import { MatDialogModule } from '@angular/material/dialog';
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
 import { MaintenanceAreaComponent } from './components/maintenance-area/maintenance-area.component';
+import localeEs from '@angular/common/locales/es';
+import { UserDetailsModalComponent } from './components/user-details-modal/user-details-modal.component';
+
+registerLocaleData(localeEs, 'es-ES');
 
 @NgModule({
   declarations: [
@@ -52,7 +56,8 @@ import { MaintenanceAreaComponent } from './components/maintenance-area/maintena
     AboutUsComponent,
     EditIncidentComponent,
     IncidentDetailsModalComponent,
-    MaintenanceAreaComponent
+    MaintenanceAreaComponent,
+    UserDetailsModalComponent
   ],
   imports: [
     BrowserModule,
@@ -68,7 +73,8 @@ import { MaintenanceAreaComponent } from './components/maintenance-area/maintena
     MatFormFieldModule,
     MatTooltipModule,
     NgChartsModule,
-    NgxDatatableModule
+    NgxDatatableModule,
+    CommonModule,
   ],
   providers: [
     DatePipe,
@@ -76,9 +82,9 @@ import { MaintenanceAreaComponent } from './components/maintenance-area/maintena
     AuthService,
     { provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptorService,
-      multi: true}
+      multi: true},
+    { provide: LOCALE_ID, useValue: 'es-ES' } 
   ],
   bootstrap: [AppComponent]
-  
 })
 export class AppModule { }

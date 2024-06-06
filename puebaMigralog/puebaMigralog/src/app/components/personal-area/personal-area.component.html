@@ -1,14 +1,32 @@
 <div class="container">
-  <div>
+  <div class="welcome-section">
     <h1>Este es tu área personal {{ userName }}</h1>
   </div>
-  <div>
-    <h4>Actividad Previa más Común: {{ mostCommonPreviousActivity }}</h4>
-    <h4>Duración Media de los Incidentes: {{ averageDurationFormatted }}</h4>
+  <div class="analysis-section">
+    <div class="stat-card">
+      <div class="stat-icon">
+        <i class="material-icons">trending_up</i>
+      </div>
+      <div class="stat-details">
+        <h4>Actividad Previa más Común</h4>
+        <p>{{ mostCommonPreviousActivity }}</p>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">
+        <i class="material-icons">schedule</i>
+      </div>
+      <div class="stat-details">
+        <h4>Duración Media de los Incidentes</h4>
+        <p>{{ averageDurationFormatted }}</p>
+      </div>
+    </div>
   </div>
 
+  <h2>Actividades disparadoras</h2>
   <!-- Gráfico -->
   <div class="chart-container">
+    
     <canvas baseChart
             [datasets]="barChartData"
             [labels]="barChartLabels"

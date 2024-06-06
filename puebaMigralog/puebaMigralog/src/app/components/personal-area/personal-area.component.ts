@@ -1,4 +1,4 @@
-import { Component, OnInit, NgModule } from '@angular/core';
+import { Component, OnInit, NgModule, ViewEncapsulation } from '@angular/core';
 import { Incident } from 'src/app/models/incident';
 import { IncidentService } from '../../services/incident.service';
 import { Router } from '@angular/router';
@@ -11,6 +11,7 @@ import { ChartTypeRegistry } from 'chart.js';
   selector: 'app-personal-area',
   templateUrl: './personal-area.component.html',
   styleUrls: ['./personal-area.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class PersonalAreaComponent implements OnInit {
   incidents: Incident[] = [];
@@ -152,7 +153,7 @@ export class PersonalAreaComponent implements OnInit {
     });
   
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      
       
     });
   }

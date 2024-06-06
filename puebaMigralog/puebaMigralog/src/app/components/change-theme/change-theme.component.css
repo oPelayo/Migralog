@@ -6,7 +6,7 @@
 
 .container {
   position: relative;
-  top: -40px;
+  top: -30px;
   text-align: center;
   margin: auto;
   margin-top: 16px;
@@ -23,11 +23,12 @@
 .change-theme {
   display: flex;
   flex-direction: column;
+  margin-top: 16px;
   align-items: center; /* Centra horizontalmente */
   justify-content: center; /* Centra verticalmente */
 }
 
-.theme-options, .color-options, .font-size-options {
+.theme-options /*, .color-options, .font-size-options*/ {
   display: flex;
   flex-direction: column; /* Cambiado a columna para disposición vertical */
   align-items: center;
