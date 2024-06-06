@@ -59,9 +59,14 @@
 
 .button {
   width: 100%;
+  color: #000000;
   border-radius: 10px;
   max-width: 300px; /* Reducir el ancho máximo del botón */
   height: 50px; /* Aumentar la altura del botón */
   font-size: large;
 }
 
+.material-icons {
+  font-size: 24px;
+  color: #1120cc;
+}
