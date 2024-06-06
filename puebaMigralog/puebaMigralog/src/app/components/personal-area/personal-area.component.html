@@ -25,7 +25,7 @@
       <thead>
         <tr>
           <th>Fecha Inicio</th>
-          <th>Actividad Previa</th>
+          <th>Act. Previa</th>
           <th>Medicación</th>
           <th>Duración</th>
           <th>Acciones</th>
@@ -38,15 +38,15 @@
           <td>{{ incident.medication }}</td>
           <td>{{ getDuration(incident) }}</td>
           <td>
+            <span class="icon-container" (click)="openModal(incident)">
+              <i class="material-icons">visibility</i>
+            </span>
             <span class="icon-container" (click)="editIncident(incident.id)">
               <i class="material-icons">create</i>
             </span>
             <span class="icon-container" (click)="deleteIncident(incident.id)">
               <i class="material-icons">delete</i>
-            </span>
-            <span class="icon-container" (click)="openModal(incident)">
-              <i class="material-icons">visibility</i>
-            </span>
+            </span>            
           </td>
         </tr>
       </tbody>

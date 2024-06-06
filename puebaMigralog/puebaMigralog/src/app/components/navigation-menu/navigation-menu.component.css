@@ -12,13 +12,14 @@
   justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
+  overflow-x: auto; 
   white-space: nowrap;
 }
 
 .left-section,
 .center-section,
 .right-section {
-  display: flex;
+  display: flexbox;
   align-items: center;
   flex-shrink: 0;
 }
@@ -69,11 +70,14 @@
 }
 
 .menu-button {
+  position: relative;
+  top: 20px;
   background: rgba(62, 62, 62, 1);
   color: #fff;
   height: 60px;
   padding: 0 10px;
   margin-left: 10px;
+  padding-bottom: 40px;
   border: none;
   cursor: pointer;
   border-radius: 16px;
@@ -133,3 +137,10 @@
   border-radius: 15px;
 }
 
+/* Responsive Styles */
+@media (max-width: 364px) {
+  .navbar {
+    flex-direction: row;
+    overflow-x: auto; /* Habilita el desplazamiento horizontal */
+  }
+}

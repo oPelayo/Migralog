@@ -12,6 +12,7 @@ import { AuthGuard } from './auth/auth.guard';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { EditIncidentComponent } from './components/edit-incident/edit-incident.component';
 import { MaintenanceAreaComponent } from './components/maintenance-area/maintenance-area.component';
+import { IncidentDetailsModalComponent } from './components/incident-details-modal/incident-details-modal.component';
 
 const routes: Routes = [
   { path: 'index', component: IndexComponent },
@@ -26,7 +27,8 @@ const routes: Routes = [
   { path: 'edit-incident/:id', component: EditIncidentComponent, canActivate: [AuthGuard] },
   { path: 'maintenance', component: MaintenanceAreaComponent, canActivate: [AuthGuard] },
   { path: 'about-us', component: AboutUsComponent },
-  { path: 'signup', component: AppSingupComponent }
+  { path: 'signup', component: AppSingupComponent },
+  { path: 'incident-details-modal', component: IncidentDetailsModalComponent }
 ];
 
 @NgModule({

@@ -39,6 +39,13 @@
     border: 1px solid #ccc;
     font-size: 16px;
   }
+
+  .info-icon {
+    margin-left: 5px;
+    font-size: 20px;
+    color: #000;
+    cursor: pointer;
+  }
   
   .form-container button {
     width: 100%;

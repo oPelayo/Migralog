@@ -20,6 +20,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { DatePipe } from '@angular/common';
 import { PersonalAreaComponent } from './components/personal-area/personal-area.component';
 import { AuthGuard } from './auth/auth.guard';
@@ -65,6 +66,7 @@ import { MaintenanceAreaComponent } from './components/maintenance-area/maintena
     MatDialogModule,
     MatNativeDateModule,
     MatFormFieldModule,
+    MatTooltipModule,
     NgChartsModule,
     NgxDatatableModule
   ],
@@ -77,5 +79,6 @@ import { MaintenanceAreaComponent } from './components/maintenance-area/maintena
       multi: true}
   ],
   bootstrap: [AppComponent]
+  
 })
 export class AppModule { }

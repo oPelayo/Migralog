@@ -1,58 +1,39 @@
-<div class="modal">
-    <div class="modal-content">
-      <!-- Encabezado del modal -->
-      <h2>Detalles del incidente</h2>
-  
-      <!-- Detalles del incidente en dos columnas -->
-      <div class="details-container">
-        <div class="details-column">
-          <div class="details-item">
-            <span class="details-key">Tipo:</span>
-            <span class="details-value">{{ incident.type }}</span>
-          </div>
-          <div class="details-item">
-            <span class="details-key">Tipo de caso:</span>
-            <span class="details-value">{{ incident.kind }}</span>
-          </div>
-          <div class="details-item">
-            <span class="details-key">Tipo de dolor:</span>
-            <span class="details-value">{{ incident.pain }}</span>
-          </div>
-          <div class="details-item">
-            <span class="details-key">Actividad previa:</span>
-            <span class="details-value">{{ incident.previousActivity }}</span>
-          </div>
-        </div>
-        <div class="details-column">
-          <div class="details-item">
-            <span class="details-key">Medicación:</span>
-            <span class="details-value">{{ incident.medication }}</span>
-          </div>
-          <div class="details-item">
-            <span class="details-key">Fecha de inicio:</span>
-            <span class="details-value">{{ incident.startTime | date:'short' }}</span>
-          </div>
-          <div class="details-item">
-            <span class="details-key">Fecha de fin:</span>
-            <span class="details-value">{{ incident.endTime | date:'short' }}</span>
-          </div>
-        </div>
+<h2>Detalles del incidente</h2>
 
-        <!--Forma de hacerlo listando todos los atributos del modelo
-        <div class="details-column">
-          <div class="details-item" *ngFor="let attribute of incidentAttributes">
-            <div class="details-key">{{ attribute.key }}</div>
-          </div>
-        </div>
-        <div class="details-column">
-          <div class="details-item" *ngFor="let attribute of incidentAttributes">
-            <div class="details-value">{{ attribute.value }}</div>
-          </div>
-        </div> -->
-      </div>
-  
-      <!-- Botón para cerrar el modal -->
-      <button (click)="closeModal()">Cerrar</button>
+<!-- Detalles del incidente en dos columnas -->
+<div class="details-container">
+  <div class="details-column">
+    <div class="details-item">
+      <span class="details-key">Tipo:</span>
+      <span class="details-value">{{ incident.type }}</span>
+    </div>
+    <div class="details-item">
+      <span class="details-key">Tipo de caso:</span>
+      <span class="details-value">{{ incident.kind }}</span>
+    </div>
+    <div class="details-item">
+      <span class="details-key">Tipo de dolor:</span>
+      <span class="details-value">{{ incident.pain }}</span>
+    </div>
+    <div class="details-item">
+      <span class="details-key">Actividad previa:</span>
+      <span class="details-value">{{ incident.previousActivity }}</span>
     </div>
   </div>
-  
+  <div class="details-column">
+    <div class="details-item">
+      <span class="details-key">Medicación:</span>
+      <span class="details-value">{{ incident.medication }}</span>
+    </div>
+    <div class="details-item">
+      <span class="details-key">Fecha de inicio:</span>
+      <span class="details-value">{{ incident.startTime | date:'short' }}</span>
+    </div>
+    <div class="details-item">
+      <span class="details-key">Fecha de fin:</span>
+      <span class="details-value">{{ incident.endTime | date:'short' }}</span>
+    </div>
+  </div>
+</div>
+
+

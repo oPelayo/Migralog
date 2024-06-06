@@ -27,6 +27,17 @@ export class PersonalAreaComponent implements OnInit {
     maintainAspectRatio: false,
     width: 800, 
     height: 600,
+    plugins: {
+      legend: {
+        labels: {
+          color: '#000000', // Cambia este color a uno que sea legible
+          font: {
+            size: 14, // Ajusta el tamaño de la fuente
+            weight: 'bold', // Añade peso a la fuente
+          },
+        },
+      },
+    },
   };
   barChartLabels: string[] = [];
   barChartType: string = 'line';
@@ -105,8 +116,13 @@ export class PersonalAreaComponent implements OnInit {
       const activity = incident.previousActivity;
       activityCounts[activity] = (activityCounts[activity] || 0) + 1;
     }
-    this.barChartLabels = Object.keys(activityCounts);
-    this.barChartData = [{ data: Object.values(activityCounts), label: 'Actividades' }];
+
+    // Ordenar las actividades por frecuencia y seleccionar las 4 más frecuentes
+    const sortedActivities = Object.keys(activityCounts).sort((a, b) => activityCounts[b] - activityCounts[a]).slice(0, 4);
+    const sortedCounts = sortedActivities.map(activity => activityCounts[activity]);
+
+    this.barChartLabels = sortedActivities;
+    this.barChartData = [{ data: sortedCounts, label: 'Actividades' }];
   }
 
   editIncident(incidentId: number): void {
@@ -134,8 +150,13 @@ export class PersonalAreaComponent implements OnInit {
       width: '400px',
       data: incident  // Pasa el incidente al modal
     });
+  
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      
+    });
   }
-
+  
   viewIncidentDetails(incidentId: number): void {
     // Lógica para ver los detalles del incidente
   }

@@ -2,32 +2,48 @@
     <h2>Nuevo Incidente</h2>
     <form (ngSubmit)="onSubmit(incidentForm)" #incidentForm="ngForm">
         <div class="form-group">
-            <label for="type">Tipo de incidente:</label>
+            <label for="type">
+                Tipo de incidente:
+                <mat-icon class="info-icon" matTooltip=" Incapacitante, doloroso, emocional, alimenticio, ambiental, estres, fisico . Todo esto se engloba en el tipo">info</mat-icon>   
+            </label>
             <input type="text" id="type" name="type" [(ngModel)]="incident.type" required>
             <div *ngIf="incidentForm.submitted && !incident.type" class="error-message">
                 El tipo de incidente es obligatorio.
             </div>
         </div>
         <div class="form-group">
-            <label for="kind">Clase de incidente:</label>
+            <label for="kind">
+                Clase de incidente:
+                <mat-icon class="info-icon" matTooltip="Cefalea, rigidez muscular, fotosensibilidad, sensibilidad ambiental. Todo ellos se engloban en la clase">info</mat-icon>
+            </label>
             <input type="text" id="kind" name="kind" [(ngModel)]="incident.kind" required>
             <div *ngIf="incidentForm.submitted && !incident.kind" class="error-message">
                 La clase de incidente es obligatoria.
             </div>
         </div>
         <div class="form-group">
-            <label for="pain">Dolor provocado:</label>
+            <label for="pain">
+                Dolor provocado:
+                <mat-icon class="info-icon" matTooltip=" Terebrante, calambre, explosivo, pulsatil . Todo esto se engloba en el tipo de dolor">info</mat-icon>
+            </label>
             <input type="text" id="pain" name="pain" [(ngModel)]="incident.pain">
         </div>
         <div class="form-group">
-            <label for="prevAct">Actividad previa:</label>
+            <label for="prevAct">
+                Actividad previa:
+                <mat-icon class="info-icon" matTooltip=" Cualquier tipo de actividad. por ejemplo: Deporte, trabajo, comprar, pasear, descansar, television, movil en el sofá">info</mat-icon>
+            </label>
             <input type="text" id="prevAct" name="prevAct" [(ngModel)]="incident.previousActivity" required>
             <div *ngIf="incidentForm.submitted && !incident.previousActivity" class="error-message">
                 La actividad previa es obligatoria.
             </div>
         </div>
         <div class="form-group">
-            <label for="medication">Medicación (si hay):</label>
+            <label for="medication">
+                Medicación (si hay):
+                <mat-icon class="info-icon" matTooltip="Nombre de la medicacion con los miligramos por dosis (sí los tiene en el nombre) por ejemplo 'Paracetamol 1g'">info</mat-icon>
+
+            </label>
             <input type="text" id="medication" name="medication" [(ngModel)]="incident.medication">
         </div>
         <div class="form-group">
