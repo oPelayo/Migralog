@@ -9,8 +9,8 @@ import { ThemeService } from 'src/app/services/theme.service';
 })
 export class ChangeThemeComponent implements OnInit {
   themes = [
-    { name: 'Fondo Menta', color: 'menta' },
-    { name: 'Fondo Bosque', color: 'azul' },
+    { name: 'Fondo Bosque', color: 'menta' },
+    { name: 'Fondo De york', color: 'azul' },
     { name: 'Fondo Vichyssoise', color: 'verde' }
   ];
 

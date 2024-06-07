@@ -9,7 +9,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label>Apellido :</label>
+            <label>Apellidos :</label>
             <input type="text" id="lastName" [(ngModel)]="user.last_name" name="lastname" required>
             <div *ngIf="userForm.submitted && !user.last_name" class="error-message">
                 El apellido es obligatorio.

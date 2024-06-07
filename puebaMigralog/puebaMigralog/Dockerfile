@@ -22,3 +22,6 @@ COPY nginx.conf /etc/nginx/nginx.conf
 
 # Expone el puerto en el que se ejecutará la aplicación
 EXPOSE 80
+
+# Comando para iniciar NGINX
+#CMD ["nginx", "-g", "daemon off;"]
