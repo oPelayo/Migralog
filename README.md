@@ -1,5 +1,4 @@
-Migralog BackEnd Springboot
-# Migralog
+# Migralog BackEnd Springboot
 
 ## Descripción
 **Migralog** es una aplicación web diseñada para registrar y analizar episodios de migraña, proporcionando información valiosa que ayuda tanto a pacientes como a médicos a identificar patrones y desarrollar estrategias de tratamiento efectivas.
