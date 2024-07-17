@@ -51,7 +51,7 @@ public class JwtUtils {
             Jwts.parserBuilder().setSigningKey(getSigningKey()).build().parseClaimsJws(authToken);
             return true;
         } catch (JwtException | IllegalArgumentException e) {
-            // Maneja las excepciones aquí, como imprimir un mensaje de error
+
             return false;
         }
     }

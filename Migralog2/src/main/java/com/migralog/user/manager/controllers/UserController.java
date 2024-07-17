@@ -70,8 +70,6 @@ public class UserController {
 	        existingUser.setEmail(updatedUser.getEmail());
 	        existingUser.setPhone(updatedUser.getPhone());
 	        
-	        // Puedes manejar otros campos que quieras actualizar aquí
-	        
 	        User savedUser = repository.save(existingUser);
 	        return ResponseEntity.ok(savedUser);
 	    } else {

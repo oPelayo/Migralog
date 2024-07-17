@@ -1,7 +1,6 @@
 package com.migralog.user.manager.exceptions;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(HttpStatus.NOT_FOUND)
@@ -13,8 +12,8 @@ public class UserNotFoundException extends RuntimeException {
         super(message);
     }
 
-    public UserNotFoundException(String message, Throwable cause) {
+    /*public UserNotFoundException(String message, Throwable cause) {
         super(message, cause);
-    }
+    }*/
 
 }
