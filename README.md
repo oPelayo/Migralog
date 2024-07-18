@@ -39,7 +39,7 @@ La migraña es una afección neurológica que afecta a millones de personas en t
 ### Pasos para la Instalación
 1. Clona el repositorio:
     ```bash
-    git clone https://github.com/usuario/migralog.git
+    git clone https://github.com/oPelayo/migralog.git
     ```
 2. Configura la base de datos MySQL y actualiza el archivo `application.properties` con tus credenciales.
 3. Instala las dependencias del backend:
@@ -73,7 +73,7 @@ La migraña es una afección neurológica que afecta a millones de personas en t
 - **Backend:** `migralog-backend/`
     - Controladores, servicios, y modelos de Spring
 - **Base de Datos:** `migralog-db/`
-    - Scripts SQL para la creación y gestión de la base de datos
+    - Scripts SQL para la creación y gestión de la base de datos dentro de la carpeta raiz del proyecto Migralog2/Migralog_Database_Structure.sql
 
 ## Contribuciones
 Las contribuciones son bienvenidas. Por favor, sigue estos pasos:
@@ -87,6 +87,6 @@ Las contribuciones son bienvenidas. Por favor, sigue estos pasos:
 Este proyecto está licenciado bajo la Licencia MIT. Ver el archivo [LICENSE](LICENSE) para más detalles.
 
 ## Contacto
-Desarrollado por Orlando Pelayo Gil. Para más información, puedes contactarme en orlando.pelayo@example.com.
+Desarrollado por oPelayo. 
 
 
