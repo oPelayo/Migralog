@@ -87,6 +87,6 @@ Las contribuciones son bienvenidas. Por favor, sigue estos pasos:
 Este proyecto está licenciado bajo la Licencia MIT. Ver el archivo [LICENSE](LICENSE) para más detalles.
 
 ## Contacto
-Desarrollado por oPelayo. 
+Desarrollado por oPelayo. Puedes contactar conmigo a traves de Discord: "Jacin#6567"
 
 
