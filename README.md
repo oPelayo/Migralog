@@ -73,7 +73,7 @@ La migraña es una afección neurológica que afecta a millones de personas en t
 - **Backend:** `migralog-backend/`
     - Controladores, servicios, y modelos de Spring
 - **Base de Datos:** `migralog-db/`
-    - Scripts SQL para la creación y gestión de la base de datos dentro de la carpeta raiz del proyecto Migralog2/Migralog_Database_Structure.sql
+    - Scripts SQL para la creación y gestión de la base de datos dentro de la carpeta raiz del proyecto Migralog2/Database-Script/Migralog_Database_Structure.sql
 
 ## Contribuciones
 Las contribuciones son bienvenidas. Por favor, sigue estos pasos:
