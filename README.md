@@ -69,7 +69,7 @@ La migraña es una afección neurológica que afecta a millones de personas en t
 
 ## Estructura del Proyecto
 - **Frontend:** `migralog-frontend/`
-    - Componentes Angular, servicios, y estilos
+    - Componentes Angular, servicios y estilos
 - **Backend:** `migralog-backend/`
     - Controladores, servicios, y modelos de Spring
 - **Base de Datos:** `migralog-db/`
