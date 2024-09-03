@@ -1,0 +1,137 @@
+.container {
+  position: relative;
+  top: -40px;
+  text-align: center;
+  margin: auto;
+  margin-top: 20px;
+  max-width: 700px;
+  background-color: #d8d5d5;
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.welcome-section h1 {
+  margin-bottom: 20px;
+}
+
+.analysis-section {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  width: 45%;
+}
+
+ .stat-icon .material-icons{
+  font-size: 30px !important;
+  margin-bottom: 10px;
+}
+
+.stat-details h4 {
+  margin: 0;
+  color: #064635;
+}
+
+.stat-details p {
+  margin: 5px 0 0;
+  color: #333;
+  font-size: 16px;
+}
+
+.chart-container {
+  display: flex;
+  width: 100%;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+
+.list-container {
+  width: 100%;
+  overflow-x: auto;
+  margin-bottom: 80px;
+}
+
+table {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  border-collapse: separate;
+  width: 100%;
+  height: auto;
+  background-color: #f6f6f6;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+th,
+td {
+  border: none;
+  padding: 12px;
+  white-space: nowrap;
+}
+
+.icon-container {
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.material-icons {
+  font-size: 24px;
+  color: #1120cc;
+}
+
+.material-icons:hover {
+  color: #0c0259;
+}
+
+button {
+  background-color: #2ad675;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #1e995f;
+}
+
+
+
+@media (max-width: 640px) {
+
+  .list-container table th:nth-child(3),
+  .list-container table td:nth-child(3) {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .list-container table th:nth-child(4),
+  .list-container table td:nth-child(4) {
+    display: none;
+  }
+}
+
+@media (max-width: 384px) {
+
+  .list-container table th:nth-child(2),
+  .list-container table td:nth-child(2) {
+    display: none;
+  }
+}
