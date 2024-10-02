@@ -7,5 +7,5 @@ export class User {
     email: string;
     phone: string;
     password: string;
-    incidents: Incident[]; // Agregar la lista de incidentes
+    incidents: Incident[]; // Add the incident list
 }

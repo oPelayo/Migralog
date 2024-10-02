@@ -5,35 +5,35 @@ import { BehaviorSubject, Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ThemeService {
-  private selectedBackgroundColorSubject = new BehaviorSubject<string>(''); // Valor predeterminado: ''
+  private selectedBackgroundColorSubject = new BehaviorSubject<string>(''); // Default value: ''
   selectedBackgroundColor$ = this.selectedBackgroundColorSubject.asObservable();
 
-  private selectedColorSubject = new BehaviorSubject<string>(''); // Valor predeterminado: ''
+  private selectedColorSubject = new BehaviorSubject<string>(''); 
   selectedColor$ = this.selectedColorSubject.asObservable();
 
-  private selectedFontSizeSubject = new BehaviorSubject<number>(0); // Valor predeterminado: 0
+  private selectedFontSizeSubject = new BehaviorSubject<number>(0); // Default value: 0
   selectedFontSize$ = this.selectedFontSizeSubject.asObservable();
 
   constructor() {
-    // Cargar estilos guardados al iniciar
+    // Load saved styles on startup
     this.loadUserStyles();
   }
 
   setSelectedBackgroundColor(color: string) {
     this.selectedBackgroundColorSubject.next(color);
-    // Guardar el color de fondo seleccionado en localStorage
+    // Save selected background color to localStorage
     localStorage.setItem('selectedBackgroundColor', color);
   }
 
   setSelectedColor(color: string) {
     this.selectedColorSubject.next(color);
-    // Guardar el color de texto seleccionado en localStorage
+    // Save selected text color to localStorage
     localStorage.setItem('selectedColor', color);
   }
 
   setSelectedFontSize(size: number) {
     this.selectedFontSizeSubject.next(size);
-    // Guardar el tamaño de fuente seleccionado en localStorage
+    // Save selected font size to localStorage
     localStorage.setItem('selectedFontSize', size.toString());
   }
 
@@ -42,7 +42,7 @@ export class ThemeService {
   }
 
   private loadUserStyles() {
-    // Cargar estilos guardados del usuario al iniciar
+    // Load user's saved styles on startup
     const selectedBackgroundColor = localStorage.getItem('selectedBackgroundColor');
     if (selectedBackgroundColor) {
       this.setSelectedBackgroundColor(selectedBackgroundColor);

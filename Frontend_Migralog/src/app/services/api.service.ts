@@ -15,5 +15,5 @@ export class ApiService {
     return this.http.get(this.apiUrl);
   }
 
-  // Agrega más métodos según las necesidades de tu API
+  
 }

@@ -18,8 +18,8 @@ export class NewIncidentComponent implements OnInit {
   currentDate: Date;
   endDate: Date;
   backgroundColorClass: string = '';
-  isEditing: boolean = false; // Variable para indicar si se está editando un incidente existente
-  showGeneralError = false; // Variable para mostrar el mensaje de error general
+  isEditing: boolean = false; 
+  showGeneralError = false; 
   @ViewChild('startTimeField', { static: true }) startTimeField: NgModel;
   @ViewChild('endTimeField', { static: true }) endTimeField: NgModel;
 
@@ -88,14 +88,14 @@ export class NewIncidentComponent implements OnInit {
       const endDate = new Date(this.incident.endTime);
 
       if (startDate > endDate) {
-        console.error('La fecha de inicio no puede ser posterior a la fecha de fin.');
+        console.error('The start date cannot be later than the end date.');
         return;
       }
     }
 
     const currentDate = new Date();
     if (this.incident.endTime && new Date(this.incident.endTime) > currentDate) {
-      console.error('La fecha de fin no puede ser posterior a la fecha actual.');
+      console.error('The end date cannot be later than the current date.');
       return;
     }
 

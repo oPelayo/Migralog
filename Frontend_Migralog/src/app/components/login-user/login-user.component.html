@@ -6,20 +6,20 @@
         <mat-label>Email</mat-label>
         <input matInput placeholder="Email" type="email" name="email" id="email" [(ngModel)]="user.email" #email="ngModel" required email>
         <div *ngIf="email.invalid && (email.dirty || email.touched)" class="error-message">
-          <div *ngIf="email.errors?.['required']">El email es obligatorio.</div>
-          <div *ngIf="email.errors?.['email']">Formato de correo incorrecto.</div>
+          <div *ngIf="email.errors?.['required']">Email is required.</div>
+          <div *ngIf="email.errors?.['email']">Incorrect email format.</div>
         </div>
       </mat-form-field>
       <mat-form-field appearance="fill" class="input">
-        <mat-label>Contraseña</mat-label>
+        <mat-label>Password</mat-label>
         <input matInput placeholder="Contraseña" type="password" name="password" id="password" [(ngModel)]="user.password" #password="ngModel" required minlength="4">
         <div *ngIf="password.invalid && (password.dirty || password.touched)" class="error-message">
-          <div *ngIf="password.errors?.['required']">La contraseña es obligatoria.</div>
+          <div *ngIf="password.errors?.['required']">Password is required.</div>
           <!-- <div *ngIf="password.errors?.['minlength']">La contraseña debe tener al menos 6 caracteres.</div> -->
         </div>
       </mat-form-field>
     </div>
-    <a routerLink="/app-singup" class="menu-link">Registrate con nosotros</a>
+    <a routerLink="/app-singup" class="menu-link">Register with us</a>
     <button type="submit" mat-raised-button color="primary" [disabled]="loginForm.invalid" [ngClass]="backgroundColorClass" class="button">Login</button>
     <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
   </form>

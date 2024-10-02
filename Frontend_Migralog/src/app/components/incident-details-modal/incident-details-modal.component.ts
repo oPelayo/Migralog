@@ -13,14 +13,13 @@ export class IncidentDetailsModalComponent {
 
   constructor(
     public dialogRef: MatDialogRef<IncidentDetailsModalComponent>,
-    @Inject(MAT_DIALOG_DATA) public incident: Incident, /*Reemplazar "incident" por "data" si se recorre todo*/
+    @Inject(MAT_DIALOG_DATA) public incident: Incident, /*Replace "incident" with "data" if traversing completely*/
     
   ) { 
-    // Obtener las claves y valores del objeto Incident recorriendo todo el objeto
-    //this.incidentAttributes = Object.entries(data).map(([key, value]) => ({ key, value }));
+    // Get the keys and values ​​of the Incident object by looping through the entire object
+    // this.incidentAttributes = Object.entries(data).map(([key, value]) => ({ key, value }));
   }
 
-  // Método para cerrar el modal
   closeModal(): void {
     this.dialogRef.close();
   }

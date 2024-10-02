@@ -17,7 +17,7 @@ export class NavigationMenuComponent implements OnInit {
   constructor(private router: Router, private authService: AuthService, private cd: ChangeDetectorRef) { }
 
   ngOnInit(): void {
-    // Verificar si el usuario está iniciado sesión
+    // Check if the user is logged in
     this.authService.currentUser.subscribe(user => {
       this.isUserLoggedIn = !!user;
 
@@ -29,7 +29,7 @@ export class NavigationMenuComponent implements OnInit {
       }
 
       this.profileImageUrl = this.isUserLoggedIn ? 'assets/images/image2.jpg' : 'assets/images/image1.jpg';
-      this.cd.detectChanges(); // Forzar detección de cambios
+      this.cd.detectChanges(); // Force change detection
     });
   }
   

@@ -1,27 +1,26 @@
 <div class="container">
     <div class="content">
         <div class="welcome-message-cont">
-            <h3 *ngIf="isUserLoggedIn; else notLoggedIn" class="welcome-message">Te damos la bienvenida {{ userName }}</h3>
+            <h3 *ngIf="isUserLoggedIn; else notLoggedIn" class="welcome-message">Welcome you {{ userName }}</h3>
             <ng-template #notLoggedIn>
-                <h3 class="welcome-message">Hola, puedes <a [routerLink]="['/login-user']">acceder</a> o <a [routerLink]="['/signup']">registrarte</a> con nosotros<br /> sí aún no lo has hecho.</h3>
+                <h3 class="welcome-message">Hello, you can <a [routerLink]="['/login-user']">access</a> or <a [routerLink]="['/signup']">register</a> whit us<br /> if you have not done so yet.</h3>
             </ng-template>
         </div>
         <div>
-        <p class="description">Para todas las personas que buscan una solución a la migraña<br/> y les dicen que no existe:<br>
-             “La información es poder” <i>Leviatan, 1651.</i></p>
+        <p class="description">For all people looking for a solution to migraine<br/> and they tell them that it doesn't exist:<br>
+             “Information is power” <i>Leviatan, 1651.</i></p>
         </div>
         <div [ngClass]="backgroundColorClass" class="frase-del-dia">
-            <h3 class="frase-del-dia-title">Frase del día:</h3>
+            <h3 class="frase-del-dia-title">Quote of the day:</h3>
             <p class="frase-del-dia-text">{{ phraseDay }}</p>
         </div>
         <div class="description-container">
-            <p class="description">El uso que hacemos de tus datos pueden mejorar la calidad de vida<br/> de muchas personas como
-                tu.<br>
-                <!-- Pregunta si tienes alguna duda o registra una incidencia para completar tu registro</p> -->
+            <p class="description">The use we make of your data can improve the quality of life of many people like you.<br>
+                <!-- Ask if you have any questions or register an incident to complete your registration</p> -->
         </div>
         <button routerLink="/new-incident" mat-raised-button color="primary" [ngClass]="backgroundColorClass" class="button">
             <mat-icon class="material-icons">add</mat-icon>
-            Nuevo Episodio
+            New Episode
         </button>
     </div>
 </div>

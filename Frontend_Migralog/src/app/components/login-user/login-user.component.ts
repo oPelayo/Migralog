@@ -34,17 +34,17 @@ export class LoginUserComponent {
         if (!response.success) {
           this.errorMessage = response.message;
         } else {
-          // Redirigir a la página de inicio después del login exitoso
+          // Redirect to home page after successful login
           this.router.navigate(['/index']);
         }
       },
       (error) => {
         if (error.status === 401) {
-          this.errorMessage = 'Credenciales incorrectas. Por favor, inténtalo de nuevo.';
+          this.errorMessage = 'Incorrect credentials. Please try again.';
         } else {
-          this.errorMessage = 'Error al iniciar sesión. Por favor, inténtalo de nuevo más tarde.';
+          this.errorMessage = 'Failed to log in. Please try again later.';
         }
-        console.error('Error al iniciar sesión:', error);
+        console.error('Login error:', error);
       }
     );
   }

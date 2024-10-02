@@ -3,7 +3,7 @@
   <div class="change-theme" [style.background-color]="themeService.selectedBackgroundColor$ | async"
     [style.color]="themeService.selectedColor$ | async" [style.font-size.px]="themeService.selectedFontSize$ | async">
 
-    <h2>Selecciona un tema</h2>
+    <h2>Select a topic</h2>
 
     <div class="theme-options">
       <div class="theme-option" *ngFor="let theme of themes" (click)="setSelectedBackgroundColor(theme.color)">

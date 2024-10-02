@@ -1,36 +1,36 @@
-<h2 style="text-align: center;">Detalles del incidente</h2>
+<h2 style="text-align: center;">Incident details</h2>
 
-<!-- Detalles del incidente en dos columnas -->
+<!-- Incident details in two columns -->
 <div class="details-container">
   <div class="details-column">
     <div class="details-item">
-      <span class="details-key">Tipo:</span>
+      <span class="details-key">Type:</span>
       <span class="details-value">{{ incident.type }}</span>
     </div>
     <div class="details-item">
-      <span class="details-key">Tipo de caso:</span>
+      <span class="details-key">Case type:</span>
       <span class="details-value">{{ incident.kind }}</span>
     </div>
     <div class="details-item">
-      <span class="details-key">Tipo de dolor:</span>
+      <span class="details-key">Type of pain:</span>
       <span class="details-value">{{ incident.pain }}</span>
     </div>
     <div class="details-item">
-      <span class="details-key">Actividad previa:</span>
+      <span class="details-key">Previous activity:</span>
       <span class="details-value">{{ incident.previousActivity }}</span>
     </div>
   </div>
   <div class="details-column">
     <div class="details-item">
-      <span class="details-key">Medicación:</span>
+      <span class="details-key">Medication:</span>
       <span class="details-value">{{ incident.medication }}</span>
     </div>
     <div class="details-item">
-      <span class="details-key">Fecha de inicio:</span>
+      <span class="details-key">Start date:</span>
       <span class="details-value">{{ incident.startTime | date:'short' }}</span>
     </div>
     <div class="details-item">
-      <span class="details-key">Fecha de fin:</span>
+      <span class="details-key">End date:</span>
       <span class="details-value">{{ incident.endTime | date:'short' }}</span>
     </div>
   </div>

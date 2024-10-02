@@ -16,31 +16,31 @@ export class UserService {
 
   constructor(private http : HttpClient) { }
 
-  //Metodo para registrar
+  // Method to register
   newUser(user:User) : Observable<Object>{
     return this.http.post(`${this.baseURL}`,user).pipe(
       catchError(this.handleError));
   }
 
-  //Metodo para actualizar
+  // Method to update
   updateUser(user:User) : Observable<Object>{
     return this.http.put(`${this.baseURL}/${user.id}`,user).pipe(
       catchError(this.handleError));
   }
 
-  //Metodo para eliminar
+  // Method to delete
   deleteUser(id:number) : Observable<Object>{
     return this.http.delete(`${this.baseURL}/${id}`).pipe(
       catchError(this.handleError));
   }
 
-  //Metodo para buscar por id
+  // Method to search by id
   getUserById(id:number):Observable<User> {
     return this.http.get<User>(`${this.baseURL}/${id}`).pipe(
       catchError(this.handleError));
   }
 
-  //Metodo para obtener todos los empleados
+  // Method to obtain all employees
   getAllUsers():Observable<User[]> {
     return this.http.get<User[]>(`${this.baseURL}`).pipe(
       catchError(this.handleError)); 
@@ -48,13 +48,11 @@ export class UserService {
 
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
-      // Error del lado del cliente
-      console.error('Error del lado del cliente:', error.error.message);
+      console.error('Client side error:', error.error.message);
     } else {
-      // Error del lado del servidor
-      console.error('Error del lado del servidor:', error.status, error.error);
+      console.error('Server side error:', error.status, error.error);
     }
-    // Devolver un observable con un mensaje de error
-    return throwError('Ocurrió un error. Por favor, inténtelo de nuevo más tarde.');
+    // Return an observable with an error message
+    return throwError('An error occurred. Please try again later.');
   }
 }

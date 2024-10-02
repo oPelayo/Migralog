@@ -1,53 +1,53 @@
 <div class="form-container">
-    <h2>Editar Incidente</h2>
+    <h2>Edit Incident</h2>
     <form (ngSubmit)="onSubmit(editIncidentForm)" #editIncidentForm="ngForm">
         <div class="form-group">
-            <label for="type">Tipo de incidente:</label>
+            <label for="type">Incident type:</label>
             <input type="text" id="type" name="type" [(ngModel)]="incident.type" required>
             <div *ngIf="editIncidentForm.submitted && !incident.type" class="error-message">
-                El tipo de incidente es obligatorio.
+                Incident type is required.
             </div>
         </div>
         <div class="form-group">
-            <label for="kind">Clase de incidente:</label>
+            <label for="kind">Incident class:</label>
             <input type="text" id="kind" name="kind" [(ngModel)]="incident.kind" required>
             <div *ngIf="editIncidentForm.submitted && !incident.kind" class="error-message">
-                La clase de incidente es obligatoria.
+                Incident class is mandatory.
             </div>
         </div>
         <div class="form-group">
-            <label for="pain">Dolor provocado:</label>
+            <label for="pain">Caused pain:</label>
             <input type="text" id="pain" name="pain" [(ngModel)]="incident.pain">
         </div>
         <div class="form-group">
-            <label for="prevAct">Actividad previa:</label>
+            <label for="prevAct">Previous activity:</label>
             <input type="text" id="prevAct" name="prevAct" [(ngModel)]="incident.previousActivity" required>
             <div *ngIf="editIncidentForm.submitted && !incident.previousActivity" class="error-message">
-                La actividad previa es obligatoria.
+                Previous activity is mandatory.
             </div>
         </div>
         <div class="form-group">
-            <label for="medication">Medicación (si hay):</label>
+            <label for="medication">Medication (if any):</label>
             <input type="text" id="medication" name="medication" [(ngModel)]="incident.medication">
         </div>
         <div class="form-group">
-            <label for="startTime">Hora de Inicio:</label>
+            <label for="startTime">Start date and time:</label>
             <input type="datetime-local" id="startTime" name="startTime" [(ngModel)]="startDate" required #startTimeField="ngModel">
             <div *ngIf="startTimeField.invalid && (startTimeField.dirty || startTimeField.touched)" class="error-message">
-                <div *ngIf="startTimeField.errors?.['invalidDate']">La hora de inicio no puede ser posterior a la hora de fin.</div>
+                <div *ngIf="startTimeField.errors?.['invalidDate']">The start time cannot be later than the end time.</div>
             </div>
         </div>
         <div class="form-group">
             <label for="endTime">Hora de Fin:</label>
             <input type="datetime-local" id="endTime" name="endTime" [(ngModel)]="endDate" required #endTimeField="ngModel">
             <div *ngIf="endTimeField.invalid && (endTimeField.dirty || endTimeField.touched)" class="error-message">
-                <div *ngIf="endTimeField.errors?.['invalidDate']">La hora de fin no puede ser anterior a la hora de inicio.</div>
-                <div *ngIf="endTimeField.errors?.['futureDate']">La hora de fin no puede ser posterior a la fecha actual.</div>
+                <div *ngIf="endTimeField.errors?.['invalidDate']">The end time cannot be earlier than the start time.</div>
+                <div *ngIf="endTimeField.errors?.['futureDate']">The end time cannot be later than the current date.</div>
             </div>
         </div>
-        <button type="submit" [disabled]="editIncidentForm.invalid" [ngClass]="backgroundColorClass">Guardar cambios</button>
+        <button type="submit" [disabled]="editIncidentForm.invalid" [ngClass]="backgroundColorClass">Save changes</button>
         <div *ngIf="showGeneralError" class="error-message">
-            Por favor, completa todos los campos obligatorios antes de enviar.
+            Please complete all required fields before submitting.
         </div>
     </form>
 </div>

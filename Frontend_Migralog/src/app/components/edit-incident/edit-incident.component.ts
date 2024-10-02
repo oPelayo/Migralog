@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Incident } from 'src/app/models/incident';
 import { IncidentService } from '../../services/incident.service';
-import { ThemeService } from 'src/app/services/theme.service'; // Asegúrate de importar el ThemeService
+import { ThemeService } from 'src/app/services/theme.service'; 
 import { NgModel } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 
@@ -14,8 +14,8 @@ import { DatePipe } from '@angular/common';
 })
 export class EditIncidentComponent implements OnInit {
   incident: Incident = new Incident();
-  startDate: string; // Cambia a string para almacenar el valor formateado
-  endDate: string; // Cambia a string para almacenar el valor formateado
+  startDate: string; 
+  endDate: string; 
   showGeneralError = false;
   backgroundColorClass: string = '';
   @ViewChild('startTimeField', { static: true }) startTimeField: NgModel;
@@ -26,7 +26,7 @@ export class EditIncidentComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private themeService: ThemeService,
-    private datePipe: DatePipe // Inyecta DatePipe
+    private datePipe: DatePipe 
   ) {}
 
   ngOnInit(): void {
@@ -35,7 +35,6 @@ export class EditIncidentComponent implements OnInit {
       if (incidentId) {
         this.incidentService.getIncidentById(parseInt(incidentId)).subscribe((incident: Incident) => {
           this.incident = incident;
-          // Convertir las fechas a formato `datetime-local`
           this.startDate = this.datePipe.transform(incident.startTime, 'yyyy-MM-ddTHH:mm')!;
           this.endDate = this.datePipe.transform(incident.endTime, 'yyyy-MM-ddTHH:mm')!;
         });
@@ -77,7 +76,7 @@ export class EditIncidentComponent implements OnInit {
   }
 
   saveIncident(): void {
-    // Convertir las fechas de string a Date
+    // Convert dates from string to Date
     this.incident.startTime = new Date(this.startDate);
     this.incident.endTime = new Date(this.endDate);
 

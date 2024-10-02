@@ -18,7 +18,7 @@ export class ChangeThemeComponent implements OnInit {
 
   ngOnInit(): void {}
   
-  //Selector de color de fondo
+  //Background color picker
   setSelectedBackgroundColor(color: string) {
     this.themeService.setSelectedBackgroundColor(color);
   }

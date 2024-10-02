@@ -43,7 +43,7 @@ export class AuthService {
           return { success, message, token };
         }),
         catchError(error => {
-          let errorMessage = 'Error al iniciar sesión. Por favor, verifica tus credenciales.';
+          let errorMessage = 'Failed to log in. Please verify your credentials.';
           if (error && error.error && error.error.message) {
             errorMessage = error.error.message;
           }

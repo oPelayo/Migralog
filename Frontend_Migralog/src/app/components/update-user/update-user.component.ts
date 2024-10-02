@@ -27,7 +27,7 @@ goToListPage(){
 
 onSubmit() {
   this.userService.updateUser(this.user).subscribe(data => {
-    console.log("Usuario actualizado correctamente:", data);
+    console.log("Successfully updated user:", data);
     this.goToListPage();
   },error => console.log(error));
 }

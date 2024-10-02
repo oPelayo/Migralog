@@ -38,7 +38,7 @@ export class IndexComponent implements OnInit {
           this.phraseDay = data.phrase;
         },
         (error) => {
-          console.error('Error al obtener la frase del día:', error);
+          console.error('Error getting quote of the day:', error);
         }
       );
   }

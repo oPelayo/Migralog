@@ -1,13 +1,13 @@
 <div class="navbar">
   <div class="left-section">
-    <button class="menu-button" (click)="toggleMenu()">☰ Menú</button>
+    <button class="menu-button" (click)="toggleMenu()">☰ Menu</button>
     <div class="menu" [ngClass]="{'is-menu-open': isMenuOpen}" (mouseleave)="closeMenu()">
       <ul>
-        <li><a routerLink="/" class="menu-link">Inicio</a></li>
+        <li><a routerLink="/" class="menu-link">Home</a></li>
         <li><a routerLink="/login-user" class="menu-link">Login</a></li>
-        <li><a routerLink="/change-theme" class="menu-link" onclick="location.href='/change-theme'">Cambiar tema</a></li>
-        <li><a routerLink="/personal-area" class="menu-link">Area Personal</a></li>
-        <li><a routerLink="/about-us" class="menu-link">Quiénes Somos</a></li>
+        <li><a routerLink="/change-theme" class="menu-link" onclick="location.href='/change-theme'">Change Theme</a></li>
+        <li><a routerLink="/personal-area" class="menu-link">Personal Area</a></li>
+        <li><a routerLink="/about-us" class="menu-link">About Us</a></li>
         <li><a routerLink="/logout" class="menu-link" (click)="logout()">Logout</a></li>
       </ul>
     </div>

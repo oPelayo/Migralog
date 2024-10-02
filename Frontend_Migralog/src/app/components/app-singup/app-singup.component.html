@@ -1,49 +1,49 @@
 <div class="new-user">
-    <h3>Formulario de Registro</h3>
+    <h3>Registration Form</h3>
     <form (ngSubmit)="onSubmit(userForm)" #userForm="ngForm">
         <div class="form-group">
-            <label>Nombre :</label>
+            <label>Name :</label>
             <input type="text" id="name" [(ngModel)]="user.name" name="name" required>
             <div *ngIf="userForm.submitted && !user.name" class="error-message">
-                El nombre es obligatorio.
+                The name is required.
             </div>
         </div>
         <div class="form-group">
-            <label>Apellidos :</label>
+            <label>Last name :</label>
             <input type="text" id="lastName" [(ngModel)]="user.last_name" name="lastname" required>
             <div *ngIf="userForm.submitted && !user.last_name" class="error-message">
-                El apellido es obligatorio.
+                Last name is required.
             </div>
         </div>
         <div class="form-group">
             <label>Email :</label>
             <input type="email" id="email" [(ngModel)]="user.email" name="email" required email>
             <div *ngIf="userForm.submitted && !user.email" class="error-message">
-                El correo electrónico es obligatorio.
+                Email is required.
             </div>
             <div *ngIf="userForm.submitted && userForm.controls['email']?.errors?.['email']" class="error-message">
-                El formato del correo electrónico no es válido.
+                The email format is not valid.
             </div>
         </div>
         <div class="form-group">
-            <label>Nº Telefono :</label>
+            <label>Telephone No. :</label>
             <input type="text" id="phone" [(ngModel)]="user.phone" name="phone" required>
             <div *ngIf="userForm.submitted && !user.phone" class="error-message">
-                El número de teléfono es obligatorio.
+                Telephone number is required.
             </div>
         </div>
         <div class="form-group">
             <label>Password :</label>
             <input type="password" id="password" [(ngModel)]="user.password" name="password" required>
             <div *ngIf="userForm.submitted && !user.password" class="error-message">
-                La contraseña es obligatoria.
+                Password is required.
             </div>
         </div>
         <button type="submit" mat-raised-button color="primary" [ngClass]="backgroundColorClass" class="button">
-            Guardar
+            Save
         </button>
         <div *ngIf="showGeneralError" class="error-message">
-            Por favor, completa todos los campos obligatorios antes de enviar.
+            Please complete all required fields before submitting.
         </div>
     </form>
 </div>

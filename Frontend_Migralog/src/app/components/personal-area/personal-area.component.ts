@@ -21,7 +21,7 @@ export class PersonalAreaComponent implements OnInit {
   userId: number;
   userName: string;
 
-   // Nuevas propiedades para el gráfico
+   // Properties for the chart
    barChartOptions: any = {
     scaleShowVerticalLines: false,
     responsive: true,
@@ -31,10 +31,10 @@ export class PersonalAreaComponent implements OnInit {
     plugins: {
       legend: {
         labels: {
-          color: '#000000', // Cambia este color a uno que sea legible
+          color: '#000000', 
           font: {
-            size: 14, // Ajusta el tamaño de la fuente
-            weight: 'bold', // Añade peso a la fuente
+            size: 14, 
+            weight: 'bold', 
           },
         },
       },
@@ -52,7 +52,7 @@ export class PersonalAreaComponent implements OnInit {
   }
 
   loadIncidents(): void {
-    // Obtener el ID de usuario del localStorage
+    // Get user ID from localStorage
     const currentUser = sessionStorage.getItem('currentUser');
     if (currentUser) {
       const user = JSON.parse(currentUser);
@@ -61,7 +61,7 @@ export class PersonalAreaComponent implements OnInit {
     }
 
     if (this.userId) {
-      // Llamar al servicio para obtener los incidentes del usuario actual
+      // Call service to get current user incidents
       this.incidentService.getUserIncidents(this.userId).subscribe(incidents => {
         this.incidents = incidents;
         this.calculateMostCommonPreviousActivity();
@@ -73,12 +73,21 @@ export class PersonalAreaComponent implements OnInit {
   
   calculateMostCommonPreviousActivity(): void {
     const activityCounts: { [activity: string]: number } = {};
+    
     for (const incident of this.incidents) {
-      const activity = incident.previousActivity;
+      const activity = incident.previousActivity.toLowerCase(); 
       activityCounts[activity] = (activityCounts[activity] || 0) + 1;
     }
-    this.mostCommonPreviousActivity = Object.keys(activityCounts).reduce((a, b) => activityCounts[a] > activityCounts[b] ? a : b);
+  
+    const mostCommonActivity = Object.keys(activityCounts).reduce((a, b) => activityCounts[a] > activityCounts[b] ? a : b);
+  
+    this.mostCommonPreviousActivity = this.capitalizeFirstLetter(mostCommonActivity); 
   }
+  
+  capitalizeFirstLetter(activity: string): string {
+    return activity.charAt(0).toUpperCase() + activity.slice(1); 
+  }
+  
 
   getDuration(incident: Incident): string {
     const startTime = new Date(incident.startTime);
@@ -118,7 +127,7 @@ export class PersonalAreaComponent implements OnInit {
       activityCounts[activity] = (activityCounts[activity] || 0) + 1;
     }
 
-    // Ordenar las actividades por frecuencia y seleccionar las 4 más frecuentes
+    // Sort by frecuency and select the 4 most frequent
     const sortedActivities = Object.keys(activityCounts).sort((a, b) => activityCounts[b] - activityCounts[a]).slice(0, 4);
     const sortedCounts = sortedActivities.map(activity => activityCounts[activity]);
 
@@ -127,7 +136,7 @@ export class PersonalAreaComponent implements OnInit {
   }
 
   editIncident(incidentId: number): void {
-    // Redirigir al componente NewIncidentComponent para editar el incidente
+    // Redirect to NewIncidentComponent to edit the incident
     this.router.navigate(['edit-incident', incidentId]);
   }
 
@@ -141,7 +150,6 @@ export class PersonalAreaComponent implements OnInit {
         this.generateBarChartData();
       }, error => {
         console.error('Error al eliminar el incidente:', error);
-        // Aquí puedes manejar el error, por ejemplo, mostrar un mensaje al usuario
       });
     }
   }
@@ -149,7 +157,7 @@ export class PersonalAreaComponent implements OnInit {
   openModal(incident: Incident): void {
     const dialogRef = this.dialog.open(IncidentDetailsModalComponent, {
       width: '400px',
-      data: incident  // Pasa el incidente al modal
+      data: incident  
     });
   
     dialogRef.afterClosed().subscribe(result => {
@@ -159,7 +167,7 @@ export class PersonalAreaComponent implements OnInit {
   }
   
   viewIncidentDetails(incidentId: number): void {
-    // Lógica para ver los detalles del incidente
+    
   }
 }
 

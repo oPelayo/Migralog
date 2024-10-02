@@ -27,8 +27,7 @@ export class AppComponent {
   }
 
   private applyTextColor(color: string) {
-
-    document.body.style.color = color; // Aplicar color de texto al body
+    document.body.style.color = color; 
   }
 
 }
