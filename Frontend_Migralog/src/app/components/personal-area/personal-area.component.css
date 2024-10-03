@@ -36,15 +36,26 @@
   margin-bottom: 10px;
 }
 
-.stat-details h4 {
+.stat-details {
   margin: 0;
-  color: #064635;
+  color: #011c15;
 }
 
 .stat-details p {
   margin: 5px 0 0;
   color: #333;
   font-size: 16px;
+}
+
+.stat-card-chart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f6f6f6;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  width: 45%;
 }
 
 .chart-container {
@@ -75,7 +86,7 @@ table {
 th,
 td {
   border: none;
-  padding: 12px;
+  padding: 8px;
   white-space: nowrap;
 }
 
@@ -86,11 +97,11 @@ td {
 
 .material-icons {
   font-size: 24px;
-  color: #1120cc;
+  color: #046148;
 }
 
 .material-icons:hover {
-  color: #0c0259;
+  color: #37977d;
 }
 
 button {

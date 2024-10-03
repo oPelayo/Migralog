@@ -23,20 +23,39 @@
     </div>
   </div>
 
-  <h2>Trigger activities</h2>
-  <!-- Gráfico -->
-  <div class="chart-container">
-    
-    <canvas baseChart
-            [datasets]="barChartData"
-            [labels]="barChartLabels"
-            [options]="barChartOptions"
-            [legend]="barChartLegend"
-            [type]="'pie'"
-            >
-    </canvas>
+  
+  <!-- Chart -->
+  <div class="analysis-section"> 
+    <div class="stat-card">
+      <div class="stat-details">
+        <h4>Trigger activities</h4>
+      </div>
+      <div class="chart-container">
+        <canvas baseChart
+                [datasets]="barChartData"
+                [labels]="barChartLabels"
+                [options]="barChartOptions"
+                [legend]="barChartLegend"
+                [type]="'pie'"
+                >
+        </canvas>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-details">
+        <h4>Medication efficiency</h4>
+      </div>
+      <div class="chart-container">        
+          <canvas baseChart
+                  [datasets]="medicationChartData"
+                  [labels]="medicationChartLabels"
+                  [options]="medicationChartOptions"
+                  [legend]="true"
+                  chartType="bar">
+          </canvas>
+      </div>
+    </div>
   </div>
-
   <div class="list-container">
     <h2>List of all Episodes</h2>
     <table>

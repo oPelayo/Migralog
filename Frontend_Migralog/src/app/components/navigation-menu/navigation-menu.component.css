@@ -45,7 +45,7 @@
 }
 
 .admin-link-hidden {
-  display: none; /* Ocultar cuando no es administrador */
+  display: none; /* Hide when you are not an administrator */
 }
 
 .admin-icon {
@@ -93,7 +93,14 @@
 .menu-link {
   text-decoration: none;
   color: white;
+  transition: color 0.3s ease, text-shadow 0.3s ease; 
 }
+
+.menu-link:hover {
+  color: #99edc9; 
+  text-shadow: 0 0 5px rgba(23, 78, 43, 0.7); 
+}
+
 
 .menu ul {
   list-style-type: none;
@@ -123,7 +130,7 @@
 }
 
 .avatar-container {
-  height: 50px;
+  height: 40px;
   margin: 0 8px;
 }
 

@@ -31,6 +31,7 @@ export class PersonalAreaComponent implements OnInit {
     plugins: {
       legend: {
         labels: {
+          boxWidth: 15,
           color: '#000000', 
           font: {
             size: 14, 
@@ -38,12 +39,44 @@ export class PersonalAreaComponent implements OnInit {
           },
         },
       },
+      tooltip: {
+        enabled: true,
+      },
     },
   };
   barChartLabels: string[] = [];
   barChartType: string = 'line';
   barChartLegend: boolean = true;
   barChartData: any[] = [];
+
+  medicationChartLabels: string[] = [];
+  medicationChartData: any[] = [];
+  medicationChartOptions: any = {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      y: {
+        beginAtZero: true,
+      },
+    },
+    plugins: {
+      legend: {
+        position: 'top',
+        labels: {
+          boxWidth: 15,
+          color: '#000000',
+          font: {
+            size: 14,
+            weight: 'bold',
+          }
+        }
+      },
+      tooltip: {
+        enabled: true,
+      },
+    },    
+  };
+
 
   constructor(private incidentService: IncidentService, private router: Router, public dialog: MatDialog) { }
 
@@ -64,9 +97,11 @@ export class PersonalAreaComponent implements OnInit {
       // Call service to get current user incidents
       this.incidentService.getUserIncidents(this.userId).subscribe(incidents => {
         this.incidents = incidents;
+        console.log(incidents);
         this.calculateMostCommonPreviousActivity();
         this.calculateAverageDuration();
         this.generateBarChartData();
+        this.generateMedicationEfficiencyChart();
       });
     }
   }
@@ -84,10 +119,43 @@ export class PersonalAreaComponent implements OnInit {
     this.mostCommonPreviousActivity = this.capitalizeFirstLetter(mostCommonActivity); 
   }
   
+  generateMedicationEfficiencyChart(): void {
+    const incidentsWithMedication = this.incidents.filter(incident => incident.medication !== 'None');
+    const incidentsWithoutMedication = this.incidents.filter(incident => incident.medication === null);
+    
+    const avgDurationWithMedication = this.calculateAverageDurationForIncidents(incidentsWithMedication) / 3600000;
+    const avgDurationWithoutMedication = this.calculateAverageDurationForIncidents(incidentsWithoutMedication) / 3600000;
+  
+    this.medicationChartLabels = ['With', 'Without'];
+    this.medicationChartData = [
+      { data: [avgDurationWithMedication, avgDurationWithoutMedication], label: 'Average duration' }
+    ];
+  }
+  
+  calculateAverageDurationForIncidents(incidents: Incident[]): number {
+    if (incidents.length === 0) {
+      return 0;
+    }
+  
+    const totalDuration = incidents.reduce((total, incident) => {
+      const startTime = new Date(incident.startTime);
+      const endTime = new Date(incident.endTime);
+      const duration = endTime.getTime() - startTime.getTime();
+      return total + duration;
+    }, 0);
+  
+    return totalDuration / incidents.length;
+  }
+
+  calculateAverageDuration(): string {
+    const averageDuration = this.calculateAverageDurationForIncidents(this.incidents);
+    this.averageDurationFormatted = this.formatDuration(averageDuration);
+    return this.averageDurationFormatted;
+  }
+
   capitalizeFirstLetter(activity: string): string {
     return activity.charAt(0).toUpperCase() + activity.slice(1); 
   }
-  
 
   getDuration(incident: Incident): string {
     const startTime = new Date(incident.startTime);
@@ -102,24 +170,6 @@ export class PersonalAreaComponent implements OnInit {
     return `${hours}h ${minutes}m`;
   }
 
-  calculateAverageDuration(): String {
-    if (this.incidents.length === 0) {
-      return '0h'+'0m'; 
-    }
-  
-    const totalDuration = this.incidents.reduce((total, incident) => {
-      const startTime = new Date(incident.startTime);
-      const endTime = new Date(incident.endTime);
-      const duration = endTime.getTime() - startTime.getTime();
-      return total + duration;
-    }, 0);
-  
-    
-    const averageDuration = totalDuration / this.incidents.length;
-     this.averageDurationFormatted = this.formatDuration(averageDuration);
-    return this.averageDurationFormatted;
-  }
-
   generateBarChartData(): void {
     const activityCounts: { [activity: string]: number } = {};
     for (const incident of this.incidents) {
@@ -127,21 +177,20 @@ export class PersonalAreaComponent implements OnInit {
       activityCounts[activity] = (activityCounts[activity] || 0) + 1;
     }
 
-    // Sort by frecuency and select the 4 most frequent
-    const sortedActivities = Object.keys(activityCounts).sort((a, b) => activityCounts[b] - activityCounts[a]).slice(0, 4);
+    // Sort by frecuency and select the 3 most frequent
+    const sortedActivities = Object.keys(activityCounts).sort((a, b) => activityCounts[b] - activityCounts[a]).slice(0, 3);
     const sortedCounts = sortedActivities.map(activity => activityCounts[activity]);
 
     this.barChartLabels = sortedActivities;
-    this.barChartData = [{ data: sortedCounts, label: 'Actividades' }];
+    this.barChartData = [{ data: sortedCounts, label: 'Activities' }];
   }
 
   editIncident(incidentId: number): void {
-    // Redirect to NewIncidentComponent to edit the incident
     this.router.navigate(['edit-incident', incidentId]);
   }
 
   deleteIncident(incidentId: number): void {
-    if (confirm('¿Estás seguro de que quieres eliminar este incidente?')) {
+    if (confirm('Are you sure to delete this incident?')) {
       this.incidentService.deleteIncident(incidentId).subscribe(() => {
         
         this.incidents = this.incidents.filter(incident => incident.id !== incidentId);
@@ -161,8 +210,6 @@ export class PersonalAreaComponent implements OnInit {
     });
   
     dialogRef.afterClosed().subscribe(result => {
-      
-      
     });
   }
   
