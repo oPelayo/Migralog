@@ -82,7 +82,18 @@ export class NewIncidentComponent implements OnInit {
     this.saveIncident();
   }
 
+  capitalizeFirstLetter(text: string): string {
+    if (!text) return '';
+    return text.charAt(0).toUpperCase() + text.slice(1).toLowerCase();
+  }
+
   saveIncident(): void {
+    this.incident.type = this.capitalizeFirstLetter(this.incident.type);
+    this.incident.kind = this.capitalizeFirstLetter(this.incident.kind);
+    this.incident.pain = this.capitalizeFirstLetter(this.incident.pain);
+    this.incident.previousActivity = this.capitalizeFirstLetter(this.incident.previousActivity);
+    this.incident.medication = this.capitalizeFirstLetter(this.incident.medication);
+
     if (this.incident.startTime && this.incident.endTime) {
       const startDate = new Date(this.incident.startTime);
       const endDate = new Date(this.incident.endTime);

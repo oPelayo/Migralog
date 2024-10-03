@@ -65,6 +65,7 @@ export class PersonalAreaComponent implements OnInit {
         labels: {
           boxWidth: 15,
           color: '#000000',
+          margin: 20,
           font: {
             size: 14,
             weight: 'bold',
@@ -97,7 +98,6 @@ export class PersonalAreaComponent implements OnInit {
       // Call service to get current user incidents
       this.incidentService.getUserIncidents(this.userId).subscribe(incidents => {
         this.incidents = incidents;
-        console.log(incidents);
         this.calculateMostCommonPreviousActivity();
         this.calculateAverageDuration();
         this.generateBarChartData();

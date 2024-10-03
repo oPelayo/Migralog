@@ -66,6 +66,12 @@ export class EditIncidentComponent implements OnInit {
     }
   }
 
+  capitalizeFirstLetter(text: string): string {
+    if (!text) return '';
+    return text.charAt(0).toUpperCase() + text.slice(1).toLowerCase();
+  }
+  
+
   onSubmit(form: any) {
     if (form.invalid) {
       this.showGeneralError = true;
@@ -76,6 +82,11 @@ export class EditIncidentComponent implements OnInit {
   }
 
   saveIncident(): void {
+    this.incident.type = this.capitalizeFirstLetter(this.incident.type);
+    this.incident.kind = this.capitalizeFirstLetter(this.incident.kind);
+    this.incident.pain = this.capitalizeFirstLetter(this.incident.pain);
+    this.incident.previousActivity = this.capitalizeFirstLetter(this.incident.previousActivity);
+    this.incident.medication = this.capitalizeFirstLetter(this.incident.medication);
     // Convert dates from string to Date
     this.incident.startTime = new Date(this.startDate);
     this.incident.endTime = new Date(this.endDate);
