@@ -92,7 +92,7 @@ export class EditIncidentComponent implements OnInit {
     this.incident.endTime = new Date(this.endDate);
 
     this.incidentService.updateIncident(this.incident).subscribe(response => {
-      console.log('Incident updated:', response);
+      //console.log('Incident updated:', response);
       this.router.navigate(['personal-area']);
     }, error => console.log(error));
   }

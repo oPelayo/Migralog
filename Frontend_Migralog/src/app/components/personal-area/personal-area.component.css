@@ -17,7 +17,7 @@
 .analysis-section {
   display: flex;
   justify-content: space-around;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 .stat-card {
@@ -59,7 +59,7 @@
 .list-container {
   width: 100%;
   overflow-x: auto;
-  margin-bottom: 80px;
+  margin-bottom: 56px;
 }
 
 table {
@@ -121,6 +121,16 @@ button:hover {
 }
 
 @media (max-width: 480px) {
+  .analysis-section {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 0px;
+  }
+
+  .stat-card {
+    width: 100%;
+    margin-bottom: 24px;
+  }
 
   .list-container table th:nth-child(4),
   .list-container table td:nth-child(4) {
@@ -129,6 +139,15 @@ button:hover {
 }
 
 @media (max-width: 384px) {
+  .analysis-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .stat-card {
+    width: 100%;
+    margin-bottom: 20px;
+  }
 
   .list-container table th:nth-child(2),
   .list-container table td:nth-child(2) {
