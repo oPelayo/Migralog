@@ -1,7 +1,7 @@
 <div class="container">
     <div class="content">
         <div class="welcome-message-cont">
-            <h3 *ngIf="isUserLoggedIn; else notLoggedIn" class="welcome-message">Welcome you {{ userName }}</h3>
+            <h2 *ngIf="isUserLoggedIn; else notLoggedIn" class="welcome-message">Welcome you {{ userName }}</h2>
             <ng-template #notLoggedIn>
                 <h3 class="welcome-message">Hello, you can <a [routerLink]="['/login-user']">access</a> or <a [routerLink]="['/signup']">register</a> whit us<br /> if you have not done so yet.</h3>
             </ng-template>
