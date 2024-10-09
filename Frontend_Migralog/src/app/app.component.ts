@@ -7,7 +7,7 @@ import { ThemeService } from './services/theme.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'puebaMigralog';
+  title = 'pruebaMigralog';
 
   constructor(private themeService: ThemeService) {}
 
@@ -16,9 +16,9 @@ export class AppComponent {
       this.applyTheme(color);
     });
 
-    this.themeService.selectedColor$.subscribe(color => {
-      this.applyTextColor(color);
-    });
+    // this.themeService.selectedColor$.subscribe(color => {
+    //   this.applyTextColor(color);
+    // });
 
   }
 
@@ -26,8 +26,8 @@ export class AppComponent {
     document.body.className = color;
   }
 
-  private applyTextColor(color: string) {
-    document.body.style.color = color; 
-  }
+  // private applyTextColor(color: string) {
+  //   document.body.style.color = color; 
+  // }
 
 }

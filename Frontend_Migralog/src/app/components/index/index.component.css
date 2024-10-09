@@ -38,7 +38,7 @@
   color: #000000; 
 }
 
-.frase-del-dia {
+.quote-of-the-day {
   width: 90%;
   margin: auto;
   padding: 2%;
@@ -47,12 +47,12 @@
   5px 5px 10px rgba(0, 0, 0, 0.1);  
 }
 
-.frase-del-dia-title {
+.quote-of-the-day-title {
   font-size: 18px;
   font-weight: bold;
 }
 
-.frase-del-dia-text {
+.quote-of-the-day-text {
   font-size: 16px;
 }
 
