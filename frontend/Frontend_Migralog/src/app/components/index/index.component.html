@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="content">
+        <div class="welcome-message-cont">
+            <h2 *ngIf="isUserLoggedIn; else notLoggedIn" class="welcome-message">Welcome you {{ userName }}</h2>
+            <ng-template #notLoggedIn>
+                <h3 class="welcome-message">Hello, you can <a [routerLink]="['/login-user']">access</a> or <a [routerLink]="['/signup']">register</a> whit us<br /> if you have not done so yet.</h3>
+            </ng-template>
+        </div>
+        <div>
+        <p class="description">For all people looking for a solution to migraine<br/> and they tell them that it doesn't exist:<br>
+             “Information is power” <i>Leviatan, 1651.</i></p>
+        </div>
+        <div class="quote-of-the-day" [style.backgroundColor]="backgroundColorClass">
+            <h3 class="quote-of-the-day-title">Quote of the day:</h3>
+            <p class="quote-of-the-day-text">{{ phraseDay }}</p>
+        </div>
+        <div class="description-container">
+            <p class="description">The use we make of your data can improve the quality of life of many people like you.<br>
+                <!-- Ask if you have any questions or register an incident to complete your registration</p> -->
+        </div>
+        <button routerLink="/new-incident" mat-raised-button color="primary" [style.backgroundColor]="backgroundColorClass" class="button">
+            <mat-icon class="material-icons">add</mat-icon>
+            New Episode
+        </button>
+    </div>
+</div>

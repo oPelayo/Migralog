@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+.container {
+  position: relative;
+  top: -20px;
+  text-align: center;
+  margin: auto;
+  max-width: 800px;
+  padding: 40px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: 'Roboto', sans-serif;
+}
+
+.about-us-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-top: 16px;
+  margin-bottom: 20px;
+  color: #333333;
+}
+
+.about-us-description {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: #666666;
+  text-align: left;
+}
+
+.about-us-description p {
+  margin-bottom: 16px;
+}
+
+.container:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease-in-out;
+}

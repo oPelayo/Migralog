@@ -1,0 +1,64 @@
+.container {
+  position: relative;
+  top: -20px;
+  text-align: center;
+  margin: auto;
+  max-width: 1000px;
+  padding: 20px;
+  background-color: #d8d5d5;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1),
+    5px 5px 10px rgba(0, 0, 0, 0.1),
+    10px 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.content {
+  padding: 0%;
+  margin: 0%;
+}
+
+.search-input {
+  margin-top: 32px;
+  margin-bottom: 20px;
+  padding: 10px;
+  width: 100%;
+  max-width: 300px;
+  font-size: 16px;
+}
+
+ngx-datatable.bootstrap .datatable-row-wrapper:nth-of-type(odd) .datatable-body-row {
+  background-color: #f2f2f2; /* Color de fondo para filas impares */
+}
+
+ngx-datatable.bootstrap .datatable-row-wrapper:nth-of-type(even) .datatable-body-row {
+  background-color: #ffffff; /* Color de fondo para filas pares */
+}
+
+ngx-datatable.bootstrap .datatable-header {
+  background-color: #333333; /* Color de fondo del encabezado */
+  color: #ffffff; /* Color del texto del encabezado */
+}
+
+.bootstrap .datatable-body-cell {
+  border: none; /* Eliminar bordes de las celdas */
+}
+
+.bootstrap .datatable-body-cell, .ngx-datatable.bootstrap .datatable-header-cell {
+  padding: 10px; /* Agregar espacio interno a las celdas */
+  font-size: 14px; /* Tamaño de fuente */
+}
+
+.action-icons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.material-icons {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.material-icons:hover {
+  color: #000000;
+}

@@ -1,0 +1,40 @@
+<!-- change-theme.component.html -->
+<div class="container">
+  <h2>Select a theme</h2>
+  <p>We recommend that you try green scales to be able to use chromotherapy, 
+    but we believe that everyone should be able to configure the application in their own way.</p>
+  <!--To use the font size and color functions add-->
+  <!--[style.color]="themeService.selectedColor$ | async" [style.font-size.px]="themeService.selectedFontSize$ | async"-->
+  <div class="change-theme" >
+
+    <!-- Old version of change theme 
+    <div class="theme-options">
+      <div class="theme-option" *ngFor="let theme of themes" (click)="setSelectedBackgroundColor(theme.color)">
+        <div [ngClass]="theme.color" class="color-circle"></div>
+        <span>{{ theme.name }}</span>
+      </div>
+    </div> -->
+
+    <label for="colorPicker">Choose a background color:</label>
+    <input type="color" id="colorPicker" class="colorPicker" [value]="selectedColor" (input)="onColorPick($event)" />
+
+    <!-- Display selected color -->
+    <div class="theme-preview" [style.background-color]="selectedColor">
+      <p>Preview of selected color: {{ selectedColor }}</p>
+    </div>
+    <!-- <h3>Color de letras</h3>
+
+    <div class="color-options">
+      <button class="style" (click)="setSelectedColor('negro')">Negro</button>
+      <button class="style" (click)="setSelectedColor('blanco')">Blanco</button>
+    </div> -->
+
+    <!-- <h3>Tamaño de letras</h3>
+
+    <div class="font-size-options">
+      <button class="style" (click)="setSelectedFontSize(12)">Pequeño</button>
+      <button class="style" (click)="setSelectedFontSize(16)">Mediano</button>
+      <button class="style" (click)="setSelectedFontSize(24)">Grande</button>
+    </div>-->
+  </div>
+</div> 

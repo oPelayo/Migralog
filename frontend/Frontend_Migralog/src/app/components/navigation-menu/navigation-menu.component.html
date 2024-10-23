@@ -1,0 +1,43 @@
+<div class="navbar">
+  <div class="left-section">
+    <button class="menu-button" (click)="toggleMenu()">☰ Menu</button>
+    <div class="menu" [ngClass]="{'is-menu-open': isMenuOpen}" (mouseleave)="closeMenu()">
+      <ul>
+        <li><a routerLink="/" class="menu-link">Home</a></li>
+        <li><a routerLink="/login-user" class="menu-link">Login</a></li>
+        <li><a routerLink="/change-theme" class="menu-link" onclick="location.href='/change-theme'">Change Theme</a></li>
+        <li><a routerLink="/personal-area" class="menu-link">Personal Area</a></li>
+        <li><a routerLink="/about-us" class="menu-link">About Us</a></li>
+        <li><a routerLink="/logout" class="menu-link" (click)="logout()">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="center-section">
+    <div class="brand" alt="migralog-app">
+      <img src="assets/images/logo_Vector.png" routerLink="/index" />
+    </div>
+  </div>  
+
+  <div class="right-section">
+    <ng-container *ngIf="isAdmin">
+      <div class="admin-link">
+        <a routerLink="/maintenance">
+          <img class="admin-icon" src="assets/images/admin-icon_2.png" alt="Admin Maintenance"> 
+        </a>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="isUserLoggedIn; else loginButton">
+      <div class="avatar-container">
+        <a routerLink="/personal-area">
+          <img src="assets/images/image1.jpg" alt="Imagen de perfil" />
+        </a>
+      </div>
+    </ng-container>
+
+    <ng-template #loginButton>
+      <button class="login-button" routerLink="/login-user">Login</button>
+    </ng-template>
+  </div>
+</div>

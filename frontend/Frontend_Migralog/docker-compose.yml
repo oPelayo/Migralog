@@ -1,0 +1,78 @@
+services:
+  db:
+    image: mysql:8.0
+    container_name: mysql_container
+    environment:
+      MYSQL_ROOT_PASSWORD: Migr4l0g
+      MYSQL_DATABASE: users
+    ports:
+      - "3306:3306"
+    networks:
+      - my-network
+
+  backend:
+    build:
+      context: C:\Users\sergi\git\the_way\Migralog2
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/users
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: Migr4l0g
+    depends_on:
+      - db
+    networks:
+      - my-network
+
+  frontend:
+    build:
+      context: C:\Cosas\DAW\Programacion2º\Angular\puebaMigralog\puebaMigralog
+      dockerfile: Dockerfile
+    ports:
+      - "4200:80"
+    networks:
+      - my-network 
+
+networks:
+  my-network:
+
+
+
+
+
+
+
+
+
+
+
+
+# version: '3.9'
+# services:
+#   backend:
+#     build:
+#       context: C:\Users\sergi\git\the_way\Migralog2
+#       dockerfile: Dockerfile
+#     ports:
+#       - "8080:8080"
+#     environment:
+#       SPRING_DATASOURCE_URL: jdbc:mysql://host.docker.internal:3306/users
+#       SPRING_DATASOURCE_USERNAME: root
+#       SPRING_DATASOURCE_PASSWORD:
+#     networks:
+#       - my-network
+  
+
+#   frontend:
+#     build:
+#       context: C:\Cosas\DAW\Programacion2º\Angular\puebaMigralog\puebaMigralog
+#       dockerfile: Dockerfile
+#     ports:
+#       - "4200:80"
+#     networks:
+#       - my-network 
+
+# networks:
+#   my-network:
+

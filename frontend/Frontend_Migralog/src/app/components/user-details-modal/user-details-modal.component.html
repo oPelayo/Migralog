@@ -1,0 +1,33 @@
+
+    <div class="modal-content">
+      <h2>User details</h2>
+      <div class="details-container">
+        <div class="details-item">
+          <span class="details-key">ID:</span>
+          <span class="details-value">{{ user.id }}</span>
+        </div>
+        <div class="details-item">
+          <span class="details-key">Name:</span>
+          <span class="details-value">{{ user.name }}</span>
+        </div>
+        <div class="details-item">
+          <span class="details-key">Last name:</span>
+          <span class="details-value">{{ user.last_name }}</span>
+        </div>
+        <div class="details-item">
+          <span class="details-key">Email:</span>
+          <span class="details-value">{{ user.email }}</span>
+        </div>
+        <div class="details-item">
+          <span class="details-key">Phone:</span>
+          <span class="details-value">{{ user.phone }}</span>
+        </div>
+        <!-- <div class="details-item">
+          <span class="details-key">Rol:</span>
+          <span class="details-value">{{ user.role.name }}</span>
+        </div> -->
+      </div>
+      <button (click)="closeModal()">Close</button>
+    </div>
+  
+  

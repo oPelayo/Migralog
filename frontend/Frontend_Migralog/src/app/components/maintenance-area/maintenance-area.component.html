@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="content">
+    <h2>Users</h2>
+    <input
+      type="text"
+      placeholder="Search users..."
+      (input)="updateFilter($event, 'users')"
+      class="search-input"
+    />
+    <ngx-datatable
+      class="bootstrap"
+      [rows]="filteredUsers"
+      [columns]="userColumns"
+      [columnMode]="'force'"
+      [headerHeight]="50"
+      [footerHeight]="50"
+      [rowHeight]="'auto'"
+    >
+    </ngx-datatable>
+
+    <h2>Incidents</h2>
+    <input
+      type="text"
+      placeholder="Buscar incidentes..."
+      (input)="updateFilter($event, 'incidents')"
+      class="search-input"
+    />
+    <ngx-datatable
+      class="bootstrap"
+      [rows]="filteredIncidents"
+      [columns]="incidentColumns"
+      [columnMode]="'force'"
+      [headerHeight]="50"
+      [footerHeight]="50"
+      [rowHeight]="'auto'"
+    >
+    </ngx-datatable>
+
+    <ng-template #userActionTemplate let-row="row">
+      <div class="action-icons">
+        <i class="material-icons" (click)="viewUser(row)">visibility</i>
+        <i class="material-icons" (click)="editUser(row)">edit</i>
+        <i class="material-icons" (click)="deleteUser(row)">delete</i>
+      </div>
+    </ng-template>
+
+    <ng-template #incidentActionTemplate let-row="row">
+      <div class="action-icons">
+        <i class="material-icons" (click)="viewIncident(row)">visibility</i>
+        <i class="material-icons" (click)="editIncident(row)">edit</i>
+        <i class="material-icons" (click)="deleteIncident(row)">delete</i>
+      </div>
+    </ng-template>
+  </div>
+</div>

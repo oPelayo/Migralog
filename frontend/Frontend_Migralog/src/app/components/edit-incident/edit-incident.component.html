@@ -1,0 +1,68 @@
+<div class="form-container">
+    <h2>Edit Incident</h2>
+    <form (ngSubmit)="onSubmit(editIncidentForm)" #editIncidentForm="ngForm">
+        <div class="form-group">
+            <label for="type">
+                Incident type:
+                <mat-icon class="info-icon" matTooltip=" Disabling, painful, emotional, nutritional, environmental, stress, physical. All of this is included in the type">info</mat-icon>
+            </label>
+            <input type="text" id="type" name="type" [(ngModel)]="incident.type" required>
+            <div *ngIf="editIncidentForm.submitted && !incident.type" class="error-message">
+                Incident type is required.
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="kind">
+                Incident class:
+                <mat-icon class="info-icon" matTooltip="Headache, muscle stiffness, photosensitivity, environmental sensitivity. All of them are included in the class">info</mat-icon>
+            </label>
+            <input type="text" id="kind" name="kind" [(ngModel)]="incident.kind" required>
+            <div *ngIf="editIncidentForm.submitted && !incident.kind" class="error-message">
+                Incident class is mandatory.
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="pain">
+                Caused pain:
+                <mat-icon class="info-icon" matTooltip=" Terebrante, cramp, explosive, pulsatile. All of this is included in the type of pain">info</mat-icon>
+            </label>
+            <input type="text" id="pain" name="pain" [(ngModel)]="incident.pain">
+        </div>
+        <div class="form-group">
+            <label for="prevAct">
+                Previous activity:
+                <mat-icon class="info-icon" matTooltip=" Any type of activity. for example: Sports, work, shopping, walking, resting, television, cell phone on the couch">info</mat-icon>
+            </label>
+            <input type="text" id="prevAct" name="prevAct" [(ngModel)]="incident.previousActivity" required>
+            <div *ngIf="editIncidentForm.submitted && !incident.previousActivity" class="error-message">
+                Previous activity is mandatory.
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="medication">
+                Medication (if any):
+                <mat-icon class="info-icon" matTooltip="Name of the medication with the milligrams per dose (yes it has them in the name) for example 'Paracetamol 1g'">info</mat-icon>
+            </label>
+            <input type="text" id="medication" name="medication" [(ngModel)]="incident.medication">
+        </div>
+        <div class="form-group">
+            <label for="startTime">Start date and time:</label>
+            <input type="datetime-local" id="startTime" name="startTime" [(ngModel)]="startDate" required #startTimeField="ngModel">
+            <div *ngIf="startTimeField.invalid && (startTimeField.dirty || startTimeField.touched)" class="error-message">
+                <div *ngIf="startTimeField.errors?.['invalidDate']">The start time cannot be later than the end time.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="endTime">End date and time:</label>
+            <input type="datetime-local" id="endTime" name="endTime" [(ngModel)]="endDate" required #endTimeField="ngModel">
+            <div *ngIf="endTimeField.invalid && (endTimeField.dirty || endTimeField.touched)" class="error-message">
+                <div *ngIf="endTimeField.errors?.['invalidDate']">The end time cannot be earlier than the start time.</div>
+                <div *ngIf="endTimeField.errors?.['futureDate']">The end time cannot be later than the current date.</div>
+            </div>
+        </div>
+        <button type="submit" [disabled]="editIncidentForm.invalid" [ngClass]="backgroundColorClass">Save changes</button>
+        <div *ngIf="showGeneralError" class="error-message">
+            Please complete all required fields before submitting.
+        </div>
+    </form>
+</div>
