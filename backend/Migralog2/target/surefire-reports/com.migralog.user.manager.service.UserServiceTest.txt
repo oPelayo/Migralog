@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.migralog.user.manager.service.UserServiceTest
+-------------------------------------------------------------------------------
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.257 s -- in com.migralog.user.manager.service.UserServiceTest
