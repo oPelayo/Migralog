@@ -13,9 +13,9 @@
 8. [Prototyping and UI Design](#prototyping-and-ui-design)
 9. [Repository Structure](#repository-structure)
 10. [Installation and Usage](#installation-and-usage)
-   1. [Clone the Repository](#clone-the-repository)
-   2. [Frontend Setup](#frontend-setup)
-   3. [Backend Setup](#backend-setup)
+    1. [Clone the Repository](#clone-the-repository)
+    2. [Frontend Setup](#frontend-setup)
+    3. [Backend Setup](#backend-setup)
 11. [Contributions](#contributions)
 
 ## Project Overview
@@ -29,7 +29,7 @@ Migralog was created to address this variability by collecting and analyzing det
 - **Report Generation**: Users can generate detailed reports to share with their doctors, aiding in better decision-making.
 - **Color Theme Selection**: The interface can be customized with different color palettes to make reading easier without worsening migraine symptoms.
 
-## Tecnologies Used
+## Technologies Used
 - **Frontend**: Angular (Components, Services, Guards, Interceptors)
 - **Backend**: Spring Boot (Controllers, Services, Security)
 - **Database**: MySQL (Entities, Repositories)
@@ -92,8 +92,8 @@ Feedback from individuals with migraines was collected to refine the user experi
 ## Repository Structure
 The "Migralog" project is divided into two main parts:
 
-Frontend: Developed in Angular, responsible for the user interface.
-Backend: Developed with Spring Boot, handling server logic and database management.
+- Frontend: Developed in Angular, responsible for the user interface.
+- Backend: Developed with Spring Boot, handling server logic and database management.
 Each section contains its own README.md file with detailed installation and configuration instructions.
 
 ## Installation and Usage
@@ -101,12 +101,13 @@ Each section contains its own README.md file with detailed installation and conf
 
 ```bash
 git clone https://github.com/oPelayo/Migralog.git
+
 ```
 
-## Frontend Setup
+### Frontend Setup
 Follow the instructions in the /frontend folder to install and run the frontend.
 
-## Backend Setup
+### Backend Setup
 Follow the instructions in the /backend folder to configure and run the backend.
 
 ## Contributions
