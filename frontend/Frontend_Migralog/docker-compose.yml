@@ -12,7 +12,7 @@ services:
 
   backend:
     build:
-      context: C:\Users\sergi\git\the_way\Migralog2
+      context: ./backend
       dockerfile: Dockerfile
     ports:
       - "8080:8080"
@@ -27,10 +27,10 @@ services:
 
   frontend:
     build:
-      context: C:\Cosas\DAW\Programacion2º\Angular\puebaMigralog\puebaMigralog
+      context: ./frontend
       dockerfile: Dockerfile
     ports:
-      - "4200:80"
+      - "80:80"
     networks:
       - my-network 
 
