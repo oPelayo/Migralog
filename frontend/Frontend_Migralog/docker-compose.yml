@@ -12,7 +12,7 @@ services:
 
   backend:
     build:
-      context: ./backend
+      context: ./backend/Migralog2
       dockerfile: Dockerfile
     ports:
       - "8080:8080"
@@ -27,7 +27,7 @@ services:
 
   frontend:
     build:
-      context: ./frontend
+      context: ./frontend/Frontend_Migralog
       dockerfile: Dockerfile
     ports:
       - "80:80"
