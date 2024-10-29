@@ -8,7 +8,7 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 public class FraseDelDiaController {
 
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "*")
     @GetMapping("/frase-del-dia")
     public String obtenerFraseDelDia() {
 
