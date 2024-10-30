@@ -27,3 +27,31 @@ build/
 
 ### VS Code ###
 .vscode/
+/allure-results/1bbeddc2-73ab-49e8-b3d9-e89cdae7639e-container.json
+/allure-results/2a17c0a1-4061-4c4b-be5d-dda35518e06d-container.json
+/allure-results/3b22107d-9917-4ed3-999a-0c6a5eb34117-container.json
+/allure-results/4f62add1-9868-4503-9df0-6f879573ca5a-container.json
+/allure-results/7b1f3330-18f0-4535-9a38-7f02a21b70c8-result.json
+/allure-results/7c90da3d-163b-441d-a07a-017877b427a5-result.json
+/allure-results/7e493aff-9ab2-4f65-a928-60e5b451df1c-container.json
+/allure-results/7faeb1c2-7ce6-47b5-ba61-be3db6ace452-result.json
+/allure-results/43b7324e-c3b5-4210-a700-334b359ce14f-result.json
+/allure-results/141b2116-2690-4da5-90fa-7c2923faaf92-container.json
+/allure-results/267f27b1-2d02-4acb-af44-8320fe180e0e-result.json
+/allure-results/4646a4e1-7b86-45a0-acd4-120bb2617a31-result.json
+/allure-results/20563f28-a92c-4d4c-a181-86a614579078-result.json
+/allure-results/a3ca3815-5477-4350-baff-82de3ead8501-container.json
+/allure-results/a9def74f-89c4-43fd-a2e6-5347c8d385e8-result.json
+/allure-results/cb9f2bfd-1df6-4ed5-9053-e92301dc77ff-container.json
+/allure-results/cc2ca442-a1bf-477b-aba6-834cc92f3926-container.json
+/allure-results/cf44295d-b883-4d6c-943d-d409fa6623c7-result.json
+/allure-results/d4b5dee7-4135-44cd-b703-c9c133088a8c-container.json
+/allure-results/d7d8ab6e-6af8-4dea-8b76-c26a5e91cb85-result.json
+/allure-results/d7d63f9d-75e1-41b2-8164-11ee7f8d9bed-result.json
+/allure-results/dbcea8f7-c4f4-49c7-b954-22f239cc91ec-container.json
+/allure-results/dc1d8f43-5217-40a3-b6be-d9fb89716b87-container.json
+/allure-results/f95e7aeb-3310-48d3-86a5-ce6fb610585f-container.json
+/allure-results/fbc23753-425f-449e-afda-56e8a70e14c0-container.json
+/target/
+/allure-results/
+

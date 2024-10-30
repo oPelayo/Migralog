@@ -20,7 +20,6 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/auth")
-@CrossOrigin(origins = "http://localhost:80")
 public class AuthController {
     @Autowired
     AuthenticationManager authenticationManager;
