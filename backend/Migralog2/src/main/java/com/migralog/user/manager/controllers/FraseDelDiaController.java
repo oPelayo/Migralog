@@ -16,8 +16,6 @@ public class FraseDelDiaController {
 
         RestTemplate restTemplate = new RestTemplate();
 
-        System.out.println("frase solicitada");
-
         // Realizar la solicitud GET a la API externa y obtener la frase del día
         String fraseDelDia = restTemplate.getForObject(apiUrl, String.class);
 
