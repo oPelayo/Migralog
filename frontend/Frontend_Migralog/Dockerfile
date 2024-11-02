@@ -17,11 +17,11 @@ FROM nginx:alpine
 # Copia los archivos construidos al directorio predeterminado de NGINX
 COPY --from=build /app/dist/migralog /usr/share/nginx/html
 
-# Copia el archivo de configuración de NGINX
+# Copia los archivos de configuración de NGINX
 COPY nginx.conf /etc/nginx/nginx.conf
 
 # Expone el puerto en el que se ejecutará la aplicación
 EXPOSE 80
 
 # Comando para iniciar NGINX
-#CMD ["nginx", "-g", "daemon off;"]
+CMD ["nginx", "-g", "daemon off;"]
