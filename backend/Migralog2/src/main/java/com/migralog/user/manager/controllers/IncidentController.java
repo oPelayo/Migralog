@@ -15,9 +15,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-
-
-
 @RestController
 @RequestMapping("/api/v1/")
 @CrossOrigin(origins = "http://localhost:80")
@@ -36,13 +33,12 @@ public class IncidentController {
 	public List<Incident> listAllIncidents() {
 		return repository.findAll();
 	}
-	
-	
+
 	@PostMapping("/Incidents/{userId}")
     public ResponseEntity<Incident> saveIncident(@PathVariable Long userId, @RequestBody Map<String, Object> payload) {
-		// Obtener el objeto "incident" del payload
+		// Get the "incident" object from the payload
 		Map<String, Object> incidentPayload = (Map<String, Object>) payload.get("incident");
-        // Extraer los datos del incidente del payload
+        // Extract incident data from the payload
         String type = (String) incidentPayload.get("type");
         String kind = (String) incidentPayload.get("kind");
         String pain = (String) incidentPayload.get("pain");
@@ -57,7 +53,7 @@ public class IncidentController {
         LocalDateTime startTime = LocalDateTime.parse(startTimeString);
         LocalDateTime endTime = LocalDateTime.parse(endTimeString);
         
-        // Crear un nuevo objeto Incident y establecer sus atributos
+        // Create a new Incident object and set its attributes
         Incident incident = new Incident();
         incident.setType(type);
         incident.setKind(kind);
@@ -66,8 +62,7 @@ public class IncidentController {
         incident.setMedication(medication);
         incident.setStartTime(startTime);
         incident.setEndTime(endTime);
-        
-        
+
         // Obtener el usuario relacionado y establecerlo en el incidente
         Optional<User> optionalUser = userRepository.findById(userId);
         if (optionalUser.isPresent()) {
@@ -85,8 +80,6 @@ public class IncidentController {
         return ResponseEntity.ok(savedIncident);
     }
 
-
-	
 	@GetMapping("/Incidents/all/{userId}")
     public ResponseEntity<List<Incident>> getIncidentsByUserId(@PathVariable Long userId) {
         List<Incident> incidents = incidentService.loadIncidentsByUserId(userId);
@@ -110,16 +103,13 @@ public class IncidentController {
 	        existingIncident.setMedication(updatedIncident.getMedication());
             existingIncident.setStartTime(updatedIncident.getStartTime()); // Actualizar la fecha de inicio
             existingIncident.setEndTime(updatedIncident.getEndTime()); // Actualizar la fecha de fin
-	        
 
-	        
 	        Incident savedIncident = repository.save(existingIncident);
 	        return ResponseEntity.ok(savedIncident);
 	    } else {
 	        return ResponseEntity.notFound().build();
 	    }
 	}
-
 
 	@GetMapping("/Incidents/{id}")
 public ResponseEntity<Incident> getIncidentById(@PathVariable Long id) {

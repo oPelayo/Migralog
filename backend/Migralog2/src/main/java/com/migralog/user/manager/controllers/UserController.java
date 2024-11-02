@@ -40,9 +40,9 @@ public class UserController {
 				Role defaultRole = new Role(URole.ROLE_USER);
 				user.setRole(roleRepository.save(defaultRole));
 			}
-			System.out.println("Saving user: " + user); // Log para depuración
+			System.out.println("Saving user: " + user); // Debugging log
 
-			userService.saveUser(user); // Llamar al servicio que cifra la contraseña y guarda el usuario
+			userService.saveUser(user); // Call the service that encrypts the password and saves the user
 			return ResponseEntity.status(HttpStatus.CREATED).body(user);
 		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
@@ -83,7 +83,7 @@ public class UserController {
 	        repository.deleteById(id);
 	        return ResponseEntity.ok().build();
 	    } catch (Exception e) {
-	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al eliminar el usuario");
+	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error deleting user");
 	    }
 	}
 

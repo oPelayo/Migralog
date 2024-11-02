@@ -12,7 +12,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import org.hibernate.annotations.GenericGenerator;
+
 
 @Entity
 @Table(name = "users")
@@ -35,7 +35,7 @@ public class User {
 	@Column(name = "phone", length = 60,nullable = false)
 	private String phone;
 	
-	@Column(name = "password", length = 40,nullable = false)
+	@Column(name = "password", length = 255,nullable = false)
 	private String password;
 	
 	@ManyToOne
