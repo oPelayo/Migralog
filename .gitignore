@@ -1,6 +1,10 @@
-/backend/.idea/backend.iml
-/backend/.idea/misc.xml
-/backend/.idea/modules.xml
-/backend/.idea/vcs.xml
-/backend/.idea/workspace.xml
-backend/.idea/workspace.xml
+### Backend ###
+/backend/.idea/
+/backend/Migralog2/target/
+
+### Frontend ###
+/frontend/Frontend_Migralog/.angular/
+/frontend/Frontend_Migralog/.vscode/
+/frontend/Frontend_Migralog/dist/
+/frontend/Frontend_Migralog/initdb/
+/frontend/Frontend_Migralog/node_modules/
