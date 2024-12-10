@@ -19,6 +19,9 @@ jobs:
       uses: webfactory/ssh-agent@v0.5.3
       with:
         ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+    
+    - name: Test SSH Connection
+      run: ssh -o StrictHostKeyChecking=no ubuntu@13.60.214.23 "echo Connection successful"
 
     # 3. Copiar archivos necesarios al servidor
     - name: Copy Frontend files
