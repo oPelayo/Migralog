@@ -21,24 +21,24 @@ jobs:
         ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
     
     - name: Test SSH Connection
-      run: ssh -o StrictHostKeyChecking=no ubuntu@13.60.214.23 "echo Connection successful"
+      run: ssh -o StrictHostKeyChecking=no ubuntu@13.60.95.157 "echo Connection successful"
 
     # 3. Copiar archivos necesarios al servidor
     - name: Copy Frontend files
       run: |
-        scp -o StrictHostKeyChecking=no -r frontend/Frontend_Migralog/dist/migralog ubuntu@13.60.214.23:~/Angular/frontend/dist
-        scp -o StrictHostKeyChecking=no frontend/Frontend_Migralog/Dockerfile ubuntu@13.60.214.23:~/Angular/frontend/Dockerfile
+        scp -o StrictHostKeyChecking=no -r frontend/Frontend_Migralog/dist/migralog ubuntu@13.60.95.157:~/Angular/frontend/dist
+        scp -o StrictHostKeyChecking=no frontend/Frontend_Migralog/Dockerfile ubuntu@13.60.95.157:~/Angular/frontend/Dockerfile
     - name: Copy Backend files
       run: |
-        scp -o StrictHostKeyChecking=no -r backend/Migralog2/target ubuntu@13.60.214.23:~/Angular/backend/target
-        scp -o StrictHostKeyChecking=no backend/Migralog2/Dockerfile ubuntu@13.60.214.23:~/Angular/backend/Dockerfile
+        scp -o StrictHostKeyChecking=no -r backend/Migralog2/target ubuntu@13.60.95.157:~/Angular/backend/target
+        scp -o StrictHostKeyChecking=no backend/Migralog2/Dockerfile ubuntu@13.60.95.157:~/Angular/backend/Dockerfile
     - name: Copy docker-compose.yml
-      run: scp -o StrictHostKeyChecking=no docker-compose.yml ubuntu@13.60.214.23:~/Angular/docker-compose.yml
+      run: scp -o StrictHostKeyChecking=no docker-compose.yml ubuntu@13.60.95.157:~/Angular/docker-compose.yml
 
     # 4. Desplegar contenedores
     - name: Deploy Docker Compose
       run: |
-        ssh -o StrictHostKeyChecking=no ubuntu@13.60.214.23 << EOF
+        ssh -o StrictHostKeyChecking=no ubuntu@13.60.95.157 << EOF
           cd ~/Angular
           docker-compose down
           docker-compose up -d --build
