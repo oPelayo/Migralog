@@ -10,7 +10,7 @@ import { catchError } from 'rxjs/operators';
 export class UserService {
 
   //aqui obtiene los datos de la url
-  private  baseURL = "http://localhost:8080/api/Users";
+  private  baseURL = "http://localhost:8080/api/users";
 
   constructor(private http : HttpClient) { }
 
