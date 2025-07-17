@@ -1,5 +1,6 @@
 package com.migralog.user.manager.security;
 
+import java.util.Arrays;
 import com.migralog.user.manager.security.jwt.AuthEntryPointJwt;
 import com.migralog.user.manager.security.jwt.JwtAuthTokenFilter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,7 +59,7 @@ public class WebSecurityConfig {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);
-        config.addAllowedOrigin("http://localhost"); // Añade los orígenes permitidos
+        config.setAllowedOrigins(Arrays.asList("https://opelayo.github.io", "http://localhost:80", "http://localhost:4200"));
         config.addAllowedHeader("*");
         config.addAllowedMethod("*");
         source.registerCorsConfiguration("/**", config);

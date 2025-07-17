@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: migralog-backend
+    env: docker
+    region: frankfurt
+    plan: free
+    branch: dockerless_deployment
+    rootDir: backend/Migralog2
+    dockerfilePath: backend/Migralog2/Dockerfile
+    autoDeploy: true
+    buildFilter:
+      paths:
+        - backend/Migralog2/**
+    healthCheckPath: /
+
+
