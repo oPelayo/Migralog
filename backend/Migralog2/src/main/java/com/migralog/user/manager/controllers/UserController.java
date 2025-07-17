@@ -28,12 +28,12 @@ public class UserController {
 	@Autowired
 	  private RoleRepository roleRepository;
 	
-	@GetMapping("/Users")
+	@GetMapping("/users")
 	public List<User> listAllUsers() {
 		return repository.findAll();
 	}
 
-	@PostMapping("/Users")
+	@PostMapping("/users")
 	public ResponseEntity<User> saveUser(@RequestBody User user) {
 		try {
 			if (user.getRole() == null) {
@@ -49,7 +49,7 @@ public class UserController {
 		}
 	}
 	   
-	@GetMapping("/Users/{id}")
+	@GetMapping("/users/{id}")
 	public ResponseEntity<User> getUserById(@PathVariable Long id) {
 	    Optional<User> user = repository.findById(id);
 	    if (user.isPresent()) {
@@ -59,7 +59,7 @@ public class UserController {
 	    }
 	}
 
-	@PutMapping("/Users/{id}")
+	@PutMapping("/users/{id}")
 	public ResponseEntity<User> updateUser(@PathVariable Long id, @RequestBody User updatedUser) {
 	    Optional<User> optionalUser = repository.findById(id);
 	    if (optionalUser.isPresent()) {
@@ -77,7 +77,7 @@ public class UserController {
 	    }
 	}
 
-	@DeleteMapping("/Users/{id}")
+	@DeleteMapping("/users/{id}")
 	public ResponseEntity<?> deleteUser(@PathVariable Long id) {
 	    try {
 	        repository.deleteById(id);
