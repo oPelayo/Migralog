@@ -64,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "puebaMigralog:build:production"
+              "browserTarget": "Migralog:build:production"
             },
             "development": {
-              "browserTarget": "puebaMigralog:build:development"
+              "browserTarget": "Migralog:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -75,7 +75,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "puebaMigralog:build"
+            "browserTarget": "Migralog:build"
           }
         },
         "test": {
