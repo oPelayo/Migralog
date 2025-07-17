@@ -10,7 +10,7 @@ public class CorsConfiguration implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("http://localhost:80", "http://localhost:4200")
+                .allowedOrigins("https://opelayo.github.io", "http://localhost:80", "http://localhost:4200")
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                 .allowedHeaders("*")
                 .exposedHeaders("Access-Control-Allow-Origin")
@@ -18,14 +18,14 @@ public class CorsConfiguration implements WebMvcConfigurer {
                 .maxAge(3600);
 
         registry.addMapping("/api/auth/**")
-                .allowedOrigins("http://localhost:80", "http://localhost:4200")
+                .allowedOrigins("https://opelayo.github.io","http://localhost:80", "http://localhost:4200")
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                 .allowedHeaders("*")
                 .allowCredentials(true)
                 .maxAge(3600);
 
         registry.addMapping("/frase-del-dia/**")
-                .allowedOrigins("http://localhost:80", "http://localhost:4200")
+                .allowedOrigins("https://opelayo.github.io", "http://localhost:80", "http://localhost:4200")
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                 .allowedHeaders("*")
                 .allowCredentials(true)
