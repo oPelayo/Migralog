@@ -29,12 +29,12 @@ public class IncidentController {
 	@Autowired
 	private UserRepository userRepository;
 	
-	@GetMapping("/Incidents")
+	@GetMapping("/incidents")
 	public List<Incident> listAllIncidents() {
 		return repository.findAll();
 	}
 
-	@PostMapping("/Incidents/{userId}")
+	@PostMapping("/incidents/{userId}")
     public ResponseEntity<Incident> saveIncident(@PathVariable Long userId, @RequestBody Map<String, Object> payload) {
 		// Get the "incident" object from the payload
 		Map<String, Object> incidentPayload = (Map<String, Object>) payload.get("incident");
@@ -80,7 +80,7 @@ public class IncidentController {
         return ResponseEntity.ok(savedIncident);
     }
 
-	@GetMapping("/Incidents/all/{userId}")
+	@GetMapping("/incidents/all/{userId}")
     public ResponseEntity<List<Incident>> getIncidentsByUserId(@PathVariable Long userId) {
         List<Incident> incidents = incidentService.loadIncidentsByUserId(userId);
         if (!incidents.isEmpty()) {
@@ -90,7 +90,7 @@ public class IncidentController {
         }
     }
 
-	@PutMapping("/Incidents/edit/{id}")
+	@PutMapping("/incidents/edit/{id}")
 	public ResponseEntity<Incident> updateIncident(@PathVariable Long id, @RequestBody Incident updatedIncident) {
 	    Optional<Incident> optionalIncident = repository.findById(id);
 	    if (optionalIncident.isPresent()) {
@@ -111,7 +111,7 @@ public class IncidentController {
 	    }
 	}
 
-	@GetMapping("/Incidents/{id}")
+	@GetMapping("/incidents/{id}")
 public ResponseEntity<Incident> getIncidentById(@PathVariable Long id) {
     Optional<Incident> incident = repository.findById(id);
     if (incident.isPresent()) {
@@ -121,7 +121,7 @@ public ResponseEntity<Incident> getIncidentById(@PathVariable Long id) {
     }
 }
 
-	@DeleteMapping("/Incidents/{id}")
+	@DeleteMapping("/incidents/{id}")
 	public ResponseEntity<?> deleteIncident(@PathVariable Long id) {
 	    try {
 	        repository.deleteById(id);
