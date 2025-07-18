@@ -3,13 +3,14 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { Incident } from '../models/incident';
 import { catchError } from 'rxjs/operators';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class IncidentService {
 
-  private baseURL = "http://localhost:8080/api/v1/Incidents";
+  private baseURL = `${environment.apiUrl}/v1/incidents`;
 
   constructor(private http: HttpClient) { }
 

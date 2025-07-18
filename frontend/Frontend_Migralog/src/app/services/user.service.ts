@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { User } from '../models/user';
 import { catchError } from 'rxjs/operators';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ import { catchError } from 'rxjs/operators';
 export class UserService {
 
   //aqui obtiene los datos de la url
-  private  baseURL = "http://localhost:8080/api/users";
+  private baseURL = `${environment.apiUrl}/users`;
 
   constructor(private http : HttpClient) { }
 
