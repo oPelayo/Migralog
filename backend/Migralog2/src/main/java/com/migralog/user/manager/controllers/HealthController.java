@@ -1,8 +1,14 @@
+package com.migralog.user.manager.controllers;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 @RestController
 public class HealthController {
 
     @GetMapping("/api/test")
-    public ResponseEntity<String> health() {
-        return ResponseEntity.ok("Migralog backend activo");
+    public ResponseEntity<String> test() {
+        return ResponseEntity.ok("OK");
     }
 }
