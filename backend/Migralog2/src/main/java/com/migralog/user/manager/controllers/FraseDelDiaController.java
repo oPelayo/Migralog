@@ -9,7 +9,7 @@ import org.springframework.web.client.RestTemplate;
 public class FraseDelDiaController {
 
     @CrossOrigin(origins = "http://localhost:80")
-    @GetMapping("/frase-del-dia")
+    @GetMapping("/api/frase-del-dia")
     public String obtenerFraseDelDia() {
 
         String apiUrl = "https://frasedeldia.azurewebsites.net/api/phrase";
