@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "puebaMigralog": {
+    "pruebaMigralog": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -47,7 +47,14 @@
                   "maximumError": "4kb"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "baseHref": "/Migralog/",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ]
             },
             "development": {
               "buildOptimizer": false,
@@ -64,10 +71,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "puebaMigralog:build:production"
+              "browserTarget": "pruebaMigralog:build:production"
             },
             "development": {
-              "browserTarget": "puebaMigralog:build:development"
+              "browserTarget": "pruebaMigralog:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -75,7 +82,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "puebaMigralog:build"
+            "browserTarget": "pruebaMigralog:build"
           }
         },
         "test": {
