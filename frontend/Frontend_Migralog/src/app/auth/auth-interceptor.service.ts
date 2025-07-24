@@ -5,10 +5,19 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthInterceptorService  implements HttpInterceptor {
+export class AuthInterceptorService implements HttpInterceptor {
 
-  constructor() { }
+  constructor() {}
+
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+
+    const excludedUrls = ['/phrase'];
+    const shouldExclude = excludedUrls.some(url => req.url.includes(url));
+
+    if (shouldExclude) {
+      return next.handle(req); 
+    }
+
     const currentUser = sessionStorage.getItem('currentUser');
     if (currentUser) {
       const token = JSON.parse(currentUser).token;

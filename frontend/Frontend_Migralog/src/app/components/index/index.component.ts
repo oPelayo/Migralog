@@ -10,6 +10,8 @@ import { ThemeService } from 'src/app/services/theme.service';
 })
 export class IndexComponent implements OnInit {
   phraseDay: string;
+  quoteAuthor: string;
+  quoteDescription: string;
   userName: string;
   isUserLoggedIn = false;
   backgroundColorClass: string = '';
@@ -36,6 +38,8 @@ export class IndexComponent implements OnInit {
       .subscribe(
         (data: any) => {
           this.phraseDay = data.phrase;
+          this.quoteAuthor = data.author;
+          this.quoteDescription = data.detail;
         },
         (error) => {
           console.error('Error getting quote of the day:', error);

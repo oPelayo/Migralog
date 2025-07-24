@@ -7,12 +7,16 @@
             </ng-template>
         </div>
         <div>
-        <p class="description">For all people looking for a solution to migraine<br/> and they tell them that it doesn't exist:<br>
-             “Information is power” <i>Leviatan, 1651.</i></p>
+        <p class="description">Often, fighting migraines feels like a hopeless quest. But at Migralog, we believe in a simple principle: information is power.<br>
+            Our app gives you the tools to track your episodes and view clear statistics.<br> 
+            The goal is simple: to help you identify patterns, understand your triggers, and ultimately give you control over your well-being.</p>
         </div>
         <div class="quote-of-the-day" [style.backgroundColor]="backgroundColorClass">
             <h3 class="quote-of-the-day-title">Quote of the day:</h3>
             <p class="quote-of-the-day-text">{{ phraseDay }}</p>
+            <small *ngIf="quoteAuthor">
+                — {{ quoteAuthor }} <em *ngIf="quoteDescription">({{ quoteDescription }})</em>
+            </small>
         </div>
         <div class="description-container">
             <p class="description">The use we make of your data can improve the quality of life of many people like you.<br>
