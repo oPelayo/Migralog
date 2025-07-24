@@ -8,7 +8,7 @@ import { environment } from '../../environments/environment';
   providedIn: 'root',
 })
 export class ApiService {
-  private apiUrl = `${environment.apiUrl}/frase-del-dia`; 
+  private apiUrl = `${environment.apiUrl}/phrase`; 
 
   constructor(private http: HttpClient) {}
 
