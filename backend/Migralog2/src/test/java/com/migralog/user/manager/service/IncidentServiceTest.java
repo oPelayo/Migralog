@@ -1,6 +1,6 @@
 package com.migralog.user.manager.service;
 
-import com.migralog.user.manager.exceptions.UserNotFoundException;
+import com.migralog.user.manager.exceptions.ResourceNotFoundException;
 import com.migralog.user.manager.model.Incident;
 import com.migralog.user.manager.repository.IncidentRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -31,7 +31,7 @@ public class IncidentServiceTest {
     }
 
     @Test
-    public void testLoadIncidentById() throws UserNotFoundException {
+    public void testLoadIncidentById() throws ResourceNotFoundException {
         // Preparación de datos de prueba
         Incident incident = new Incident();
         incident.setId(1L);
@@ -53,7 +53,7 @@ public class IncidentServiceTest {
         when(incidentRepository.findById(anyLong())).thenReturn(Optional.empty());
 
         // Verificar que se lanza la excepción UserNotFoundException
-        assertThrows(UserNotFoundException.class, () -> {
+        assertThrows(ResourceNotFoundException.class, () -> {
             incidentService.loadIncidentById(1L);
         });
     }
