@@ -28,21 +28,20 @@ public class PhraseService {
 
         // Si ya se obtuvo la frase hoy, se devuelve desde caché
         if (cachedPhrase != null && today.equals(lastFetchDate)) {
-            logger.info("Devolviendo frase desde caché");
             return cachedPhrase;
         }
 
         try {
             String html = restTemplate.getForObject("https://proverbia.net/frase-del-dia", String.class);
             if (html == null) {
-                throw new RuntimeException("No se pudo descargar la página.");
+                throw new RuntimeException("The page could not be downloaded.");
             }
 
             Document doc = Jsoup.parse(html);
             Element quoteBlock = doc.selectFirst("blockquote.bsquote");
 
             if (quoteBlock == null) {
-                throw new RuntimeException("No se encontró el bloque blockquote.qotd-home");
+                throw new RuntimeException("Blockquote.qotd-home block not found");
             }
 
             String phrase = quoteBlock.selectFirst("p") != null
@@ -62,12 +61,12 @@ public class PhraseService {
 
             cachedPhrase = new PhraseDTO(phrase, author, detail);
             lastFetchDate = today;
-            logger.info("Frase actualizada y guardada en caché.");
+            logger.info("Phrase updated and cached.");
 
             return cachedPhrase;
 
         } catch (Exception e) {
-            logger.severe("Error al obtener la frase del día: " + e.getMessage());
+            logger.severe("Error getting the phrase of the day: " + e.getMessage());
             return null;
         }
     }
