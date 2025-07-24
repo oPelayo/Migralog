@@ -33,8 +33,6 @@ public class JwtAuthTokenFilter extends OncePerRequestFilter {
 
             if (!isExcluded(path)) {
                 String jwt = parseJwt(request);
-                System.out.println("Request path: " + path);
-                System.out.println("isExcluded: " + isExcluded(path));
 
                 if (jwt != null && jwtUtils.validateJwtToken(jwt)) {
                     String username = jwtUtils.getUsernameFromJwtToken(jwt);
@@ -54,7 +52,7 @@ public class JwtAuthTokenFilter extends OncePerRequestFilter {
     }
 
     private boolean isExcluded(String path) {
-        return path.startsWith("/api/phrase") || path.startsWith("/api/frase-del-dia") || path.startsWith("/api/auth");
+        return path.startsWith("/api/phrase") || path.startsWith("/api/test") || path.startsWith("/api/auth");
     }
 
     private String parseJwt(HttpServletRequest request) {
