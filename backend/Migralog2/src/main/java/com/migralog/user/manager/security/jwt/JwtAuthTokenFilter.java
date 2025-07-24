@@ -27,26 +27,34 @@ public class JwtAuthTokenFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
-        if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {
-            filterChain.doFilter(request, response); // Allows OPTIONS requests without authentication
-            return;
-        }
+
         try {
-            String jwt = parseJwt(request);
-            if (jwt != null && jwtUtils.validateJwtToken(jwt)) {
-                String username = jwtUtils.getUsernameFromJwtToken(jwt);
+            String path = request.getRequestURI();
 
-                UserDetails userDetails = userDetailsService.loadUserByUsername(username);
-                UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
-                authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+            if (!isExcluded(path)) {
+                String jwt = parseJwt(request);
+                System.out.println("Request path: " + path);
+                System.out.println("isExcluded: " + isExcluded(path));
 
-                SecurityContextHolder.getContext().setAuthentication(authentication);
+                if (jwt != null && jwtUtils.validateJwtToken(jwt)) {
+                    String username = jwtUtils.getUsernameFromJwtToken(jwt);
+
+                    UserDetails userDetails = userDetailsService.loadUserByUsername(username);
+                    UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
+                    authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+
+                    SecurityContextHolder.getContext().setAuthentication(authentication);
+                }
             }
         } catch (Exception e) {
             logger.error("Cannot set user authentication: {}", e);
         }
 
         filterChain.doFilter(request, response);
+    }
+
+    private boolean isExcluded(String path) {
+        return path.startsWith("/api/phrase") || path.startsWith("/api/frase-del-dia") || path.startsWith("/api/auth");
     }
 
     private String parseJwt(HttpServletRequest request) {
