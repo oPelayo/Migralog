@@ -49,18 +49,18 @@ public class PhraseService {
                     ? quoteBlock.selectFirst("p").text() : "";
 
             Element footer = quoteBlock.selectFirst("footer");
-            String autor = "";
+            String author = "";
             String detail = "";
 
             if (footer != null) {
-                Element autorLink = footer.selectFirst("a");
-                if (autorLink != null) {
-                    autor = autorLink.text();
+                Element authorLink = footer.selectFirst("a");
+                if (authorLink != null) {
+                    author = authorLink.text();
                 }
-                detail = footer.text().replace(autor, "").trim();
+                detail = footer.text().replace(author, "").trim();
             }
 
-            cachedPhrase = new PhraseDTO(phrase, autor, detail);
+            cachedPhrase = new PhraseDTO(phrase, author, detail);
             lastFetchDate = today;
             logger.info("Frase actualizada y guardada en caché.");
 
