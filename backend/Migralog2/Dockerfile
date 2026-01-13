@@ -9,7 +9,7 @@ COPY src ./src
 RUN mvn clean package -DskipTests
 
 # Etapa 2: Imagen final para producción
-FROM openjdk:17-jdk
+FROM eclipse-temurin:17-jdk-jammy
 
 WORKDIR /app
 
